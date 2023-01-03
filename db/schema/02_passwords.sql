@@ -1,6 +1,6 @@
 -- Drop and recreate Password table
 
-DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS passwords CASCADE;
 CREATE TABLE passwords (
   id SERIAL PRIMARY KEY NOT NULL,
   title VARCHAR(255) NOT NULL,
