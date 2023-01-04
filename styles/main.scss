@@ -49,20 +49,24 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 ul.side-menu {
   margin: 0;
-  background-color: #273644;
-  width: 250px;
+  background-color: #34495D;
   padding-left: 0;
+  width: 250px;
+  height: 90vh;
 }
 
 .side-menu li {
+  width: 250px;
   color: white;
   font-size: 20px;
   list-style: none;
   padding: 15px;
+  transition: width .3s;
 }
 
 .side-menu li:hover {
@@ -92,4 +96,29 @@ ul.side-menu {
 ::placeholder {
   color: #273644;
   opacity: .7;
+}
+
+.main-content {
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  border-collapse: collapse;
+  background-color: #273644;
+  width: 70%;
+  height: 50%;
+  margin: 0 auto;
+  margin-top: 60px;
+}
+
+td {
+  text-align: left;
+  padding: 20px;
+  color: white;
+  font-size: 18px;
+}
+
+tr:nth-child(even) {
+  background-color: #34495D;
 }
