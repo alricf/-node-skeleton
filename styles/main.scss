@@ -121,15 +121,16 @@ table {
 
 td {
   text-align: left;
-  padding: 20px;
+  padding: 30px;
   color: white;
   font-size: 18px;
   font-family: 'Poppins', sans-serif;
-  font-weight: 400;
+  font-weight: 300;
 }
 
-tr.shown-column:nth-child(even) {
+tr:nth-child(even) {
   background-color: #34495D;
+  width: 100%;
 }
 
 .hidden-info {
@@ -219,8 +220,92 @@ tr.shown-column:nth-child(even) {
 }
 
 .new-password p {
+  color: #273644;
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
   align-self: center;
-  font-size: 22px;
+  font-size: 24px;
 }
+
+.hidden-pass {
+  display: none;
+}
+
+tr.hidden-pass {
+  border: 3px solid #F59D2A;
+  background-color: #EAEAEA;
+}
+
+tr.hidden-pass td{
+  color: #273644;
+  font-family: "Nixie One", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+tr.hidden-pass button {
+  font-size: 18px;
+  padding: 5px 30px 5px 30px;
+  list-style: none;
+  color: white;
+  background-color:#F59D2A;
+  border-radius: 50px;
+  border: 3px solid #F59D2A;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  margin: 0 20px 0 20px;
+}
+
+.pass-buttons {
+  display: flex;
+  justify-content: end;
+}
+
+.edit-button:hover {
+  background-color: white;
+  color: #F59D2A;
+  cursor: pointer;
+  border: 3px solid #F59D2A;
+  border-radius: 50px;
+}
+
+.delete-button:hover {
+  background-color: white;
+  color: #F59D2A;
+  cursor: pointer;
+  border: 3px solid #F59D2A;
+  border-radius: 50px;
+}
+
+.new-pass-input {
+  border: 3px solid #F59D2A;
+  border-radius: 30px;
+  resize: none;
+  width: 300px;
+  padding: 10px;
+  color: #273644;
+  margin-right: 20px;
+  visibility: hidden;
+}
+
+.more-button {
+    font-size: 18px;
+    padding: 5px 30px 5px 30px;
+    list-style: none;
+    color: #EAEAEA;
+    border-radius: 50px;
+    background-color: #273644;
+    border: 3px solid white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    margin: 0 20px 0 20px;
+    align-self: flex-end;
+  }
+
+  .more-button:hover {
+    background-color: #EAEAEA;;
+    color: #273644;
+    cursor: pointer;
+    border: 3px solid #EAEAEA;
+    border-radius: 50px;
+  }

@@ -28,5 +28,21 @@ $(document).ready(function() {
       $('.new-password').css("display", "none");
     }
   });
+
+  $(".edit-button").on("click", function() {
+    $('.new-pass-input').css("visibility", "visible");
+    this.textContent = "Save";
+  });
+
+  $(".more-button").on("click", function() {
+
+    if(this.textContent === "More") {
+      $('.hidden-pass').css("display", "flex");
+      this.textContent = "Hide";
+    } else {
+      $('.hidden-pass').css("display", "none");
+      this.textContent = "More";
+    }
+  });
 });
 
