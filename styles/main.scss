@@ -175,10 +175,11 @@ tr.shown-column:nth-child(even) {
 
 .new-password {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   width: 95%;
   border: 3px solid #F59D2A;
-  padding: 40px;
+  padding: 20px;
   display: none;
 }
 
@@ -186,19 +187,28 @@ tr.shown-column:nth-child(even) {
   border: 3px solid #F59D2A;
   border-radius: 50px;
   padding: 10px;
-  width: 400px;
-  margin: 0 20px 0 20px;
+  width: 33%;
+  margin: 10px 20px 10px 20px;
+}
+
+.new-inputs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .new-password .save-button {
   font-size: 18px;
   padding: 10px;
-  list-style: none;
   color: white;
+  list-style: none;
   background-color:#F59D2A;
   border: 3px solid #F59D2A;
   border-radius: 50px;
   width: 120px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  align-self: center;
 }
 
 .new-password button:hover {
@@ -206,4 +216,11 @@ tr.shown-column:nth-child(even) {
   color: #F59D2A;
   cursor: pointer;
   border-radius: 50px;
+}
+
+.new-password p {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  align-self: center;
+  font-size: 22px;
 }
