@@ -16,6 +16,8 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-family: 'Nixie One', serif;
+  font-weight: 400;
 }
 
 .nav-links {
@@ -31,6 +33,8 @@ nav {
   border: 3px solid #F59D2A;
   border-radius: 50px;
   margin-left: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
 }
 
 .navbar li:hover {
@@ -45,11 +49,13 @@ footer {
   width: 100%;
   height: 60px;
   background-color: #273644;
-  color: #445d75;
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
 }
 
 ul.side-menu {
@@ -67,6 +73,8 @@ ul.side-menu {
   list-style: none;
   padding: 15px;
   transition: width .3s;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
 }
 
 .side-menu li:hover {
@@ -116,6 +124,8 @@ td {
   padding: 20px;
   color: white;
   font-size: 18px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
 }
 
 tr.shown-column:nth-child(even) {
@@ -151,10 +161,14 @@ tr.shown-column:nth-child(even) {
   background-color:#F59D2A;
   border-radius: 50px;
   border: none;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
 }
 
 .add-new:hover {
-  background-color: #F59D2A;
-  color: white;
+  background-color: white;
+  color: #F59D2A;
   cursor: pointer;
+  border: 3px solid #F59D2A;
+  border-radius: 50px;
 }
