@@ -160,7 +160,7 @@ tr.shown-column:nth-child(even) {
   color: white;
   background-color:#F59D2A;
   border-radius: 50px;
-  border: none;
+  border: 3px solid #F59D2A;
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
 }
@@ -190,13 +190,20 @@ tr.shown-column:nth-child(even) {
   margin: 0 20px 0 20px;
 }
 
-.new-password button {
+.new-password .save-button {
   font-size: 18px;
   padding: 10px;
   list-style: none;
   color: white;
   background-color:#F59D2A;
+  border: 3px solid #F59D2A;
   border-radius: 50px;
-  border: none;
   width: 120px;
+}
+
+.new-password button:hover {
+  background-color: white;
+  color: #F59D2A;
+  cursor: pointer;
+  border-radius: 50px;
 }
