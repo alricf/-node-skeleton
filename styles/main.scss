@@ -49,20 +49,24 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 ul.side-menu {
   margin: 0;
-  background-color: #273644;
-  width: 250px;
+  background-color: #34495D;
   padding-left: 0;
+  width: 250px;
+  height: 90vh;
 }
 
 .side-menu li {
+  width: 250px;
   color: white;
   font-size: 20px;
   list-style: none;
   padding: 15px;
+  transition: width .3s;
 }
 
 .side-menu li:hover {
@@ -92,4 +96,65 @@ ul.side-menu {
 ::placeholder {
   color: #273644;
   opacity: .7;
+}
+
+.main-content {
+  display: flex;
+}
+
+table {
+  border-collapse: collapse;
+  background-color: #273644;
+  width: 95%;
+  height: 50%;
+  // margin: 0 auto;
+  margin-top: 20px;
+}
+
+td {
+  text-align: left;
+  padding: 20px;
+  color: white;
+  font-size: 18px;
+}
+
+tr.shown-column:nth-child(even) {
+  background-color: #34495D;
+}
+
+.hidden-info {
+  display: none;
+}
+
+.passwords-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.vault-header {
+  margin-top: 20px;
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.add-new {
+  font-size: 18px;
+  padding: 0 30px 0 30px;
+  height: 80%;
+  list-style: none;
+  color: white;
+  background-color:#F59D2A;
+  border-radius: 50px;
+  border: none;
+}
+
+.add-new:hover {
+  background-color: #F59D2A;
+  color: white;
+  cursor: pointer;
 }
