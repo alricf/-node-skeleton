@@ -1,18 +1,124 @@
 body {
+  min-height: 100vh;
+  background-color: #EAEAEA;
+}
+
+*:focus {
+  outline: none;
+}
+
+nav {
+  width: 100%;
+  height: 120px;
+  padding: 10px;
+  background: white;
+  border-bottom: 4px solid #273644;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-links {
+  padding: 10px;
+  display: flex;
+}
+
+.navbar li {
+  font-size: 18px;
+  padding: 12px;
+  list-style: none;
+  color: #F59D2A;
+  border: 3px solid #F59D2A;
+  border-radius: 50px;
+  margin-left: 20px;
+}
+
+.navbar li:hover {
+  background-color: #F59D2A;
+  color: white;
+  cursor: pointer;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #273644;
+  color: #445d75;
+  display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  overflow: hidden;
+}
 
-  background: rgb(163, 208, 219);
-  background: linear-gradient(
-    227deg,
-    rgba(163, 208, 219, 1) 0%,
-    rgba(163, 176, 219, 1) 20%,
-    rgba(163, 173, 219, 1) 34%,
-    rgba(163, 219, 208, 1) 59%,
-    rgba(163, 208, 219, 1) 74%,
-    rgba(163, 208, 219, 1) 100%
-  );
+ul.side-menu {
+  margin: 0;
+  background-color: #34495D;
+  padding-left: 0;
+  width: 250px;
+  height: 90vh;
+}
+
+.side-menu li {
+  width: 250px;
+  color: white;
+  font-size: 20px;
+  list-style: none;
+  padding: 15px;
+  transition: width .3s;
+}
+
+.side-menu li:hover {
+  width: 260px;
+  cursor: pointer;
+}
+
+.side-menu li:nth-child(odd) {
+  background-color: #273644;
+}
+
+.side-menu li:nth-child(even) {
+  background-color: #34495D;
+}
+
+.search-bar {
+  border: 3px solid #F59D2A;
+  border-radius: 30px;
+  resize: none;
+  width: 400px;
+  display: flex;
+  padding: 10px;
+  justify-items: flex-end;
+  color: #273644;
+}
+
+::placeholder {
+  color: #273644;
+  opacity: .7;
+}
+
+.main-content {
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  border-collapse: collapse;
+  background-color: #273644;
+  width: 70%;
+  height: 50%;
+  margin: 0 auto;
+  margin-top: 60px;
+}
+
+td {
+  text-align: left;
+  padding: 20px;
+  color: white;
+  font-size: 18px;
+}
+
+tr:nth-child(even) {
+  background-color: #34495D;
 }

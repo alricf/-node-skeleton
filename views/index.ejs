@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Home Page</title>
+  <title>MyVault</title>
 
   <meta charset="UTF-8" >
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
@@ -18,7 +18,50 @@
 </head>
 
 <body>
-  <h1>Have fun! 🥔</h1>
+    <%- include('./partials/_header'); %>
+
+    <main class="main-content">
+      <ul class="side-menu">
+        <li>All Passwords</li>
+        <li>Work</li>
+        <li>Finances</li>
+        <li>Social Media</li>
+        <li>Entertainment</li>
+      </ul>
+
+      <table>
+        <!-- <h2>MyVault</h2> -->
+        <tr>
+          <td>Google</td>
+          <td>terry.cruz@gmail..com</td>
+        </tr>
+        <tr>
+          <td>Facebook</td>
+          <td>terry.cruz@gmail.com</td>
+        </tr>
+        <tr>
+          <td>Bank Of Montreal</td>
+          <td>cruzterry99</td>
+        </tr>
+        <tr>
+          <td>Snapchat</td>
+          <td>cruz99</td>
+        </tr>
+        <tr>
+          <td>GitHub</td>
+          <td>terrycruz1</td>
+        </tr>
+        <tr>
+          <td>Bell Mobility</td>
+          <td>terryc</td>
+        </tr>
+      </table>
+    </main>
+
+
+
+
+    <%- include('./partials/_footer'); %>
 </body>
 
 </html>
