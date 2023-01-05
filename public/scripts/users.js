@@ -15,12 +15,4 @@ $(() => {
     });
   });
 
-  // NavUsername script
-  $.ajax({
-    method: 'GET',
-    url: '/api/users'
-  })
-  .done((response) => {
-  $( ".nav-links li:nth-child(1)" ).text(response.name)
-  });
 });
