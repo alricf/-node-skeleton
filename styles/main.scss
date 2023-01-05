@@ -1,6 +1,6 @@
 body {
   min-height: 100vh;
-  background-color: #EAEAEA;
+  background-color: #e7e7e7;
 }
 
 *:focus {
@@ -177,13 +177,14 @@ tr:nth-child(even) {
   flex-direction: column;
   justify-content: center;
   width: 95%;
-  border: 3px solid #F59D2A;
+  border: 3px solid #34495D;
   padding: 20px;
   display: none;
+  background-color: #f7f7f7;
 }
 
 .new-password input {
-  border: 3px solid #F59D2A;
+  border: 3px solid #34495D;
   border-radius: 50px;
   padding: 10px;
   width: 33%;
@@ -196,12 +197,12 @@ tr:nth-child(even) {
   justify-content: center;
 }
 
-.new-password .save-button {
+.save-button {
   font-size: 18px;
   padding: 10px;
-  color: white;
+  color: #F59D2A;
   list-style: none;
-  background-color:#F59D2A;
+  background-color: white;
   border: 3px solid #F59D2A;
   border-radius: 50px;
   width: 120px;
@@ -211,8 +212,8 @@ tr:nth-child(even) {
 }
 
 .new-password button:hover {
-  background-color: white;
-  color: #F59D2A;
+  background-color: #F59D2A;
+  color: white;
   cursor: pointer;
   border-radius: 50px;
 }
