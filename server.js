@@ -53,10 +53,9 @@ app.get('/login/:id', (req, res) => {
   // using encrypted cookies
   // req.session.user_id = req.params.id;
 
-  // or using plain-text cookies
+  // plain-text cookie (for now)
   res.cookie('user_id', req.params.id);
-
-  // send the user somewhere
+  // send the user to index
   res.redirect('/');
 });
 
