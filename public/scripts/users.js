@@ -42,6 +42,8 @@ $(document).ready(function() {
     } else {
       $('.hidden-pass').css("display", "none");
       this.textContent = "More";
+      $('.new-pass-input').css("visibility", "hidden");
+      $(".edit-button").textContent = "Edit";
     }
   });
 });

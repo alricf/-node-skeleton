@@ -114,8 +114,6 @@ table {
   border-collapse: collapse;
   background-color: #273644;
   width: 95%;
-  height: 50%;
-  // margin: 0 auto;
   margin-top: 20px;
 }
 
@@ -229,6 +227,7 @@ tr:nth-child(even) {
 
 .hidden-pass {
   display: none;
+  align-items: center;
 }
 
 tr.hidden-pass {
@@ -295,7 +294,7 @@ tr.hidden-pass button {
     color: #EAEAEA;
     border-radius: 50px;
     background-color: #273644;
-    border: 3px solid white;
+    border: 2px solid #EAEAEA;
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
     margin: 0 20px 0 20px;
@@ -306,6 +305,6 @@ tr.hidden-pass button {
     background-color: #EAEAEA;;
     color: #273644;
     cursor: pointer;
-    border: 3px solid #EAEAEA;
+    border: 2px solid #EAEAEA;
     border-radius: 50px;
   }
