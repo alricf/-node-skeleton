@@ -1,19 +1,19 @@
 // Client facing scripts here
 
-// $('#fetch-users').on('click', () => {
-//   $.ajax({
-//     method: 'GET',
-//     url: '/api/users'
-//   })
-//   .done((response) => {
-//     const $usersList = $('#users');
-//     $usersList.empty();
+$('#fetch-users').on('click', () => {
+  $.ajax({
+    method: 'GET',
+    url: '/api/users'
+  })
+  .done((response) => {
+    const $usersList = $('#users');
+    $usersList.empty();
 
-//     for(const user of response.users) {
-//       $(`<li class="user">`).text(user.name).appendTo($usersList);
-//     }
-//   });
-// });
+    for(const user of response.users) {
+      $(`<li class="user">`).text(user.name).appendTo($usersList);
+    }
+  });
+});
 
 
 
@@ -43,7 +43,7 @@ $(document).ready(function() {
       $('.hidden-pass').css("display", "none");
       this.textContent = "More";
       $('.new-pass-input').css("visibility", "hidden");
-      $(".edit-button").textContent = "Edit";
+      $(".edit-button").innerHTML = "Edit";
     }
   });
 });
