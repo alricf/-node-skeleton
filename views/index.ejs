@@ -19,8 +19,6 @@
 
   <script defer src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/users.js"></script>
-  <script defer src="/scripts/passwords.js"></script>
-  <script defer src="/scripts/organizations.js"></script>
 </head>
 
 <body>
@@ -46,9 +44,20 @@
         <div class="new-inputs">
           <input type="text" placeholder="Title">
           <input type="text" placeholder="Username/email">
-          <input type="text" placeholder="Password">
           <input type="text" placeholder="Website">
           <input type="text" placeholder="Category">
+          <input type="text" placeholder="Password">
+        </div>
+        <div id="generate-pass">
+          <button type="button" class="generate-button">Generate Password</button>
+          <input type="checkbox" id="uppercase" class="checkbox" name="uppercase" value="Uppercase">
+  <label for="uppercase">Uppercase</label>
+          <input type="checkbox" id="lowercase" name="lowercase" value="Lowercase">
+  <label for="lowercase">Lowercase</label>
+          <input type="checkbox" id="numbers" name="numbers" value="Numbers">
+  <label for="numbers">Numbers</label>
+          <input type="checkbox" id="symbols" name="symbols" value="Symbols">
+  <label for="symbols">Symbols</label>
         </div>
           <button type="button" class="save-button">Save</button>
       </div>
