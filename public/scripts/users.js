@@ -1,6 +1,5 @@
 // Client facing scripts here
 
-
 $(document).ready(function() {
 
   $('#fetch-users').on('click', () => {
@@ -43,7 +42,7 @@ $(document).ready(function() {
       $('.hidden-pass').css("display", "none");
       this.textContent = "More";
       $('.new-pass-input').css("visibility", "hidden");
-      $(".edit-button").textContent = "Edit";
+      $(".edit-button").innerHTML = "Edit";
     }
   });
 });
