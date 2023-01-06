@@ -101,4 +101,16 @@ $(document).ready(function(){
     });
   });
 
+  // Add New Button into Passwords Table
+  $('.save-button').on('click', () => {
+    const formData = $(this).serialize();
+    $.ajax({
+      method: 'POST',
+      url: '/api/passwords',
+      data: formData
+    }).done(()=>{
+      console.log(formData);
+    })
+  });
+
 });
