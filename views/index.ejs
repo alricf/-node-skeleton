@@ -17,8 +17,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nixie+One&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-  <script src="/vendor/jquery-3.0.0.js"></script>
-  <script src="/scripts/users.js"></script>
+  <script defer src="/vendor/jquery-3.0.0.js"></script>
+  <script defer src="/scripts/users.js"></script>
+  <script defer src="/scripts/passwords.js"></script>
 </head>
 
 <body>
@@ -39,14 +40,30 @@
         <button type="button" class="add-new">Add New</button>
       </div>
 
-      <div class="new-password">
+      <div class="new-password-box">
         <p>Add new login</p>
         <div class="new-inputs">
-          <input type="text" placeholder="Title">
-          <input type="text" placeholder="Username/email">
-          <input type="text" placeholder="Password">
-          <input type="text" placeholder="Website">
-          <input type="text" placeholder="Category">
+          <input type="text" id="new-title" placeholder="Title">
+          <input type="text" id="new-user" placeholder="Username/email">
+          <input type="text" id="new-website" placeholder="Website">
+          <input type="text" id="new-category" placeholder="Category">
+          <input type="text" id="new-password" placeholder="Password">
+        </div>
+        <div id="generate-pass">
+          <button type="button" class="generate-button">Generate Password</button>
+          <!-- <input type="range" min="1" max="20" value="12" class="slider" id="myRange"> -->
+          <label for="range" class="form-label">Length:</label>
+          <input type="range" class="form-range" min="10" max="20" step="1" value="12" id="range">
+          <label for="range" class="form-label" id="rangeNum">12</label>
+
+          <input type="checkbox" id="uppercase" class="checkbox" name="pass-req" value="Uppercase" checked>
+  <label for="uppercase">Uppercase</label>
+          <input type="checkbox" id="lowercase" class="checkbox" name="pass-req" value="Lowercase" checked>
+  <label for="lowercase">Lowercase</label>
+          <input type="checkbox" id="numbers" class="checkbox" name="pass-req" value="Numbers" checked>
+  <label for="numbers">Numbers</label>
+          <input type="checkbox" id="symbols" class="checkbox" name="pass-req" value="Symbols" checked>
+  <label for="symbols">Symbols</label>
         </div>
           <button type="button" class="save-button">Save</button>
       </div>
@@ -55,42 +72,51 @@
         <!-- <h2>MyVault</h2> -->
         <tr>
           <td>Google</td>
-          <td >terry.cruz@gmail.com</td>
-          <td style="width: 15%"><button type="button" class="more-button">More</button></td>
-        </tr>
-        <tr class="hidden-pass">
-          <td>Password:</td>
-          <td>Purplekiwi36</td>
-          <td class="pass-buttons">
-            <input type="text" class="new-pass-input" placeholder="new password">
+          <td>terry.cruz@gmail.com</td>
+          <td class="pass-buttons">cruzboy37 <button type="button" class="copy-button">Copy</button></td>
+          <td class="pass-buttons"><input type="text" class="new-pass-input" placeholder="new password">
             <button type="button" class="edit-button">Edit</button>
-            <button type="button" class="delete-button">Delete</button>
-          </td>
+            <button type="button" class="delete-button">Delete</button></td>
         </tr>
         <tr>
           <td>Facebook</td>
-          <td colspan="1">terry.cruz@gmail.com</td>
-          <td><button type="button" class="more-button">More</button></td>
+          <td>terry.cruz@gmail.com</td>
+          <td class="pass-buttons">cruzboy37 <button type="button" class="copy-button">Copy</button></td>
+          <td class="pass-buttons"><input type="text" class="new-pass-input" placeholder="new password">
+            <button type="button" class="edit-button">Edit</button>
+            <button type="button" class="delete-button">Delete</button></td>
         </tr>
         <tr>
           <td>Bank Of Montreal</td>
-          <td colspan="1">cruzterry99</td>
-          <td><button type="button" class="more-button">More</button></td>
+          <td>cruzterry99</td>
+          <td class="pass-buttons">cruzboy37 <button type="button" class="copy-button">Copy</button></td>
+          <td class="pass-buttons"><input type="text" class="new-pass-input" placeholder="new password">
+            <button type="button" class="edit-button">Edit</button>
+            <button type="button" class="delete-button">Delete</button></td>
         </tr>
         <tr>
           <td>Snapchat</td>
-          <td colspan="1">cruz99</td>
-          <td><button type="button" class="more-button">More</button></td>
+          <td>cruz99</td>
+          <td class="pass-buttons">cruzboy37 <button type="button" class="copy-button">Copy</button></td>
+          <td class="pass-buttons"><input type="text" class="new-pass-input" placeholder="new password">
+            <button type="button" class="edit-button">Edit</button>
+            <button type="button" class="delete-button">Delete</button></td>
         </tr>
         <tr>
           <td>GitHub</td>
           <td>terrycruz1</td>
-          <td colspan="1"><button type="button" class="more-button">More</button></td>
+          <td class="pass-buttons">cruzboy37 <button type="button" class="copy-button">Copy</button></td>
+          <td class="pass-buttons"><input type="text" class="new-pass-input" placeholder="new password">
+            <button type="button" class="edit-button">Edit</button>
+            <button type="button" class="delete-button">Delete</button></td>
         </tr>
         <tr>
           <td>Bell Mobility</td>
-          <td colspan="1">terryc</td>
-          <td><button type="button" class="more-button">More</button></td>
+          <td>terryc</td>
+          <td class="pass-buttons">cruzboy37 <button type="button" class="copy-button">Copy</button></td>
+          <td class="pass-buttons"><input type="text" class="new-pass-input" placeholder="new password">
+            <button type="button" class="edit-button">Edit</button>
+            <button type="button" class="delete-button">Delete</button></td>
         </tr>
       </table>
       </div>

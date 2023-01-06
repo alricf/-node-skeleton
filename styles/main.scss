@@ -172,7 +172,7 @@ tr:nth-child(even) {
   border-radius: 50px;
 }
 
-.new-password {
+.new-password-box {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -183,7 +183,7 @@ tr:nth-child(even) {
   background-color: #f7f7f7;
 }
 
-.new-password input {
+.new-password-box .new-inputs input {
   border: 3px solid #34495D;
   border-radius: 50px;
   padding: 10px;
@@ -211,14 +211,14 @@ tr:nth-child(even) {
   align-self: center;
 }
 
-.new-password button:hover {
+.new-password-box button:hover {
   background-color: #F59D2A;
   color: white;
   cursor: pointer;
   border-radius: 50px;
 }
 
-.new-password p {
+.new-password-box p {
   color: #273644;
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
@@ -226,87 +226,120 @@ tr:nth-child(even) {
   font-size: 24px;
 }
 
-.hidden-pass {
-  display: none;
-  align-items: center;
-}
+// .hidden-pass {
+//   display: none;
+//   align-items: center;
+// }
 
-tr.hidden-pass {
-  border: 3px solid #F59D2A;
-  background-color: #EAEAEA;
-}
+// tr.hidden-pass {
+//   border: 3px solid #F59D2A;
+//   background-color: #EAEAEA;
+// }
 
-tr.hidden-pass td{
-  color: #273644;
-  font-family: "Nixie One", sans-serif;
-  font-weight: 400;
-  font-size: 20px;
-}
+// tr.hidden-pass td{
+//   color: #273644;
+//   font-family: "Nixie One", sans-serif;
+//   font-weight: 400;
+//   font-size: 20px;
+// }
 
-tr.hidden-pass button {
-  font-size: 18px;
-  padding: 5px 30px 5px 30px;
-  list-style: none;
-  color: white;
-  background-color:#F59D2A;
-  border-radius: 50px;
-  border: 3px solid #F59D2A;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 400;
-  margin: 0 20px 0 20px;
-}
+//Generate Password Styling
 
-.pass-buttons {
-  display: flex;
-  justify-content: end;
-}
-
-.edit-button:hover {
-  background-color: white;
-  color: #F59D2A;
-  cursor: pointer;
-  border: 3px solid #F59D2A;
-  border-radius: 50px;
-}
-
-.delete-button:hover {
-  background-color: white;
-  color: #F59D2A;
-  cursor: pointer;
-  border: 3px solid #F59D2A;
-  border-radius: 50px;
-}
-
-.new-pass-input {
-  border: 3px solid #F59D2A;
-  border-radius: 30px;
-  resize: none;
-  width: 300px;
-  padding: 10px;
-  color: #273644;
-  margin-right: 20px;
-  visibility: hidden;
-}
-
-.more-button {
+  .generate-button {
     font-size: 18px;
-    padding: 5px 30px 5px 30px;
+    padding: 10px 20px 10px 20px;
+    color: #F59D2A;
     list-style: none;
-    color: #EAEAEA;
+    background-color: white;
+    border: 3px solid #F59D2A;
     border-radius: 50px;
-    background-color: #273644;
-    border: 2px solid #EAEAEA;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    margin: 0 20px 0 20px;
-    align-self: flex-end;
-    width: 110px;
+    margin: 20px;
+    align-self: center;
   }
 
-  .more-button:hover {
-    background-color: #EAEAEA;;
-    color: #273644;
-    cursor: pointer;
-    border: 2px solid #EAEAEA;
-    border-radius: 50px;
+  #generate-pass {
+    display: flex;
+    justify-content: space-evenly;
+    align-self: center;
+    align-items: center;
+    color: #34495D;
   }
+
+  #generate-pass label {
+    color: #34495D;
+    font-size: 16px;
+  }
+
+.checkbox {
+    margin-right: 10px;
+    margin-left: 20px;
+  }
+
+  .form-label {
+    margin: 10px;
+  }
+
+
+
+
+
+  .pass-buttons button {
+    font-size: 18px;
+      padding: 5px 30px 5px 30px;
+      list-style: none;
+      color: #EAEAEA;
+      border-radius: 50px;
+      background-color: #273644;
+      border: 2px solid #EAEAEA;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 400;
+      margin: 0 20px 0 20px;
+      align-self: flex-end;
+  }
+
+  .pass-buttons {
+    display: flex;
+    justify-content: end;
+  }
+
+  .pass-buttons button:hover {
+    background-color: #EAEAEA;;
+      color: #273644;
+      cursor: pointer;
+      border: 2px solid #EAEAEA;
+      border-radius: 50px;
+  }
+
+
+  .new-pass-input {
+    border: 3px solid #F59D2A;
+    border-radius: 30px;
+    resize: none;
+    width: 300px;
+    padding: 10px;
+    color: #273644;
+    margin-right: 20px;
+    visibility: hidden;
+  }
+
+  .more-button {
+      font-size: 18px;
+      padding: 5px 30px 5px 30px;
+      list-style: none;
+      color: #EAEAEA;
+      border-radius: 50px;
+      background-color: #273644;
+      border: 2px solid #EAEAEA;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 400;
+      margin: 0 20px 0 20px;
+      align-self: flex-end;
+    }
+
+    .more-button:hover {
+      background-color: #EAEAEA;;
+      color: #273644;
+      cursor: pointer;
+      border: 2px solid #EAEAEA;
+      border-radius: 50px;
+    }
