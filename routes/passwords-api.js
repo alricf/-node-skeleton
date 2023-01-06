@@ -8,13 +8,15 @@
 
 const express = require('express');
 const router  = express.Router();
-// const db = require('../db/connection');
 const passwordQueries = require('../db/queries/passwords_by_org');
 
-router.get('/api/passwords/', (req, res) => {
+// GET passwords/api to retrieve title, login and password for all logins for one organization
+router.get('/', (req, res) => {
   passwordQueries.getPasswordsByOrg()
   .then(data => {
-    const passwords = data.rows;
+    console.log(data);
+    const passwords = data;
+    console.log(passwords);
     res.json({ passwords });
   })
   .catch(err => {
