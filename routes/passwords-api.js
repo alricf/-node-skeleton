@@ -5,11 +5,11 @@
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
 
-
+// Router
 const express = require('express');
 const router  = express.Router();
-// const passwordQueries = require('../routes/queryIndices/apiPasswordsQueriesIndex');
 
+// Queries
 const byOrg = require('../db/queries/passwords_by_org');
 const byWork = require('../db/queries/passwords_by_work');
 const byFinance = require('../db/queries/passwords_by_finance');
