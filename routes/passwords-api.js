@@ -37,5 +37,18 @@ router.get('/work', (req, res) => {
   });
 });
 
+// GET passwords/api/finances to retrieve title, login and password for all logins categorized as 'finances' for one organization
+router.get('/finances', (req, res) => {
+  ogPasswordQueries.getPasswordsByOrg()
+  .then(passwords => {
+    res.json({ passwords });
+  })
+  .catch(err => {
+    res
+      .status(500)
+      .json({ error: err.message });
+  });
+});
+
 
 module.exports = router;
