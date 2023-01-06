@@ -311,8 +311,7 @@ tr.hidden-pass button {
     background-color: white;
     border: 3px solid #F59D2A;
     border-radius: 50px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 20px;
     align-self: center;
   }
 
@@ -332,4 +331,8 @@ tr.hidden-pass button {
 .checkbox {
     margin-right: 10px;
     margin-left: 20px;
+  }
+
+  .form-label {
+    margin: 10px;
   }
