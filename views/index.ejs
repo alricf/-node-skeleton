@@ -39,24 +39,24 @@
         <button type="button" class="add-new">Add New</button>
       </div>
 
-      <div class="new-password">
+      <div class="new-password-box">
         <p>Add new login</p>
         <div class="new-inputs">
-          <input type="text" placeholder="Title">
-          <input type="text" placeholder="Username/email">
-          <input type="text" placeholder="Website">
-          <input type="text" placeholder="Category">
-          <input type="text" placeholder="Password">
+          <input type="text" class="new-title" placeholder="Title">
+          <input type="text" class="new-user" placeholder="Username/email">
+          <input type="text" class="new-website" placeholder="Website">
+          <input type="text" class="new-category" placeholder="Category">
+          <input type="text" id="new-password" placeholder="Password">
         </div>
         <div id="generate-pass">
           <button type="button" class="generate-button">Generate Password</button>
-          <input type="checkbox" id="uppercase" class="checkbox" name="uppercase" value="Uppercase">
+          <input type="checkbox" id="uppercase" class="checkbox" name="pass-req" value="Uppercase">
   <label for="uppercase">Uppercase</label>
-          <input type="checkbox" id="lowercase" class="checkbox" name="lowercase" value="Lowercase">
+          <input type="checkbox" id="lowercase" class="checkbox" name="pass-req" value="Lowercase">
   <label for="lowercase">Lowercase</label>
-          <input type="checkbox" id="numbers" class="checkbox" name="numbers" value="Numbers">
+          <input type="checkbox" id="numbers" class="checkbox" name="pass-req" value="Numbers">
   <label for="numbers">Numbers</label>
-          <input type="checkbox" id="symbols" class="checkbox" name="symbols" value="Symbols">
+          <input type="checkbox" id="symbols" class="checkbox" name="pass-req" value="Symbols">
   <label for="symbols">Symbols</label>
         </div>
           <button type="button" class="save-button">Save</button>
