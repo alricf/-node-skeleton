@@ -286,7 +286,6 @@ tr:nth-child(even) {
   .pass-buttons button {
     font-size: 18px;
       padding: 5px 30px 5px 30px;
-      list-style: none;
       color: #EAEAEA;
       border-radius: 50px;
       background-color: #273644;
@@ -297,10 +296,10 @@ tr:nth-child(even) {
       align-self: flex-end;
   }
 
-  .pass-buttons {
-    display: flex;
-    justify-content: end;
-  }
+  // .pass-buttons {
+  //   display: flex;
+  //   justify-content: end;
+  // }
 
   .pass-buttons button:hover {
     background-color: #EAEAEA;;
@@ -312,34 +311,39 @@ tr:nth-child(even) {
 
 
   .new-pass-input {
-    border: 3px solid #F59D2A;
+    border: 3px solid white;
+    background-color: #dddddd;
     border-radius: 30px;
-    resize: none;
     width: 300px;
-    padding: 10px;
+    padding: 4px 10px 4px 10px;
     color: #273644;
-    margin-right: 20px;
-    visibility: hidden;
+    margin-right: 10px;
+    // visibility: hidden;
   }
 
-  .more-button {
-      font-size: 18px;
-      padding: 5px 30px 5px 30px;
-      list-style: none;
-      color: #EAEAEA;
-      border-radius: 50px;
-      background-color: #273644;
-      border: 2px solid #EAEAEA;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 400;
-      margin: 0 20px 0 20px;
-      align-self: flex-end;
-    }
+  .edit-delete-btn {
+    display: flex;
+    justify-content: end;
+  }
 
-    .more-button:hover {
-      background-color: #EAEAEA;;
-      color: #273644;
-      cursor: pointer;
-      border: 2px solid #EAEAEA;
-      border-radius: 50px;
-    }
+  // .more-button {
+  //     font-size: 18px;
+  //     padding: 5px 30px 5px 30px;
+  //     list-style: none;
+  //     color: #EAEAEA;
+  //     border-radius: 50px;
+  //     background-color: #273644;
+  //     border: 2px solid #EAEAEA;
+  //     font-family: 'Poppins', sans-serif;
+  //     font-weight: 400;
+  //     margin: 0 20px 0 20px;
+  //     align-self: flex-end;
+  //   }
+
+  //   .more-button:hover {
+  //     background-color: #EAEAEA;;
+  //     color: #273644;
+  //     cursor: pointer;
+  //     border: 2px solid #EAEAEA;
+  //     border-radius: 50px;
+  //   }
