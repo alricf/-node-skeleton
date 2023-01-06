@@ -12,9 +12,9 @@ const router  = express.Router();
 
 const byOrg = require('../db/queries/passwords_by_org');
 const byWork = require('../db/queries/passwords_by_work');
-// const byFinances = require('../db/queries/passwords_by_finances');
-// const bySocialMedia = require('../db/queries/passwords_by_social-media');
-// const byEntertainment = require('../db/queries/passwords_by_entertainment');
+const byFinance = require('../db/queries/passwords_by_finance');
+const bySocialMedia = require('../db/queries/passwords_by_social');
+const byEntertainment = require('../db/queries/passwords_by_entertainment');
 
 // GET passwords/api to retrieve title, login and password for all logins for one organization
 router.get('/', (req, res) => {
@@ -43,43 +43,43 @@ router.get('/work', (req, res) => {
 });
 
 // // GET passwords/api/finances to retrieve title, login and password for all logins categorized as 'finances' for one organization
-// router.get('/finances', (req, res) => {
-//   byFinances.getPasswordsByFinances()
-//   .then(passwords => {
-//     res.json({ passwords });
-//   })
-//   .catch(err => {
-//     res
-//       .status(500)
-//       .json({ error: err.message });
-//   });
-// });
+router.get('/finance', (req, res) => {
+  byFinance.getPasswordsByFinance()
+  .then(passwords => {
+    res.json({ passwords });
+  })
+  .catch(err => {
+    res
+      .status(500)
+      .json({ error: err.message });
+  });
+});
 
 // // GET passwords/api/social-media to retrieve title, login and password for all logins categorized as 'social-media' for one organization
-// router.get('/social-media', (req, res) => {
-//   ogPasswordQueries.getPasswordsByOrg()
-//   .then(passwords => {
-//     res.json({ passwords });
-//   })
-//   .catch(err => {
-//     res
-//       .status(500)
-//       .json({ error: err.message });
-//   });
-// });
+router.get('/social-media', (req, res) => {
+  bySocialMedia.getPasswordsBySocial()
+  .then(passwords => {
+    res.json({ passwords });
+  })
+  .catch(err => {
+    res
+      .status(500)
+      .json({ error: err.message });
+  });
+});
 
 // // GET passwords/api/entertainment to retrieve title, login and password for all logins categorized as 'entertainment' for one organization
-// router.get('/entertainment', (req, res) => {
-//   ogPasswordQueries.getPasswordsByOrg()
-//   .then(passwords => {
-//     res.json({ passwords });
-//   })
-//   .catch(err => {
-//     res
-//       .status(500)
-//       .json({ error: err.message });
-//   });
-// });
+router.get('/entertainment', (req, res) => {
+  byEntertainment.getPasswordsByEntertainment()
+  .then(passwords => {
+    res.json({ passwords });
+  })
+  .catch(err => {
+    res
+      .status(500)
+      .json({ error: err.message });
+  });
+});
 
 
 
