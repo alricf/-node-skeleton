@@ -53,7 +53,6 @@ $(document).ready(function() {
     let rangeNum = document.getElementById('rangeNum');
 
     rangeNum.textContent = sliderVal;
-
   };
 
 
@@ -63,7 +62,7 @@ $(document).ready(function() {
   $(".generate-button").on("click", function() {
     let passInput = document.getElementById('new-password');
     let slider = document.getElementById('range');
-    // console.log(slider.value);
+
     //get array of checked box values
     const checkboxes = document.querySelectorAll('input[name="pass-req"]:checked');
     let checks = [];

@@ -226,82 +226,24 @@ tr:nth-child(even) {
   font-size: 24px;
 }
 
-.hidden-pass {
-  display: none;
-  align-items: center;
-}
+// .hidden-pass {
+//   display: none;
+//   align-items: center;
+// }
 
-tr.hidden-pass {
-  border: 3px solid #F59D2A;
-  background-color: #EAEAEA;
-}
+// tr.hidden-pass {
+//   border: 3px solid #F59D2A;
+//   background-color: #EAEAEA;
+// }
 
-tr.hidden-pass td{
-  color: #273644;
-  font-family: "Nixie One", sans-serif;
-  font-weight: 400;
-  font-size: 20px;
-}
+// tr.hidden-pass td{
+//   color: #273644;
+//   font-family: "Nixie One", sans-serif;
+//   font-weight: 400;
+//   font-size: 20px;
+// }
 
-tr.hidden-pass button {
-  font-size: 18px;
-  padding: 5px 30px 5px 30px;
-  list-style: none;
-  color: white;
-  background-color:#F59D2A;
-  border-radius: 50px;
-  border: 3px solid #F59D2A;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 400;
-  margin: 0 20px 0 20px;
-}
-
-.pass-buttons {
-  display: flex;
-  justify-content: end;
-}
-
-.pass-buttons button:hover {
-  background-color: white;
-  color: #F59D2A;
-  cursor: pointer;
-  border: 3px solid #F59D2A;
-  border-radius: 50px;
-}
-
-
-.new-pass-input {
-  border: 3px solid #F59D2A;
-  border-radius: 30px;
-  resize: none;
-  width: 300px;
-  padding: 10px;
-  color: #273644;
-  margin-right: 20px;
-  visibility: hidden;
-}
-
-.more-button {
-    font-size: 18px;
-    padding: 5px 30px 5px 30px;
-    list-style: none;
-    color: #EAEAEA;
-    border-radius: 50px;
-    background-color: #273644;
-    border: 2px solid #EAEAEA;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    margin: 0 20px 0 20px;
-    align-self: flex-end;
-  }
-
-  .more-button:hover {
-    background-color: #EAEAEA;;
-    color: #273644;
-    cursor: pointer;
-    border: 2px solid #EAEAEA;
-    border-radius: 50px;
-  }
+//Generate Password Styling
 
   .generate-button {
     font-size: 18px;
@@ -336,3 +278,68 @@ tr.hidden-pass button {
   .form-label {
     margin: 10px;
   }
+
+
+
+
+
+  .pass-buttons button {
+    font-size: 18px;
+      padding: 5px 30px 5px 30px;
+      list-style: none;
+      color: #EAEAEA;
+      border-radius: 50px;
+      background-color: #273644;
+      border: 2px solid #EAEAEA;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 400;
+      margin: 0 20px 0 20px;
+      align-self: flex-end;
+  }
+
+  .pass-buttons {
+    display: flex;
+    justify-content: end;
+  }
+
+  .pass-buttons button:hover {
+    background-color: #EAEAEA;;
+      color: #273644;
+      cursor: pointer;
+      border: 2px solid #EAEAEA;
+      border-radius: 50px;
+  }
+
+
+  .new-pass-input {
+    border: 3px solid #F59D2A;
+    border-radius: 30px;
+    resize: none;
+    width: 300px;
+    padding: 10px;
+    color: #273644;
+    margin-right: 20px;
+    visibility: hidden;
+  }
+
+  .more-button {
+      font-size: 18px;
+      padding: 5px 30px 5px 30px;
+      list-style: none;
+      color: #EAEAEA;
+      border-radius: 50px;
+      background-color: #273644;
+      border: 2px solid #EAEAEA;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 400;
+      margin: 0 20px 0 20px;
+      align-self: flex-end;
+    }
+
+    .more-button:hover {
+      background-color: #EAEAEA;;
+      color: #273644;
+      cursor: pointer;
+      border: 2px solid #EAEAEA;
+      border-radius: 50px;
+    }
