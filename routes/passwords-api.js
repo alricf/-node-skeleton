@@ -13,10 +13,7 @@ const passwordQueries = require('../db/queries/passwords_by_org');
 // GET passwords/api to retrieve title, login and password for all logins for one organization
 router.get('/', (req, res) => {
   passwordQueries.getPasswordsByOrg()
-  .then(data => {
-    console.log(data);
-    const passwords = data;
-    console.log(passwords);
+  .then(passwords => {
     res.json({ passwords });
   })
   .catch(err => {
