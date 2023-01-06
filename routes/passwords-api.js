@@ -1,7 +1,7 @@
 /*
  * All routes for Passwords Data are defined here
- * Since this file is loaded in server.js into api/organizations,
- *   these routes are mounted onto /api/widgets
+ * Since this file is loaded in server.js into api/passwords,
+ *   these routes are mounted onto /api/passwords
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
 
