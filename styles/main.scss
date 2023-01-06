@@ -172,7 +172,7 @@ tr:nth-child(even) {
   border-radius: 50px;
 }
 
-.new-password {
+.new-password-box {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -183,7 +183,7 @@ tr:nth-child(even) {
   background-color: #f7f7f7;
 }
 
-.new-password .new-inputs input {
+.new-password-box .new-inputs input {
   border: 3px solid #34495D;
   border-radius: 50px;
   padding: 10px;
@@ -211,14 +211,14 @@ tr:nth-child(even) {
   align-self: center;
 }
 
-.new-password button:hover {
+.new-password-box button:hover {
   background-color: #F59D2A;
   color: white;
   cursor: pointer;
   border-radius: 50px;
 }
 
-.new-password p {
+.new-password-box p {
   color: #273644;
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
@@ -311,8 +311,7 @@ tr.hidden-pass button {
     background-color: white;
     border: 3px solid #F59D2A;
     border-radius: 50px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 20px;
     align-self: center;
   }
 
@@ -332,4 +331,8 @@ tr.hidden-pass button {
 .checkbox {
     margin-right: 10px;
     margin-left: 20px;
+  }
+
+  .form-label {
+    margin: 10px;
   }
