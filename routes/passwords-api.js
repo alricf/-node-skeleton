@@ -8,6 +8,7 @@
 // Router
 const express = require('express');
 const router  = express.Router();
+const app     = express();
 
 // Queries
 const byOrg = require('../db/queries/passwords_by_org');
@@ -85,15 +86,15 @@ router.get('/entertainment', (req, res) => {
 // POST passwords/api to create a new password(login) and add it to the passwords table
 router.post('/', (req, res) => {
   const newPassword = req.body;
-
   const newPassObj = { title: newPassword.title,
-    login: newPassword.login, password: newPassword.password, website: newPassword.website, category: newPassword.category
-                          };
-
-  // console.log(newPassObj);
+                       login: newPassword.login,
+                       password: newPassword.password,
+                       website: newPassword.website,
+                       category: newPassword.category
+                      };
 
   createPassword.createNewPassword(newPassObj)
-  .then(() => res.redirect('/api/passwords'))
+  .then(() => console.log('promise returned'))
   .catch(err => {
     res
       .status(500)
