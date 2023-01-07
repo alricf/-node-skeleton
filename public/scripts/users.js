@@ -40,10 +40,10 @@ $(document).ready(function() {
   });
 
   //Edit button function
-  // $(".edit-button").on("click", function() {
-  //   $('.new-pass-input').css("visibility", "visible");
-  //   this.textContent = "Save";
-  // });
+  $(".edit-button").on("click", function() {
+    $('.new-pass-input').css("visibility", "visible");
+    this.textContent = "Save";
+  });
 
   //Change range slider label based on user selection
   const slider = document.getElementById('range');
@@ -107,6 +107,16 @@ $(document).ready(function() {
 
     generatePassword(checks);
 
+  });
+
+  //Copy password to clipboard
+
+  $(".copy-button").on("click", function() {
+    const password = document.getElementById("copy-pass");
+    const copyText = password.innerHTML;
+
+    // copyText.select();
+    navigator.clipboard.writeText(copyText);
   });
 
 
