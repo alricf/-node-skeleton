@@ -15,6 +15,7 @@ const byWork = require('../db/queries/passwords_by_work');
 const byFinance = require('../db/queries/passwords_by_finance');
 const bySocialMedia = require('../db/queries/passwords_by_social');
 const byEntertainment = require('../db/queries/passwords_by_entertainment');
+const createPassword = require('../db/queries/create_new_password');
 
 // GET passwords/api to retrieve title, login and password for all logins for one organization
 router.get('/', (req, res) => {
@@ -42,7 +43,7 @@ router.get('/work', (req, res) => {
   });
 });
 
-// // GET passwords/api/finances to retrieve title, login and password for all logins categorized as 'finances' for one organization
+// GET passwords/api/finances to retrieve title, login and password for all logins categorized as 'finances' for one organization
 router.get('/finance', (req, res) => {
   byFinance.getPasswordsByFinance()
   .then(passwords => {
@@ -55,7 +56,7 @@ router.get('/finance', (req, res) => {
   });
 });
 
-// // GET passwords/api/social-media to retrieve title, login and password for all logins categorized as 'social-media' for one organization
+// GET passwords/api/social-media to retrieve title, login and password for all logins categorized as 'social-media' for one organization
 router.get('/social-media', (req, res) => {
   bySocialMedia.getPasswordsBySocial()
   .then(passwords => {
@@ -68,7 +69,7 @@ router.get('/social-media', (req, res) => {
   });
 });
 
-// // GET passwords/api/entertainment to retrieve title, login and password for all logins categorized as 'entertainment' for one organization
+// GET passwords/api/entertainment to retrieve title, login and password for all logins categorized as 'entertainment' for one organization
 router.get('/entertainment', (req, res) => {
   byEntertainment.getPasswordsByEntertainment()
   .then(passwords => {
@@ -81,6 +82,24 @@ router.get('/entertainment', (req, res) => {
   });
 });
 
+// POST passwords/api to create a new password(login) and add it to the passwords table
+router.post('/', (req, res) => {
+  const newPassword = req.body;
+
+  const newPassObj = { title: newPassword.title,
+    login: newPassword.login, password: newPassword.password, website: newPassword.website, category: newPassword.category
+                          };
+
+  // console.log(newPassObj);
+
+  createPassword.createNewPassword(newPassObj)
+  .then(() => res.redirect('/api/passwords'))
+  .catch(err => {
+    res
+      .status(500)
+      .json({ error: err.message });
+  });
+});
 
 
 module.exports = router;
