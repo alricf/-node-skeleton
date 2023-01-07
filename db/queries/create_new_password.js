@@ -6,6 +6,7 @@ const createNewPassword = (password) => {
     VALUES ($1, $2, $3, $4, $5, 1)
     RETURNING *;`, [password.title, password.login, password.password, password.website, password.category])
     .then(data => {
+      console.log(data);
       return data.rows;
     })
     .catch((error => {

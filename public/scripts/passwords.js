@@ -102,14 +102,36 @@ $(document).ready(function(){
   });
 
   // Add New Button into Passwords Table
-  $('.save-button').on('click', () => {
-    const formData = $(this).serialize();
+  $('.addNewButton').on('submit', (event) => {
+    event.preventDefault();
+    console.log('form');
+    const formData = $('.addNewButton').serialize();
+    console.log($('form').serialize());
     $.ajax({
       method: 'POST',
       url: '/api/passwords',
       data: formData
-    }).done(()=>{
-      console.log(formData);
+    })
+    .done(()=>{
+      console.log('Ajax Get');
+      $.ajax({
+        method: 'GET',
+        url: '/api/passwords'
+      })
+    .done((response) => {
+      console.log('response:', response);
+        $('.table').empty();
+        $('.table').append('<tbody> <tr><td><u>TITLE</u></td><td><u>USER</u></td><td><u>PASSWORD</u></td></tr>');
+        for(const row of response.passwords) {
+          console.log(row.title);
+          $('.table').append(`<tr>
+            <td>${row.title}</td>
+            <td>${row.login}</td>
+            <td>${row.password}</td>
+          </tr>`)
+        }
+        $('.table').append('</tbody>');
+      });
     })
   });
 

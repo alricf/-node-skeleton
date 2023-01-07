@@ -93,8 +93,8 @@ router.post('/', (req, res) => {
                        category: newPassword.category
                       };
 
-  createPassword.createNewPassword(newPassObj)
-  .then(() => console.log('promise returned'))
+  return createPassword.createNewPassword(newPassObj)
+  .then(() => {return res.status(201).json({statusCode: '201'});})
   .catch(err => {
     res
       .status(500)
