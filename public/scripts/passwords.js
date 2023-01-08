@@ -154,7 +154,7 @@ const getAllPasswords = () => {
           <td class="pass-buttons"><button type="button" id="copy-button">Copy</button></td>
           <td class="pass-buttons edit-delete-btn">
             <form id="edit-pass"><input type="text" class="new-pass-input" placeholder="new password"></form>
-            <button type="button" class="edit-button">Edit</button>
+            <button type="button" id="edit-button">Edit</button>
             <button type="button" class="delete-button">Delete</button></td>
         </tr>`);
       }
@@ -162,4 +162,3 @@ const getAllPasswords = () => {
     });
 };
 
-//<input type="text" class="new-pass-input" placeholder="new password">
