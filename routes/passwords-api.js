@@ -17,7 +17,7 @@ const byFinance = require('../db/queries/passwords_by_finance');
 const bySocialMedia = require('../db/queries/passwords_by_social');
 const byEntertainment = require('../db/queries/passwords_by_entertainment');
 const createPassword = require('../db/queries/create_new_password');
-const editPassword = require('../db/queries/edit_password');
+const setNewPassword = require('../db/queries/edit_password');
 
 // GET passwords/api to retrieve title, login and password for all logins for one organization
 router.get('/', (req, res) => {
@@ -103,17 +103,15 @@ router.post('/', (req, res) => {
   });
 });
 
-// POST passwords/api/:id to edit an existing password(login) and make the changes to the passwords table
+// POST passwords/api/:id to edit an existing password in the passwords table
 router.post('/:id', (req, res) => {
-  const editPassword = req.body;
-  const editPassObj = { title: editPassword.title,
-                       login: editPassword.login,
-                       password: editPassword.password,
-                       website: editPassword.website,
-                       category: editPassword.category
+  const editedPass = req.body;
+  const editedPassObj = {
+                       id: editedPass.id,
+                       password: editedPass.password,
                       };
 
-  return editPassObj.editPassword(editPassObj)
+  return setNewPassword.editPassword(editedPassObj)
   .then(() => {return res.status(201).json({statusCode: '201'});})
   .catch(err => {
     res
@@ -121,6 +119,8 @@ router.post('/:id', (req, res) => {
       .json({ error: err.message });
   });
 });
+
+
 
 
 module.exports = router;
