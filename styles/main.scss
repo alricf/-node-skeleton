@@ -118,6 +118,22 @@ table {
   margin-bottom: 100px;
 }
 
+th {
+  text-align: left;
+  padding: 15px 30px 15px 30px;
+  // color: white;
+  font-size: 18px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  width: 100%;
+}
+
+.table-header {
+  width: 100%;
+  border-bottom: 2px solid white;
+  color: white;
+}
+
 td {
   text-align: left;
   padding: 30px;
@@ -323,6 +339,11 @@ tr:nth-child(even) {
     visibility: hidden;
   }
 
+  .edit-delete-btn {
+    display: flex;
+    justify-content: end;
+  }
+
   .more-button {
       font-size: 18px;
       padding: 5px 30px 5px 30px;
@@ -344,3 +365,5 @@ tr:nth-child(even) {
       border: 2px solid #EAEAEA;
       border-radius: 50px;
     }
+
+
