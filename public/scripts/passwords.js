@@ -152,7 +152,7 @@ const getAllPasswords = () => {
           <td>${row.login}</td>
           <td id="${row.id}" class="password-column">${row.password}</td>
           <td class="pass-buttons"><button type="button" id="copy-button">Copy</button></td>
-          <td class="pass-buttons edit-delete-btn"><input type="text" class="new-pass-input" placeholder="new password">
+          <td class="pass-buttons edit-delete-btn">
             <button type="button" class="edit-button">Edit</button>
             <button type="button" class="delete-button">Delete</button></td>
         </tr>`);
@@ -160,3 +160,5 @@ const getAllPasswords = () => {
       $('.table').append('</tbody>');
     });
 };
+
+//<input type="text" class="new-pass-input" placeholder="new password">
