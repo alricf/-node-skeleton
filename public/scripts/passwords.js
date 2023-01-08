@@ -21,7 +21,7 @@ $(document).ready(function(){
       $('#vault-header-cat').empty();
       $('#vault-header-cat').append('My Vault > Work');
       $('.table').empty();
-      $('.table').append('<tbody> <tr><td><u>TITLE</u></td><td><u>USER</u></td><td><u>PASSWORD</u></td></tr>');
+      $('.table').append('<tbody> <tr class="table-header"><th>Account</th><th>Username</th><th colspan="3">Password</th></tr>');
       for(const row of response.passwords) {
         $('.table').append(`<tr>
           <td>${row.title}</td>
@@ -43,7 +43,7 @@ $(document).ready(function(){
       $('#vault-header-cat').empty();
       $('#vault-header-cat').append('My Vault > Finances');
       $('.table').empty();
-      $('.table').append('<tbody> <tr><td><u>TITLE</u></td><td><u>USER</u></td><td><u>PASSWORD</u></td></tr>');
+      $('.table').append('<tbody> <tr class="table-header"><th>Account</th><th>Username</th><th colspan="3">Password</th></tr>');
       for(const row of response.passwords) {
         $('.table').append(`<tr>
           <td>${row.title}</td>
@@ -65,7 +65,7 @@ $(document).ready(function(){
       $('#vault-header-cat').empty();
       $('#vault-header-cat').append('My Vault > Social Media');
       $('.table').empty();
-      $('.table').append('<tbody> <tr><td><u>TITLE</u></td><td><u>USER</u></td><td><u>PASSWORD</u></td></tr>');
+      $('.table').append('<tbody> <tr class="table-header"><th>Account</th><th>Username</th><th colspan="3">Password</th></tr>');
       for(const row of response.passwords) {
         $('.table').append(`<tr>
           <td>${row.title}</td>
@@ -87,7 +87,7 @@ $(document).ready(function(){
       $('#vault-header-cat').empty();
       $('#vault-header-cat').append('My Vault > Entertainment');
       $('.table').empty();
-      $('.table').append('<tbody> <tr><td><u>TITLE</u></td><td><u>USER</u></td><td><u>PASSWORD</u></td></tr>');
+      $('.table').append('<tbody> <tr class="table-header"><th>Account</th><th>Username</th><th colspan="3">Password</th></tr>');
       for(const row of response.passwords) {
         $('.table').append(`<tr>
           <td>${row.title}</td>
@@ -119,7 +119,7 @@ $(document).ready(function(){
     .done((response) => {
       console.log('response:', response);
         $('.table').empty();
-        $('.table').append('<tbody> <tr><td><u>TITLE</u></td><td><u>USER</u></td><td><u>PASSWORD</u></td></tr>');
+        $('.table').append('<tbody> <tr class="table-header"><th>Account</th><th>Username</th><th colspan="3">Password</th></tr>');
         for(const row of response.passwords) {
           console.log(row.title);
           $('.table').append(`<tr>
