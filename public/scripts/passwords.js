@@ -8,6 +8,7 @@ $(document).ready(function(){
       url: '/api/passwords'
     })
     .done((response) => {
+      $('.table').empty();
       $('.table').append('<tbody> <tr class="table-header"><th>Account</th><th>Username</th><th colspan="3">Password</th></tr>');
         for (const row of response.passwords) {
           $('.table').append(`<tr>

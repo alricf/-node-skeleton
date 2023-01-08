@@ -269,7 +269,7 @@ tr:nth-child(even) {
     background-color: white;
     border: 3px solid #F59D2A;
     border-radius: 50px;
-    margin: 20px;
+    margin: 20px 20px 20px 0;
     align-self: center;
   }
 
@@ -313,11 +313,6 @@ tr:nth-child(even) {
       align-self: flex-end;
   }
 
-  .pass-buttons {
-    display: flex;
-    justify-content: end;
-  }
-
   .pass-buttons button:hover {
     background-color: #EAEAEA;;
       color: #273644;
@@ -328,13 +323,13 @@ tr:nth-child(even) {
 
 
   .new-pass-input {
-    border: 3px solid #F59D2A;
+    border: 3px solid white;
+    background-color: #dddddd;
     border-radius: 30px;
-    resize: none;
     width: 300px;
-    padding: 10px;
+    padding: 4px 10px 4px 10px;
     color: #273644;
-    margin-right: 20px;
+    margin-right: 10px;
     visibility: hidden;
   }
 
