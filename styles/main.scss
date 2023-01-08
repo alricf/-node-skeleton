@@ -147,9 +147,6 @@ tr:nth-child(even) {
   width: 100%;
 }
 
-.hidden-info {
-  display: none;
-}
 
 .passwords-section {
   width: 100%;
@@ -360,6 +357,14 @@ tr:nth-child(even) {
       border-radius: 50px;
     }
 
+
+#vault-header-cat {
+  font-size: 26px;
+}
+
+.new-pass-input {
+
+}
 
 .form {
 

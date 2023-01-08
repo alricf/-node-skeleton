@@ -143,7 +143,7 @@ const getAllPasswords = () => {
   })
     .done((response) => {
       $('#vault-header-cat').empty();
-      $('#vault-header-cat').append('My Vault > All Passwords');
+      $('#vault-header-cat').append('My Vault : All Passwords');
       $('.table').empty();
       $('.table').append('<tbody> <tr class="table-header"><th>Account</th><th>Username</th><th colspan="3">Password</th></tr>');
       for (const row of response.passwords) {
@@ -153,6 +153,7 @@ const getAllPasswords = () => {
           <td id="${row.id}" class="password-column">${row.password}</td>
           <td class="pass-buttons"><button type="button" id="copy-button">Copy</button></td>
           <td class="pass-buttons edit-delete-btn">
+            <form id="edit-pass"><input type="text" class="new-pass-input" placeholder="new password"></form>
             <button type="button" class="edit-button">Edit</button>
             <button type="button" class="delete-button">Delete</button></td>
         </tr>`);
