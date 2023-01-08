@@ -21,7 +21,7 @@ $(document).ready(function(){
       $('#vault-header-cat').empty();
       $('#vault-header-cat').append('My Vault > Work');
       $('.table').empty();
-      $('.table').append('<tbody> <tr><td><u>TITLE</u></td><td><u>USER</u></td><td><u>PASSWORD</u></td></tr>');
+      $('.table').append('<tbody> <tr class="table-header"><th>Account</th><th>Username</th><th colspan="3">Password</th></tr>');
       for(const row of response.passwords) {
         $('.table').append(`<tr>
           <td>${row.title}</td>
@@ -43,7 +43,7 @@ $(document).ready(function(){
       $('#vault-header-cat').empty();
       $('#vault-header-cat').append('My Vault > Finances');
       $('.table').empty();
-      $('.table').append('<tbody> <tr><td><u>TITLE</u></td><td><u>USER</u></td><td><u>PASSWORD</u></td></tr>');
+      $('.table').append('<tbody> <tr class="table-header"><th>Account</th><th>Username</th><th colspan="3">Password</th></tr>');
       for(const row of response.passwords) {
         $('.table').append(`<tr>
           <td>${row.title}</td>
@@ -65,7 +65,7 @@ $(document).ready(function(){
       $('#vault-header-cat').empty();
       $('#vault-header-cat').append('My Vault > Social Media');
       $('.table').empty();
-      $('.table').append('<tbody> <tr><td><u>TITLE</u></td><td><u>USER</u></td><td><u>PASSWORD</u></td></tr>');
+      $('.table').append('<tbody> <tr class="table-header"><th>Account</th><th>Username</th><th colspan="3">Password</th></tr>');
       for(const row of response.passwords) {
         $('.table').append(`<tr>
           <td>${row.title}</td>
@@ -87,7 +87,7 @@ $(document).ready(function(){
       $('#vault-header-cat').empty();
       $('#vault-header-cat').append('My Vault > Entertainment');
       $('.table').empty();
-      $('.table').append('<tbody> <tr><td><u>TITLE</u></td><td><u>USER</u></td><td><u>PASSWORD</u></td></tr>');
+      $('.table').append('<tbody> <tr class="table-header"><th>Account</th><th>Username</th><th colspan="3">Password</th></tr>');
       for(const row of response.passwords) {
         $('.table').append(`<tr>
           <td>${row.title}</td>
@@ -119,7 +119,7 @@ $(document).ready(function(){
     .done((response) => {
       console.log('response:', response);
         $('.table').empty();
-        $('.table').append('<tbody> <tr><td><u>TITLE</u></td><td><u>USER</u></td><td><u>PASSWORD</u></td></tr>');
+        $('.table').append('<tbody> <tr class="table-header"><th>Account</th><th>Username</th><th colspan="3">Password</th></tr>');
         for(const row of response.passwords) {
           console.log(row.title);
           $('.table').append(`<tr>
@@ -143,7 +143,7 @@ const getAllPasswords = () => {
   })
     .done((response) => {
       $('#vault-header-cat').empty();
-      $('#vault-header-cat').append('My Vault > All Passwords');
+      $('#vault-header-cat').append('My Vault : All Passwords');
       $('.table').empty();
       $('.table').append('<tbody> <tr class="table-header"><th>Account</th><th>Username</th><th colspan="3">Password</th></tr>');
       for (const row of response.passwords) {
@@ -153,7 +153,8 @@ const getAllPasswords = () => {
           <td id="${row.id}" class="password-column">${row.password}</td>
           <td class="pass-buttons"><button type="button" id="copy-button">Copy</button></td>
           <td class="pass-buttons edit-delete-btn">
-            <button type="button" class="edit-button">Edit</button>
+            <form id="edit-pass"><input type="text" class="new-pass-input" placeholder="new password"></form>
+            <button type="button" id="edit-button">Edit</button>
             <button type="button" class="delete-button">Delete</button></td>
         </tr>`);
       }
@@ -161,4 +162,3 @@ const getAllPasswords = () => {
     });
 };
 
-//<input type="text" class="new-pass-input" placeholder="new password">
