@@ -122,7 +122,19 @@ router.post('/:id', (req, res) => {
   });
 });
 
+// POST /api/passwords/:id/delete to delete an existing password(login) from the passwords table
+router.post('/:id/delete', (req, res) => {
+  const deletePassword = req.body;
+  const deletePassObj = {id: deletePassword.id};
 
+  return delPassword.deletePassword(deletePassObj)
+  .then(() => {return res.status(201).json({statusCode: '201'});})
+  .catch(err => {
+    res
+      .status(500)
+      .json({ error: err.message });
+  });
+});
 
 
 module.exports = router;
