@@ -2,31 +2,6 @@
 
 $(document).ready(function() {
 
-  const loadAllPasswords = () => {
-    $.ajax({
-      method: 'GET',
-      url: '/api/passwords'
-    })
-      .done((response) => {
-        $('.table').empty();
-        $('.table').append('<tbody> <tr><td><u>TITLE</u></td><td><u>USER</u></td><td><u>PASSWORD</u></td></tr>');
-        for (const row of response.passwords) {
-          $('.table').append(`<tr>
-            <td>${row.title}</td>
-            <td>${row.login}</td>
-            <td id="copy-pass ${row.id}">${row.password}</td>
-            <td class="pass-buttons"><button type="button" class="copy-button">Copy</button></td>
-            <td class="pass-buttons edit-delete-btn"><input type="text" class="new-pass-input" placeholder="new password">
-              <button type="button" class="edit-button">Edit</button>
-              <button type="button" class="delete-button">Delete</button></td>
-          </tr>`);
-        }
-        $('.table').append('</tbody>');
-      });
-  };
-
-  loadAllPasswords();
-
 
 
   //Add new - button click, displays inputs for creating new password info

@@ -17,6 +17,7 @@ const byFinance = require('../db/queries/passwords_by_finance');
 const bySocialMedia = require('../db/queries/passwords_by_social');
 const byEntertainment = require('../db/queries/passwords_by_entertainment');
 const createPassword = require('../db/queries/create_new_password');
+const editPassword = require('../db/queries/edit_password');
 
 // GET passwords/api to retrieve title, login and password for all logins for one organization
 router.get('/', (req, res) => {
@@ -94,6 +95,25 @@ router.post('/', (req, res) => {
                       };
 
   return createPassword.createNewPassword(newPassObj)
+  .then(() => {return res.status(201).json({statusCode: '201'});})
+  .catch(err => {
+    res
+      .status(500)
+      .json({ error: err.message });
+  });
+});
+
+// POST passwords/api/:id to edit an existing password(login) and make the changes to the passwords table
+router.post('/:id', (req, res) => {
+  const editPassword = req.body;
+  const editPassObj = { title: editPassword.title,
+                       login: editPassword.login,
+                       password: editPassword.password,
+                       website: editPassword.website,
+                       category: editPassword.category
+                      };
+
+  return editPassObj.editPassword(editPassObj)
   .then(() => {return res.status(201).json({statusCode: '201'});})
   .catch(err => {
     res
