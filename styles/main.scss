@@ -204,7 +204,7 @@ tr:nth-child(even) {
   margin: 10px 20px 10px 20px;
 }
 
-.new-inputs {
+.addNewButton {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -362,8 +362,8 @@ tr:nth-child(even) {
 }
 
 
-.form {
-
+.addNewButton {
+  color: purple;
 }
 
 

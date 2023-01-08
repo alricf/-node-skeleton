@@ -150,15 +150,29 @@ const getAllPasswords = () => {
         $('.table').append(`<tr>
           <td>${row.title}</td>
           <td>${row.login}</td>
-          <td id="${row.id}" class="password-column">${row.password}</td>
-          <td class="pass-buttons"><button type="button" id="copy-button">Copy</button></td>
+          <td id="pass-${row.id}" class="password-column">${row.password}</td>
+          <td class="pass-buttons"><button type="button" class="copy-button" id="copy-${row.id}">Copy</button></td>
           <td class="pass-buttons edit-delete-btn">
             <form id="edit-pass"><input type="text" class="new-pass-input" placeholder="new password"></form>
-            <button type="button" id="edit-button">Edit</button>
-            <button type="button" class="delete-button">Delete</button></td>
+            <button type="button" class="edit-button" id="edit-${row.id}">Edit</button>
+            <button type="button" id ="delete-${row.id}" class="delete-button">Delete</button></td>
         </tr>`);
       }
       $('.table').append('</tbody>');
+
+          //Edit button function
+      $('.edit-button').on('click', function() {
+        const id = getId(this.id);
+        console.log(id);
+        $('.new-pass-input').css("visibility", "visible");
+        this.textContent = "Save";
+      });
     });
 };
 
+
+
+const getId = function(idName) {
+  const id = idName.slice(-1);
+  return id;
+};

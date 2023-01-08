@@ -26,7 +26,8 @@ $(document).ready(function() {
   });
 
   //Edit button function
-  $(".edit-button").on("click", function() {
+  $('.edit-button').on('click', function() {
+    console.log("hii");
     $('.new-pass-input').css("visibility", "visible");
     this.textContent = "Save";
   });
