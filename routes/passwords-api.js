@@ -20,6 +20,11 @@ const createPassword = require('../db/queries/create_new_password');
 const setNewPassword = require('../db/queries/edit_password');
 const delPassword = require('../db/queries/delete_password');
 
+
+////////////////////////////
+// /api/passwords/ routes
+////////////////////////////
+
 // GET /api/passwords/ to retrieve title, login and password for all logins for one organization
 router.get('/', (req, res) => {
   byOrg.getPasswordsByOrg()
