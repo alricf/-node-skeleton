@@ -18,8 +18,9 @@ const bySocialMedia = require('../db/queries/passwords_by_social');
 const byEntertainment = require('../db/queries/passwords_by_entertainment');
 const createPassword = require('../db/queries/create_new_password');
 const setNewPassword = require('../db/queries/edit_password');
+const delPassword = require('../db/queries/delete_password');
 
-// GET passwords/api to retrieve title, login and password for all logins for one organization
+// GET /api/passwords/ to retrieve title, login and password for all logins for one organization
 router.get('/', (req, res) => {
   byOrg.getPasswordsByOrg()
   .then(passwords => {
@@ -32,7 +33,7 @@ router.get('/', (req, res) => {
   });
 });
 
-// GET passwords/api/work to retrieve title, login and password for all logins categorized as 'work' for one organization
+// GET /api/passwords/work to retrieve title, login and password for all logins categorized as 'work' for one organization
 router.get('/work', (req, res) => {
   byWork.getPasswordsByWork()
   .then(passwords => {
@@ -45,7 +46,7 @@ router.get('/work', (req, res) => {
   });
 });
 
-// GET passwords/api/finances to retrieve title, login and password for all logins categorized as 'finances' for one organization
+// GET /api/passwords/finances to retrieve title, login and password for all logins categorized as 'finances' for one organization
 router.get('/finance', (req, res) => {
   byFinance.getPasswordsByFinance()
   .then(passwords => {
@@ -58,7 +59,7 @@ router.get('/finance', (req, res) => {
   });
 });
 
-// GET passwords/api/social-media to retrieve title, login and password for all logins categorized as 'social-media' for one organization
+// GET /api/passwords/social-media to retrieve title, login and password for all logins categorized as 'social-media' for one organization
 router.get('/social-media', (req, res) => {
   bySocialMedia.getPasswordsBySocial()
   .then(passwords => {
@@ -71,7 +72,7 @@ router.get('/social-media', (req, res) => {
   });
 });
 
-// GET passwords/api/entertainment to retrieve title, login and password for all logins categorized as 'entertainment' for one organization
+// GET /api/passwords/entertainment to retrieve title, login and password for all logins categorized as 'entertainment' for one organization
 router.get('/entertainment', (req, res) => {
   byEntertainment.getPasswordsByEntertainment()
   .then(passwords => {
@@ -84,10 +85,11 @@ router.get('/entertainment', (req, res) => {
   });
 });
 
-// POST passwords/api to create a new password(login) and add it to the passwords table
+// POST /api/passwords to create a new password(login) and add it to the passwords table
 router.post('/', (req, res) => {
   const newPassword = req.body;
-  const newPassObj = { title: newPassword.title,
+  const newPassObj = {
+                       title: newPassword.title,
                        login: newPassword.login,
                        password: newPassword.password,
                        website: newPassword.website,
@@ -103,7 +105,7 @@ router.post('/', (req, res) => {
   });
 });
 
-// POST passwords/api/:id to edit an existing password in the passwords table
+// POST /api/passwords/:id to edit an existing password in the passwords table
 router.post('/:id', (req, res) => {
   const editedPass = req.body;
   const editedPassObj = {
