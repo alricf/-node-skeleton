@@ -106,11 +106,9 @@ router.post('/', (req, res) => {
 // POST passwords/api/:id to edit an existing password(login) and make the changes to the passwords table
 router.post('/:id', (req, res) => {
   const editPassword = req.body;
-  const editPassObj = { title: editPassword.title,
-                       login: editPassword.login,
+  const editPassObj = {
+                       id: editPassword.id,
                        password: editPassword.password,
-                       website: editPassword.website,
-                       category: editPassword.category
                       };
 
   return editPassObj.editPassword(editPassObj)
