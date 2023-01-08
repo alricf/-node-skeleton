@@ -8,18 +8,22 @@ $(document).ready(function(){
       url: '/api/passwords'
     })
     .done((response) => {
-      $('.table').empty();
       $('.table').append('<tbody> <tr class="table-header"><th>Account</th><th>Username</th><th colspan="3">Password</th></tr>');
-      for(const row of response.passwords) {
-        $('.table').append(`<tr>
-          <td>${row.title}</td>
-          <td>${row.login}</td>
-          <td>${row.password}</td>
-        </tr>`)
-      }
-      $('.table').append('</tbody>');
+        for (const row of response.passwords) {
+          $('.table').append(`<tr>
+            <td>${row.title}</td>
+            <td>${row.login}</td>
+            <td id="${row.id}" class="password-column">${row.password}</td>
+            <td class="pass-buttons"><button type="button" id="copy-button">Copy</button></td>
+            <td class="pass-buttons edit-delete-btn"><input type="text" class="new-pass-input" placeholder="new password">
+              <button type="button" class="edit-button">Edit</button>
+              <button type="button" class="delete-button">Delete</button></td>
+          </tr>`);
+        }
+        $('.table').append('</tbody>');
     });
   });
+
 
   // Work
   $('ul.side-menu li:nth-child(2)').on('click', () => {
