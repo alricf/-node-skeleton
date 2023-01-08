@@ -36,18 +36,19 @@
 
       <div class="passwords-section">
       <div class="vault-header">
-        <h1>MyVault</h1>
+        <h1 id="vault-header-cat">MyVault</h1>
         <button type="button" class="add-new">Add New</button>
       </div>
 
       <div class="new-password-box">
         <p>Add new login</p>
         <div class="new-inputs">
-          <input type="text" id="new-title" placeholder="Title">
-          <input type="text" id="new-user" placeholder="Username/email">
-          <input type="text" id="new-website" placeholder="Website">
-          <input type="text" id="new-category" placeholder="Category">
-          <input type="text" id="new-password" placeholder="Password">
+          <form class= "addNewButton">
+          <input type="text" id="new-title" name="title" placeholder="Title">
+          <input type="text" id="new-user" name="login" placeholder="Username/email">
+          <input type="text" id="new-website" name="website" placeholder="Website">
+          <input type="text" id="new-category" name="category" placeholder="Category">
+          <input type="text" id="new-password" name="password" placeholder="Password">
         </div>
         <div id="generate-pass">
           <button type="button" class="generate-button">Generate Password</button>
@@ -65,7 +66,8 @@
           <input type="checkbox" id="symbols" class="checkbox" name="pass-req" value="Symbols" checked>
   <label for="symbols">Symbols</label>
         </div>
-          <button type="button" class="save-button">Save</button>
+          <button type="submit" class="save-button">Save</button>
+        </form>
       </div>
 
       <table class="table">

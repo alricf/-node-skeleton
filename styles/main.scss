@@ -118,6 +118,21 @@ table {
   margin-bottom: 100px;
 }
 
+th {
+  text-align: left;
+  padding: 15px 30px 15px 30px;
+  // color: white;
+  font-size: 18px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+}
+
+.table-header {
+  width: 100%;
+  border-bottom: 2px solid white;
+  color: white;
+}
+
 td {
   text-align: left;
   padding: 30px;
@@ -254,7 +269,7 @@ tr:nth-child(even) {
     background-color: white;
     border: 3px solid #F59D2A;
     border-radius: 50px;
-    margin: 20 20px 20px 0;
+    margin: 20px 20px 20px 0;
     align-self: center;
   }
 
@@ -286,7 +301,8 @@ tr:nth-child(even) {
 
   .pass-buttons button {
     font-size: 18px;
-      padding: 5px 30px 5px 30px;
+      padding: 5px 20px 5px 20px;
+      list-style: none;
       color: #EAEAEA;
       border-radius: 50px;
       background-color: #273644;
@@ -296,25 +312,6 @@ tr:nth-child(even) {
       margin: 0 20px 0 20px;
       align-self: flex-end;
   }
-
-  .copy-pass {
-    font-size: 18px;
-      padding: 5px 30px 5px 30px;
-      color: #EAEAEA;
-      border-radius: 50px;
-      background-color: #273644;
-      border: 2px solid #EAEAEA;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 400;
-      margin: 0 20px 0 20px;
-      align-self: flex-end;
-  }
-
-
-  // .pass-buttons {
-  //   display: flex;
-  //   justify-content: end;
-  // }
 
   .pass-buttons button:hover {
     background-color: #EAEAEA;;
@@ -341,24 +338,36 @@ tr:nth-child(even) {
     justify-content: end;
   }
 
-  // .more-button {
-  //     font-size: 18px;
-  //     padding: 5px 30px 5px 30px;
-  //     list-style: none;
-  //     color: #EAEAEA;
-  //     border-radius: 50px;
-  //     background-color: #273644;
-  //     border: 2px solid #EAEAEA;
-  //     font-family: 'Poppins', sans-serif;
-  //     font-weight: 400;
-  //     margin: 0 20px 0 20px;
-  //     align-self: flex-end;
-  //   }
+  .more-button {
+      font-size: 18px;
+      padding: 5px 30px 5px 30px;
+      list-style: none;
+      color: #EAEAEA;
+      border-radius: 50px;
+      background-color: #273644;
+      border: 2px solid #EAEAEA;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 400;
+      margin: 0 20px 0 20px;
+      align-self: flex-end;
+    }
 
-  //   .more-button:hover {
-  //     background-color: #EAEAEA;;
-  //     color: #273644;
-  //     cursor: pointer;
-  //     border: 2px solid #EAEAEA;
-  //     border-radius: 50px;
-  //   }
+    .more-button:hover {
+      background-color: #EAEAEA;;
+      color: #273644;
+      cursor: pointer;
+      border: 2px solid #EAEAEA;
+      border-radius: 50px;
+    }
+
+
+.form {
+
+}
+
+
+
+
+@media only screen and (max-width: 1450px) {
+
+}
