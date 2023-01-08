@@ -9,7 +9,7 @@ $(document).ready(function(){
     })
     .done((response) => {
       $('.table').empty();
-      $('.table').append('<tbody> <tr><td><u>TITLE</u></td><td><u>USER</u></td><td><u>PASSWORD</u></td></tr>');
+      $('.table').append('<tbody> <tr class="table-header"><th>Account</th><th>Username</th><th colspan="3">Password</th></tr>');
       for(const row of response.passwords) {
         $('.table').append(`<tr>
           <td>${row.title}</td>
