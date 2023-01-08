@@ -135,26 +135,55 @@ const getAllPasswords = () => {
           <td id="pass-${row.id}" class="password-column">${row.password}</td>
           <td class="pass-buttons"><button type="button" class="copy-button" id="copy-${row.id}">Copy</button></td>
           <td class="pass-buttons edit-delete-btn">
-            <form id="edit-pass"><input type="text" class="new-pass-input" placeholder="new password"></form>
+            <form id="edit-pass"><input type="text" id="new-pass-${row.id}" class="new-pass-input" placeholder="new password"></form>
             <button type="button" class="edit-button" id="edit-${row.id}">Edit</button>
             <button type="button" id ="delete-${row.id}" class="delete-button">Delete</button></td>
         </tr>`);
       }
       $('.table').append('</tbody>');
 
-      //Edit button function
+      //Edit button on Click
       $('.edit-button').on('click', function() {
         const id = getId(this.id);
-        console.log(id);
-        $('.new-pass-input').css("visibility", "visible");
-        this.textContent = "Save";
+        togglePassInput(id);
+      });
+
+
+      //Copy button on click
+      $(".copy-button").on("click", function() {
+        const id = getId(this.id);
+        copyPass(id);
       });
     });
 };
 
 
-
+//get id from element id name
 const getId = function(idName) {
   const id = idName.slice(-1);
   return id;
+};
+
+//Password Input toggle
+const togglePassInput = function(id) {
+  $(`#new-pass-${id}`).css("display", "flex");
+  $(`#edit-${id}`).text("Save");
+  $(`#delete-${id}`).css("display", "none");
+
+  const passInputs = document.querySelectorAll('.new-pass-input');
+  passInputs.forEach(input => {
+    const inputId = getId(input.id);
+    if (inputId !== `${id}`) {
+      input.style.display = "none";
+      $(`#edit-${inputId}`).text("Edit");
+      $(`#delete-${inputId}`).css("display", "flex");
+    }
+  });
+};
+
+//Copy password to clipboard
+const copyPass = function(id) {
+  const idName = `#pass-${id}`;
+  const copyText = $(idName).text();
+  navigator.clipboard.writeText(copyText);
 };

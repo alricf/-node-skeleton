@@ -25,13 +25,6 @@ $(document).ready(function() {
     }
   });
 
-  //Edit button function
-  $('.edit-button').on('click', function() {
-    console.log("hii");
-    $('.new-pass-input').css("visibility", "visible");
-    this.textContent = "Save";
-  });
-
   //Change range slider label based on user selection
   const slider = document.getElementById('range');
 
@@ -96,15 +89,6 @@ $(document).ready(function() {
 
   });
 
-  //Copy password to clipboard
-
-  $(".copy-button").on("click", function() {
-    const password = document.getElementById("copy-pass");
-    const copyText = password.innerHTML;
-
-    // copyText.select();
-    navigator.clipboard.writeText(copyText);
-  });
 
 
   // $(".more-button").on("click", function() {
