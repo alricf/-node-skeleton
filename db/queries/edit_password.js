@@ -3,9 +3,9 @@ const db = require('../connection');
 const editPassword = (password) => {
   console.log(password);
   return db.query(`UPDATE passwords
-  SET title = $1, login = $2, password = $3, website = $4, category = $5
-  WHERE organization_id = 1 AND id = 1
-  RETURNING *;`, [password.title, password.login, password.password, password.website, password.category])
+  SET password = $1
+  WHERE organization_id = 1 AND id = $2
+  RETURNING *;`, [password.password, password.id])
     .then(data => {
       return data.rows;
     })
