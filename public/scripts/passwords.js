@@ -111,25 +111,7 @@ $(document).ready(function(){
       data: formData
     })
     .done(()=>{
-      console.log('Ajax Get');
-      $.ajax({
-        method: 'GET',
-        url: '/api/passwords'
-      })
-    .done((response) => {
-      console.log('response:', response);
-        $('.table').empty();
-        $('.table').append('<tbody> <tr class="table-header"><th>Account</th><th>Username</th><th colspan="3">Password</th></tr>');
-        for(const row of response.passwords) {
-          console.log(row.title);
-          $('.table').append(`<tr>
-            <td>${row.title}</td>
-            <td>${row.login}</td>
-            <td>${row.password}</td>
-          </tr>`)
-        }
-        $('.table').append('</tbody>');
-      });
+      getAllPasswords();
     })
   });
 
