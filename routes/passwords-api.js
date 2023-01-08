@@ -102,7 +102,7 @@ router.post('/', (req, res) => {
                       };
 
   return createPassword.createNewPassword(newPassObj)
-  .then(() => {return res.status(201).json({statusCode: '201'});})
+  .then(() => {return res.sendStatus(201);})
   .catch(err => {
     res
       .status(500)
