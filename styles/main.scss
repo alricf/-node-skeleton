@@ -208,6 +208,13 @@ tr:nth-child(even) {
   border-radius: 50px;
 }
 
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+}
+
 .new-password-box {
   display: flex;
   flex-direction: column;
