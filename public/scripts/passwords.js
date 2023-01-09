@@ -1,39 +1,64 @@
 $(document).ready(function(){
 
   //display all passwords on page load
-  getAllPasswords('');
+  getPasswords('');
 
   // Side-Menu Queries //
 
   // All Passwords
   $('ul.side-menu li:nth-child(1)').on('click', () => {
     $('.new-password-box').css('display', "none");
-    getAllPasswords('');
+    $('.li-all').css("width", "260px");
+    $('.li-work').css("width", "250px");
+    $('.li-finance').css("width", "250px");
+    $('.li-social-media').css("width", "250px");
+    $('.li-entertainment').css("width", "250px");
+    getPasswords('');
   });
 
 
   // Work
   $('ul.side-menu li:nth-child(2)').on('click', () => {
     $('.new-password-box').css('display', "none");
-    getAllPasswords('work');
+    $('.li-all').css("width", "250px");
+    $('.li-work').css("width", "260px");
+    $('.li-finance').css("width", "250px");
+    $('.li-social-media').css("width", "250px");
+    $('.li-entertainment').css("width", "250px");
+    getPasswords('work');
   });
 
   // Finances
   $('ul.side-menu li:nth-child(3)').on('click', () => {
     $('.new-password-box').css('display', "none");
-    getAllPasswords('finance');
+    $('.li-all').css("width", "250px");
+    $('.li-work').css("width", "250px");
+    $('.li-finance').css("width", "260px");
+    $('.li-social-media').css("width", "250px");
+    $('.li-entertainment').css("width", "250px");
+    getPasswords('finance');
   });
 
   // Social Media
   $('ul.side-menu li:nth-child(4)').on('click', () => {
     $('.new-password-box').css('display', "none");
-    getAllPasswords('social-media');
+    $('.li-all').css("width", "250px");
+    $('.li-work').css("width", "250px");
+    $('.li-finance').css("width", "250px");
+    $('.li-social-media').css("width", "260px");
+    $('.li-entertainment').css("width", "250px");
+    getPasswords('social-media');
   });
 
   // Entertainment
   $('ul.side-menu li:nth-child(5)').on('click', () => {
     $('.new-password-box').css('display', "none");
-    getAllPasswords('entertainment');
+    $('.li-all').css("width", "250px");
+    $('.li-work').css("width", "250px");
+    $('.li-finance').css("width", "250px");
+    $('.li-social-media').css("width", "250px");
+    $('.li-entertainment').css("width", "260px");
+    getPasswords('entertainment');
   });
 
   // Add New Button into Passwords Table
@@ -46,7 +71,7 @@ $(document).ready(function(){
       data: formData
     })
     .done(()=>{
-      getAllPasswords();
+      getPasswords();
       $('.new-password-box').css("display", "none");
       $('#new-title').val('');
       $('#new-user').val('');
@@ -59,7 +84,7 @@ $(document).ready(function(){
 });
 
 //Load all passwords;
-const getAllPasswords = (category) => {
+const getPasswords = (category) => {
   let categoryUrl = `api/passwords/${category}`;
   let headerCategory = '';
 
@@ -120,7 +145,7 @@ const getAllPasswords = (category) => {
           data: formData
         })
           .done(()=>{
-            return getAllPasswords(`${category}`);
+            return getPasswords(`${category}`);
           });
 
       });
@@ -136,7 +161,7 @@ const getAllPasswords = (category) => {
           data: formData
         })
           .done(()=>{
-            return getAllPasswords(`${category}`);
+            return getPasswords(`${category}`);
           });
       });
 
