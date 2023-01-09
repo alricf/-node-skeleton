@@ -39,6 +39,19 @@ router.get('/', (req, res) => {
   });
 });
 
+// GET passwords/api/work to retrieve title, login and password for all logins categorized as 'work' for one organization
+router.get('/work', (req, res) => {
+  byWork.getPasswordsByWork()
+  .then(passwords => {
+    res.json({ passwords });
+  })
+  .catch(err => {
+    res
+      .status(500)
+      .json({ error: err.message });
+  });
+});
+
 // GET /api/passwords/finances to retrieve title, login and password for all logins categorized as 'finances' for one organization
 router.get('/finance', (req, res) => {
   byFinance.getPasswordsByFinance()
