@@ -7,12 +7,14 @@ $(document).ready(function(){
 
   // All Passwords
   $('ul.side-menu li:nth-child(1)').on('click', () => {
+    $('.new-password-box').css('display', "none");
     getAllPasswords();
   });
 
 
   // Work
   $('ul.side-menu li:nth-child(2)').on('click', () => {
+    $('.new-password-box').css('display', "none");
     $.ajax({
       method: 'GET',
       url: '/api/passwords/work'
@@ -35,6 +37,7 @@ $(document).ready(function(){
 
   // Finances
   $('ul.side-menu li:nth-child(3)').on('click', () => {
+    $('.new-password-box').css('display', "none");
     $.ajax({
       method: 'GET',
       url: '/api/passwords/finance'
@@ -57,6 +60,7 @@ $(document).ready(function(){
 
   // Social Media
   $('ul.side-menu li:nth-child(4)').on('click', () => {
+    $('.new-password-box').css('display', "none");
     $.ajax({
       method: 'GET',
       url: '/api/passwords/social-media'
@@ -79,6 +83,7 @@ $(document).ready(function(){
 
   // Entertainment
   $('ul.side-menu li:nth-child(5)').on('click', () => {
+    $('.new-password-box').css('display', "none");
     $.ajax({
       method: 'GET',
       url: '/api/passwords/entertainment'
@@ -110,7 +115,11 @@ $(document).ready(function(){
     })
     .done(()=>{
       getAllPasswords();
-
+      $('#new-title').val('');
+      $('#new-user').val('');
+      $('#new-website').val('');
+      $('#new-category').val('');
+      $('#new-password').val('');
     })
   });
 
@@ -134,8 +143,8 @@ const getAllPasswords = () => {
           <td id="pass-${row.id}" class="password-column">${row.password}</td>
           <td class="pass-buttons"><button type="button" class="copy-button" id="copy-${row.id}">Copy</button></td>
           <td class="pass-buttons edit-delete-btn">
-            <form id="form-${row.id}" class="edit-pass"><input type="text" id="new-pass-${row.id}" class="new-pass-input" name="password" placeholder="new password" required>
-            <button type="submit" id="save-edit-${row.id}" class="save-edit-button">Save</button></form>
+            <form id="form-${row.id}" class="edit-pass"><input type="text" id="new_pass-${row.id}" class="new-pass-input" name="password" placeholder="new password" required>
+            <button type="submit" id="save_edit-${row.id}" class="save_edit-button">Save</button></form>
             <button type="button" class="edit-button" id="edit-${row.id}">Edit</button>
             <button type="button" id ="delete-${row.id}" class="delete-button">Delete</button></td>
         </tr>`);
@@ -146,12 +155,6 @@ const getAllPasswords = () => {
       $('.edit-button').on('click', function() {
         const id = getId(this.id);
         togglePassInput(id);
-      });
-
-      //Copy button on click
-      $(".copy-button").on("click", function() {
-        const id = getId(this.id);
-        copyPass(id);
       });
 
 
@@ -172,6 +175,7 @@ const getAllPasswords = () => {
 
       });
 
+      //Delete password
       $(".delete-button").on("click", function() {
         const id = getId(this.id);
         const formData = `id=${id}`;
@@ -185,20 +189,26 @@ const getAllPasswords = () => {
             getAllPasswords();
           });
       });
+
+      //Copy button on click
+      $(".copy-button").on("click", function() {
+        const id = getId(this.id);
+        return copyPass(id);
+      });
     });
 };
 
 
 //get id from element id name
 const getId = function(idName) {
-  const id = idName.slice(-1);
+  const id = idName.split('-')[1];
   return id;
 };
 
 //Password Input toggle
 const togglePassInput = function(id) {
-  $(`#new-pass-${id}`).css("display", "flex");
-  $(`#save-edit-${id}`).css("display", "flex");
+  $(`#new_pass-${id}`).css("display", "flex");
+  $(`#save_edit-${id}`).css("display", "flex");
   $(`#delete-${id}`).css("display", "none");
   $(`#edit-${id}`).css("display", "none");
 
@@ -210,7 +220,7 @@ const togglePassInput = function(id) {
       $(`#edit-${inputId}`).text("Edit");
       $(`#edit-${inputId}`).css("display", "flex");
       $(`#delete-${inputId}`).css("display", "flex");
-      $(`#save-edit-${inputId}`).css("display", "none");
+      $(`#save_edit-${inputId}`).css("display", "none");
     }
   });
 };
@@ -218,6 +228,6 @@ const togglePassInput = function(id) {
 //Copy password to clipboard
 const copyPass = function(id) {
   const idName = `#pass-${id}`;
-  const copyText = $(idName).text();
+  const copyText = $(`${idName}`).text();
   navigator.clipboard.writeText(copyText);
 };
