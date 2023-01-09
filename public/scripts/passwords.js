@@ -115,6 +115,7 @@ $(document).ready(function(){
     })
     .done(()=>{
       getAllPasswords();
+      $('.new-password-box').css("display", "none");
       $('#new-title').val('');
       $('#new-user').val('');
       $('#new-website').val('');

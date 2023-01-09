@@ -6,22 +6,17 @@ $(document).ready(function() {
 
   //Add new - button click, displays inputs for creating new password info
   $(".add-new").on("click", function() {
-    let titleInput = document.getElementById('new-title');
-    let userInput = document.getElementById('new-user');
-    let websiteInput = document.getElementById('new-website');
-    let categoryInput = document.getElementById('new-category');
-    let passInput = document.getElementById('new-password');
 
     if($('.new-password-box').css('display') === 'none') {
       $('.new-password-box').css("display", "flex");
       $('.new-password-box').slideDown('slow');
     } else {
       $('.new-password-box').css("display", "none");
-      titleInput.value = '';
-      userInput.value = '';
-      websiteInput.value = '';
-      categoryInput.value = '';
-      passInput.value = '';
+      $('#new-title').val('');
+      $('#new-user').val('');
+      $('#new-website').val('');
+      $('#new-category').val('');
+      $('#new-password').val('');
     }
   });
 
