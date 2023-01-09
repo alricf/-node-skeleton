@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
   //display all passwords on page load
-  getAllPasswords();
+  getAllPasswords('');
 
   // Side-Menu Queries //
 
@@ -61,16 +61,30 @@ $(document).ready(function(){
 //Load all passwords;
 const getAllPasswords = (category) => {
   let categoryUrl = `api/passwords/${category}`;
-  if (!category) {
-    categoryUrl = `api/passwords/`;
+  let headerCategory = '';
+
+  //Switch case to display category name
+  switch (category) {
+  case 'work': headerCategory = "Work";
+    break;
+  case 'finance': headerCategory = 'Finance';
+    break;
+  case 'social-media': headerCategory = 'Social Media';
+    break;
+  case 'entertainment': headerCategory = 'Entertainment';
+    break;
+  default: headerCategory = 'All Passwords';
+    break;
   }
+
   $.ajax({
     method: 'GET',
     url: categoryUrl
   })
     .done((response) => {
+      console.log(response);
       $('#vault-header-cat').empty();
-      $('#vault-header-cat').append('My Vault > All Passwords');
+      $('#vault-header-cat').append(`My Vault : ${headerCategory}`);
       $('.table').empty();
       $('.table').append('<tbody> <tr class="table-header"><th>Account</th><th>Username</th><th colspan="3">Password</th></tr>');
       for (const row of response.passwords) {
@@ -107,7 +121,7 @@ const getAllPasswords = (category) => {
           data: formData
         })
           .done(()=>{
-            getAllPasswords();
+            return getAllPasswords(`${category}`);
           });
 
       });
@@ -123,7 +137,7 @@ const getAllPasswords = (category) => {
           data: formData
         })
           .done(()=>{
-            getAllPasswords();
+            return getAllPasswords(`${category}`);
           });
       });
 
