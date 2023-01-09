@@ -1,107 +1,39 @@
 $(document).ready(function(){
 
   //display all passwords on page load
-  getAllPasswords();
+  getAllPasswords('');
 
   // Side-Menu Queries //
 
   // All Passwords
   $('ul.side-menu li:nth-child(1)').on('click', () => {
     $('.new-password-box').css('display', "none");
-    getAllPasswords();
+    getAllPasswords('');
   });
 
 
   // Work
   $('ul.side-menu li:nth-child(2)').on('click', () => {
     $('.new-password-box').css('display', "none");
-    $.ajax({
-      method: 'GET',
-      url: '/api/passwords/work'
-    })
-    .done((response) => {
-      $('#vault-header-cat').empty();
-      $('#vault-header-cat').append('My Vault > Work');
-      $('.table').empty();
-      $('.table').append('<tbody> <tr class="table-header"><th>Account</th><th>Username</th><th colspan="3">Password</th></tr>');
-      for(const row of response.passwords) {
-        $('.table').append(`<tr>
-          <td>${row.title}</td>
-          <td>${row.login}</td>
-          <td>${row.password}</td>
-        </tr>`)
-      }
-      $('.table').append('</tbody>');
-    });
+    getAllPasswords('work');
   });
 
   // Finances
   $('ul.side-menu li:nth-child(3)').on('click', () => {
     $('.new-password-box').css('display', "none");
-    $.ajax({
-      method: 'GET',
-      url: '/api/passwords/finance'
-    })
-    .done((response) => {
-      $('#vault-header-cat').empty();
-      $('#vault-header-cat').append('My Vault > Finances');
-      $('.table').empty();
-      $('.table').append('<tbody> <tr class="table-header"><th>Account</th><th>Username</th><th colspan="3">Password</th></tr>');
-      for(const row of response.passwords) {
-        $('.table').append(`<tr>
-          <td>${row.title}</td>
-          <td>${row.login}</td>
-          <td>${row.password}</td>
-        </tr>`)
-      }
-      $('.table').append('</tbody>');
-    });
+    getAllPasswords('finance');
   });
 
   // Social Media
   $('ul.side-menu li:nth-child(4)').on('click', () => {
     $('.new-password-box').css('display', "none");
-    $.ajax({
-      method: 'GET',
-      url: '/api/passwords/social-media'
-    })
-    .done((response) => {
-      $('#vault-header-cat').empty();
-      $('#vault-header-cat').append('My Vault > Social Media');
-      $('.table').empty();
-      $('.table').append('<tbody> <tr class="table-header"><th>Account</th><th>Username</th><th colspan="3">Password</th></tr>');
-      for(const row of response.passwords) {
-        $('.table').append(`<tr>
-          <td>${row.title}</td>
-          <td>${row.login}</td>
-          <td>${row.password}</td>
-        </tr>`)
-      }
-      $('.table').append('</tbody>');
-    });
+    getAllPasswords('social-media');
   });
 
   // Entertainment
   $('ul.side-menu li:nth-child(5)').on('click', () => {
     $('.new-password-box').css('display', "none");
-    $.ajax({
-      method: 'GET',
-      url: '/api/passwords/entertainment'
-    })
-    .done((response) => {
-      $('#vault-header-cat').empty();
-      $('#vault-header-cat').append('My Vault > Entertainment');
-      $('.table').empty();
-      $('.table').append('<tbody> <tr class="table-header"><th>Account</th><th>Username</th><th colspan="3">Password</th></tr>');
-      for(const row of response.passwords) {
-        $('.table').append(`<tr>
-          <td>${row.title}</td>
-          <td>${row.login}</td>
-          <td>${row.password}</td>
-        </tr>`)
-      }
-      $('.table').append('</tbody>');
-    });
+    getAllPasswords('entertainment');
   });
 
   // Add New Button into Passwords Table
@@ -127,14 +59,31 @@ $(document).ready(function(){
 });
 
 //Load all passwords;
-const getAllPasswords = () => {
+const getAllPasswords = (category) => {
+  let categoryUrl = `api/passwords/${category}`;
+  let headerCategory = '';
+
+  //Switch case to display category name
+  switch (category) {
+  case 'work': headerCategory = "Work";
+    break;
+  case 'finance': headerCategory = 'Finance';
+    break;
+  case 'social-media': headerCategory = 'Social Media';
+    break;
+  case 'entertainment': headerCategory = 'Entertainment';
+    break;
+  default: headerCategory = 'All Passwords';
+    break;
+  }
+
   $.ajax({
     method: 'GET',
-    url: '/api/passwords'
+    url: categoryUrl
   })
     .done((response) => {
       $('#vault-header-cat').empty();
-      $('#vault-header-cat').append('My Vault > All Passwords');
+      $('#vault-header-cat').append(`My Vault : ${headerCategory}`);
       $('.table').empty();
       $('.table').append('<tbody> <tr class="table-header"><th>Account</th><th>Username</th><th colspan="3">Password</th></tr>');
       for (const row of response.passwords) {
@@ -171,7 +120,7 @@ const getAllPasswords = () => {
           data: formData
         })
           .done(()=>{
-            getAllPasswords();
+            return getAllPasswords(`${category}`);
           });
 
       });
@@ -187,7 +136,7 @@ const getAllPasswords = () => {
           data: formData
         })
           .done(()=>{
-            getAllPasswords();
+            return getAllPasswords(`${category}`);
           });
       });
 
