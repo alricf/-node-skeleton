@@ -227,6 +227,14 @@ tr:nth-child(even) {
   margin: 10px 20px 10px 20px;
 }
 
+#category-select {
+  border: 3px solid #34495D;
+  border-radius: 50px;
+  padding: 10px;
+  width: 33%;
+  margin: 10px 20px 10px 20px;
+}
+
 .addNewButton {
   display: flex;
   flex-wrap: wrap;

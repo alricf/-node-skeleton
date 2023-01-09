@@ -2,6 +2,7 @@ $(document).ready(function(){
 
   //display all passwords on page load
   getPasswords('');
+  $('.li-all').css("width", "260px");
 
   // Side-Menu Queries //
 
@@ -65,13 +66,14 @@ $(document).ready(function(){
   $('.addNewButton').on('submit', (event) => {
     event.preventDefault();
     const formData = $('.addNewButton').serialize();
+    console.log(formData);
     $.ajax({
       method: 'POST',
       url: '/api/passwords',
       data: formData
     })
     .done(()=>{
-      getPasswords();
+      getPasswords('');
       $('.new-password-box').css("display", "none");
       $('#new-title').val('');
       $('#new-user').val('');

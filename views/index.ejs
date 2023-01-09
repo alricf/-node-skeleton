@@ -29,7 +29,7 @@
       <ul class="side-menu">
         <li class="li-all">All Passwords</li>
         <li class="li-work">Work</li>
-        <li class="li-finance">Finance</li>
+        <li class="li-finance">Finances</li>
         <li class="li-social-media">Social Media</li>
         <li class="li-entertainment">Entertainment</li>
       </ul>
@@ -47,7 +47,13 @@
           <input type="text" id="new-title" name="title" placeholder="Title" required>
           <input type="text" id="new-user" name="login" placeholder="Username/email" required>
           <input type="text" id="new-website" name="website" placeholder="Website" required>
-          <input type="text" id="new-category" name="category" placeholder="Category" required>
+          <select name="categorys" id="category-select" required>
+            <option value="">Category</option>
+            <option value="work">Work</option>
+            <option value="finance">Finances</option>
+            <option value="social">Social Media</option>
+            <option value="entertainment">Entertainment</option>
+          </select>
           <input type="text" id="new-password" name="password" placeholder="Password" required>
         </div>
         <div id="generate-pass">
