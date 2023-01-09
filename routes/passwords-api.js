@@ -19,6 +19,7 @@ const byEntertainment = require('../db/queries/passwords_by_entertainment');
 const createPassword = require('../db/queries/create_new_password');
 const setNewPassword = require('../db/queries/edit_password');
 const delPassword = require('../db/queries/delete_password');
+// const searchPassword = require('../db/queries/search_password');
 
 
 ////////////////////////////
@@ -28,19 +29,6 @@ const delPassword = require('../db/queries/delete_password');
 // GET /api/passwords/ to retrieve title, login and password for all logins for one organization
 router.get('/', (req, res) => {
   byOrg.getPasswordsByOrg()
-  .then(passwords => {
-    res.json({ passwords });
-  })
-  .catch(err => {
-    res
-      .status(500)
-      .json({ error: err.message });
-  });
-});
-
-// GET /api/passwords/work to retrieve title, login and password for all logins categorized as 'work' for one organization
-router.get('/work', (req, res) => {
-  byWork.getPasswordsByWork()
   .then(passwords => {
     res.json({ passwords });
   })
@@ -80,6 +68,19 @@ router.get('/social-media', (req, res) => {
 // GET /api/passwords/entertainment to retrieve title, login and password for all logins categorized as 'entertainment' for one organization
 router.get('/entertainment', (req, res) => {
   byEntertainment.getPasswordsByEntertainment()
+  .then(passwords => {
+    res.json({ passwords });
+  })
+  .catch(err => {
+    res
+      .status(500)
+      .json({ error: err.message });
+  });
+});
+
+// GET /api/passwords/search to search the organization's database for an existing password(login) from the passwords table
+router.get('/search', (req, res) => {
+  searchPassword.getPasswordSearch()
   .then(passwords => {
     res.json({ passwords });
   })
@@ -140,6 +141,7 @@ router.post('/:id/delete', (req, res) => {
       .json({ error: err.message });
   });
 });
+
 
 
 module.exports = router;
