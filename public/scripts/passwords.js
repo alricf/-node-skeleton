@@ -136,8 +136,8 @@ const getAllPasswords = () => {
           <td id="pass-${row.id}" class="password-column">${row.password}</td>
           <td class="pass-buttons"><button type="button" class="copy-button" id="copy-${row.id}">Copy</button></td>
           <td class="pass-buttons edit-delete-btn">
-            <form class="edit-pass"><input type="text" id="new-pass-${row.id}" class="new-pass-input" name="password" placeholder="new password"></form>
-            <button type="submit" id="save-edit-${row.id}" class="save-edit-button">Save</button>
+            <form id="form-${row.id}" class="edit-pass"><input type="text" id="new-pass-${row.id}" class="new-pass-input" name="password" placeholder="new password" required>
+            <button type="submit" id="save-edit-${row.id}" class="save-edit-button">Save</button></form>
             <button type="button" class="edit-button" id="edit-${row.id}">Edit</button>
             <button type="button" id ="delete-${row.id}" class="delete-button">Delete</button></td>
         </tr>`);
@@ -153,14 +153,28 @@ const getAllPasswords = () => {
       //Copy button on click
       $(".copy-button").on("click", function() {
         const id = getId(this.id);
+        console.log(id);
         copyPass(id);
       });
 
-      $(".save-edit-button").on("click", (event) => {
-        event.preventDefault();
-        console.log('fff');
-      });
 
+      //Edit password
+      $(".edit-pass").on("submit", function(event) {
+        event.preventDefault();
+        const id = getId(this.id);
+        const password = $(this).serialize();
+        const formData = (`id=${id}&`).concat(password);
+        console.log(formData);
+        $.ajax({
+          method: 'POST',
+          url: `/api/passwords/${id}`,
+          data: formData
+        })
+          .done(()=>{
+            getAllPasswords();
+          });
+
+      });
     });
 };
 
