@@ -102,9 +102,7 @@ $(document).ready(function(){
   // Add New Button into Passwords Table
   $('.addNewButton').on('submit', (event) => {
     event.preventDefault();
-    console.log('form');
     const formData = $('.addNewButton').serialize();
-    console.log($('form').serialize());
     $.ajax({
       method: 'POST',
       url: '/api/passwords',
@@ -153,7 +151,6 @@ const getAllPasswords = () => {
       //Copy button on click
       $(".copy-button").on("click", function() {
         const id = getId(this.id);
-        console.log(id);
         copyPass(id);
       });
 
