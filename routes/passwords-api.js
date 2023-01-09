@@ -18,7 +18,7 @@ const bySocialMedia = require('../db/queries/passwords_by_social');
 const byEntertainment = require('../db/queries/passwords_by_entertainment');
 const createPassword = require('../db/queries/create_new_password');
 const setNewPassword = require('../db/queries/edit_password');
-
+const delPassword = require('../db/queries/delete_password');
 
 ////////////////////////////
 // /api/passwords/ routes
@@ -126,7 +126,19 @@ router.post('/:id', (req, res) => {
   });
 });
 
+// POST /api/passwords/:id/delete to delete an existing password(login) from the passwords table
+router.post('/:id/delete', (req, res) => {
+  const deletePassword = req.body;
+  const deletePassObj = {id: deletePassword.id};
 
+  return delPassword.deletePassword(deletePassObj)
+  .then(() => {return res.status(201).json({statusCode: '201'});})
+  .catch(err => {
+    res
+      .status(500)
+      .json({ error: err.message });
+  });
+});
 
 
 module.exports = router;
