@@ -120,7 +120,7 @@ $(document).ready(function(){
             </tr>`);
           }
           $('.table').append('</tbody>');
-          
+
           //Edit button on Click
           $('.edit-button').on('click', function() {
             const id = getId(this.id);
@@ -140,7 +140,7 @@ $(document).ready(function(){
               data: formData
             })
               .done(()=>{
-                return getPasswords(`${category}`);
+                return getPasswords(`${row.category}`);
               });
 
           });
