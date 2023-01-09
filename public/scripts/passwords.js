@@ -81,6 +81,14 @@ $(document).ready(function(){
     })
   });
 
+  // Search
+  $(".search-bar").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#table-body tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+
 });
 
 //Load all passwords;
@@ -110,7 +118,7 @@ const getPasswords = (category) => {
       $('#vault-header-cat').empty();
       $('#vault-header-cat').append(`My Vault : ${headerCategory}`);
       $('.table').empty();
-      $('.table').append('<tbody> <tr class="table-header"><th>Account</th><th>Username</th><th colspan="3">Password</th></tr>');
+      $('.table').append(`<thead><tr class="table-header"><th>Account</th><th>Username</th><th colspan="3">Password</th></tr></thead><tbody id="table-body">`);
       for (const row of response.passwords) {
         $('.table').append(`<tr>
           <td>${row.title}</td>
