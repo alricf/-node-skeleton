@@ -18,7 +18,7 @@ const byEntertainment = require('../db/queries/passwords_by_entertainment');
 const createPassword = require('../db/queries/create_new_password');
 const setNewPassword = require('../db/queries/edit_password');
 const delPassword = require('../db/queries/delete_password');
-// const searchPassword = require('../db/queries/search_password');
+const searchPassword = require('../db/queries/search_passwords');
 
 
 ////////////////////////////
@@ -92,7 +92,9 @@ router.get('/entertainment', (req, res) => {
 
 // GET /api/passwords/search to search the organization's database for an existing password(login) from the passwords table
 router.get('/search', (req, res) => {
-  searchPassword.getPasswordSearch()
+  console.log (req.params);
+  const searchTerm = req.params;
+  searchPassword.getPasswordSearch(searchTerm)
   .then(password => {
     res.json({ password });
   })
