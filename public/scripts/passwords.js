@@ -112,6 +112,7 @@ $(document).ready(function(){
     })
     .done(()=>{
       getAllPasswords();
+
     })
   });
 
@@ -135,7 +136,8 @@ const getAllPasswords = () => {
           <td id="pass-${row.id}" class="password-column">${row.password}</td>
           <td class="pass-buttons"><button type="button" class="copy-button" id="copy-${row.id}">Copy</button></td>
           <td class="pass-buttons edit-delete-btn">
-            <form id="edit-pass"><input type="text" id="new-pass-${row.id}" class="new-pass-input" placeholder="new password"></form>
+            <form class="edit-pass"><input type="text" id="new-pass-${row.id}" class="new-pass-input" name="password" placeholder="new password"></form>
+            <button type="submit" id="save-edit-${row.id}" class="save-edit-button">Save</button>
             <button type="button" class="edit-button" id="edit-${row.id}">Edit</button>
             <button type="button" id ="delete-${row.id}" class="delete-button">Delete</button></td>
         </tr>`);
@@ -148,12 +150,17 @@ const getAllPasswords = () => {
         togglePassInput(id);
       });
 
-
       //Copy button on click
       $(".copy-button").on("click", function() {
         const id = getId(this.id);
         copyPass(id);
       });
+
+      $(".save-edit-button").on("click", (event) => {
+        event.preventDefault();
+        console.log('fff');
+      });
+
     });
 };
 
@@ -167,8 +174,9 @@ const getId = function(idName) {
 //Password Input toggle
 const togglePassInput = function(id) {
   $(`#new-pass-${id}`).css("display", "flex");
-  $(`#edit-${id}`).text("Save");
+  $(`#save-edit-${id}`).css("display", "flex");
   $(`#delete-${id}`).css("display", "none");
+  $(`#edit-${id}`).css("display", "none");
 
   const passInputs = document.querySelectorAll('.new-pass-input');
   passInputs.forEach(input => {
@@ -176,7 +184,9 @@ const togglePassInput = function(id) {
     if (inputId !== `${id}`) {
       input.style.display = "none";
       $(`#edit-${inputId}`).text("Edit");
+      $(`#edit-${inputId}`).css("display", "flex");
       $(`#delete-${inputId}`).css("display", "flex");
+      $(`#save-edit-${inputId}`).css("display", "none");
     }
   });
 };
