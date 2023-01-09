@@ -1,7 +1,6 @@
 const db = require('../connection');
 
 const editPassword = (password) => {
-  console.log(password);
   return db.query(`UPDATE passwords
   SET password = $1
   WHERE id = $2

@@ -82,7 +82,6 @@ const getAllPasswords = (category) => {
     url: categoryUrl
   })
     .done((response) => {
-      console.log(response);
       $('#vault-header-cat').empty();
       $('#vault-header-cat').append(`My Vault : ${headerCategory}`);
       $('.table').empty();
