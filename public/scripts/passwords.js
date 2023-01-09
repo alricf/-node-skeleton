@@ -164,7 +164,6 @@ const getAllPasswords = () => {
         const id = getId(this.id);
         const password = $(this).serialize();
         const formData = (`id=${id}&`).concat(password);
-        console.log(formData);
         $.ajax({
           method: 'POST',
           url: `/api/passwords/${id}`,
@@ -174,6 +173,20 @@ const getAllPasswords = () => {
             getAllPasswords();
           });
 
+      });
+
+      $(".delete-button").on("click", function() {
+        const id = getId(this.id);
+        const formData = `id=${id}`;
+
+        $.ajax({
+          method: 'POST',
+          url: `/api/passwords/${id}/delete`,
+          data: formData
+        })
+          .done(()=>{
+            getAllPasswords();
+          });
       });
     });
 };
