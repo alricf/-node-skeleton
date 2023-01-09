@@ -142,7 +142,7 @@ $(document).ready(function(){
               data: formData
             })
               .done(()=>{
-                return getPasswords(`${category}`);
+                return getPasswords(``);
               });
 
           });
