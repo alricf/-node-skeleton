@@ -92,8 +92,8 @@ router.get('/entertainment', (req, res) => {
 
 // GET /api/passwords/search to search the organization's database for an existing password(login) from the passwords table
 router.get('/search', (req, res) => {
-  console.log (req.body);
-  const searchTerm = req.body.search;
+  console.log(req.query.searchText);
+  const searchTerm = req.query.searchText;
   searchPassword.getPasswordSearch(searchTerm)
   .then(password => {
     res.json({ password });
