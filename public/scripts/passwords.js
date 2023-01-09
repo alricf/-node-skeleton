@@ -93,7 +93,9 @@ $(document).ready(function(){
   // Post row with form inputed search term
   $("#search-form").on("submit", function(event) {
     event.preventDefault();
+    $('.new-password-box').css('display', "none");
     const form1 = $("#search-form").serialize();
+    const searchTerm = $(".search-bar").val();
     // console.log(form1);
       $.ajax({
         method: 'GET',
@@ -102,7 +104,7 @@ $(document).ready(function(){
       }).done((response) => {
           console.log(response);
           $('#vault-header-cat').empty();
-          $('#vault-header-cat').append(`My Vault : Search`);
+          $('#vault-header-cat').append(`My Vault : "${searchTerm}"`);
           $('.table').empty();
           $('.table').append(`<thead><tr class="table-header"><th>Account</th><th>Username</th><th colspan="3">Password</th></tr></thead><tbody id="table-body">`);
 
