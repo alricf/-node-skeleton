@@ -8,7 +8,6 @@
 // Router
 const express = require('express');
 const router  = express.Router();
-const app     = express();
 
 // Queries
 const byOrg = require('../db/queries/passwords_by_org');
@@ -94,8 +93,8 @@ router.get('/entertainment', (req, res) => {
 // GET /api/passwords/search to search the organization's database for an existing password(login) from the passwords table
 router.get('/search', (req, res) => {
   searchPassword.getPasswordSearch()
-  .then(passwords => {
-    res.json({ passwords });
+  .then(password => {
+    res.json({ password });
   })
   .catch(err => {
     res
