@@ -66,10 +66,9 @@ $(document).ready(function(){
   $('.addNewButton').on('submit', (event) => {
     event.preventDefault();
     const formData = $('.addNewButton').serialize();
-    console.log(formData);
     $.ajax({
       method: 'POST',
-      url: '/api/passwords',
+      url: '/api/passwords/',
       data: formData
     })
     .done(()=>{
