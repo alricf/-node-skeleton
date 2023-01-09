@@ -23,6 +23,7 @@ nav {
 .nav-links {
   padding: 10px;
   display: flex;
+  justify-content: flex-end;
 }
 
 .navbar li {
@@ -35,12 +36,11 @@ nav {
   margin-left: 20px;
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
-  align-items: center;
-  justify-content: center;
 }
 
 #search-form {
   display: flex;
+  width: 50%;
 }
 
 .search-button {
@@ -140,6 +140,7 @@ table {
   width: 95%;
   margin-top: 20px;
   margin-bottom: 100px;
+  table-layout: fixed;
 }
 
 th {
@@ -159,16 +160,15 @@ th {
 
 td {
   text-align: left;
-  padding: 30px;
+  padding: 30px 10px 30px 10px;
   color: white;
   font-size: 18px;
   font-family: 'Poppins', sans-serif;
   font-weight: 300;
 }
 
-tr:nth-child(even) {
+.tr-flex:nth-child(odd) {
   background-color: #34495D;
-  width: 100%;
 }
 
 
@@ -346,6 +346,11 @@ tr:nth-child(even) {
   justify-content: end;
 }
 
+.more-td {
+  display: flex;
+  justify-content: end;
+}
+
 .more-button {
     align-self: flex-end;
   }
@@ -380,6 +385,43 @@ tr:nth-child(even) {
 }
 
 
+.hidden-tr {
+  display: none;
+  // justify-content: stretch;
+  align-items: center;
+  background-color: #cacaca;
+}
+
+.password-column {
+  font-family: 'Nixie One', sans-serif;
+}
+
+// .pass-buttons {
+//   display: flex;
+// }
+
+// .tr-flex {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   width: 100%;
+// }
+
+// .td-1 {
+//   width: 20%;
+// }
+
+// // .td-2 {
+// //   width: 40%;
+// // }
+
+// // .td-3 {
+// //   width: 10%;
+// // }
+
+// // .td-4 {
+// //   width: 10%;
+// // }
 
 
 @media only screen and (max-width: 1450px) {

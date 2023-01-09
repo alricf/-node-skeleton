@@ -2,6 +2,7 @@ $(document).ready(function(){
 
   //display all passwords on page load
   getPasswords('');
+  $('.li-all').css("width", "260px");
 
   // Side-Menu Queries //
 
@@ -110,18 +111,23 @@ const getPasswords = (category) => {
       $('#vault-header-cat').empty();
       $('#vault-header-cat').append(`My Vault : ${headerCategory}`);
       $('.table').empty();
-      $('.table').append('<tbody> <tr class="table-header"><th>Account</th><th>Username</th><th colspan="3">Password</th></tr>');
+      $('.table').append('<tbody> <tr class="table-header"><th>Account</th><th colspan="3">Username</th></tr>');
       for (const row of response.passwords) {
-        $('.table').append(`<tr>
-          <td>${row.title}</td>
-          <td>${row.login}</td>
-          <td id="pass-${row.id}" class="password-column">${row.password}</td>
-          <td class="pass-buttons"><button type="button" class="copy-button" id="copy-${row.id}">Copy</button></td>
-          <td class="pass-buttons edit-delete-btn">
-            <form id="form-${row.id}" class="edit-pass"><input type="text" id="new_pass-${row.id}" class="new-pass-input" name="password" placeholder="new password" required>
-            <button type="submit" id="save_edit-${row.id}" class="save_edit-button">Save</button></form>
-            <button type="button" class="edit-button" id="edit-${row.id}">Edit</button>
-            <button type="button" id ="delete-${row.id}" class="delete-button">Delete</button></td>
+        $('.table').append(`<tr id ="show-tr" class="tr-flex">
+          <td class="td-1">${row.title}</td>
+          <td class="td-2">${row.login}</td>
+          <td class="pass-buttons td-3"><button type="button" class="copy-go-button" id="copy-go-${row.id}">Copy & Go</button></td>
+          <td class="pass-buttons td-4 more-td"><button type="button" id ="more-${row.id}" class="more-button">More</button></td>
+          </tr>
+          <tr id="tr-${row.id}" class="hidden-tr">
+          <td>Password: </td>
+          <td id="pass-${row.id}" class="password-column td-1">${row.password}</td>
+          <td class="pass-buttons td-2"><button type="button" class="copy-button" id="copy-${row.id}">Copy</button></td-2>
+          <td class="pass-buttons td-3 edit-delete-btn"><form id="form-${row.id}" class="edit-pass"><input type="text" id="new_pass-${row.id}" class="new-pass-input" name="password" placeholder="new password" required>
+          <button type="submit" id="save_edit-${row.id}" class="save_edit-button">Save</button></form>
+          <button type="button" class="edit-button" id="edit-${row.id}">Edit</button>
+          <button type="button" id ="delete-${row.id}" class="delete-button">Delete</button>
+          </td>
         </tr>`);
       }
       $('.table').append('</tbody>');
@@ -170,6 +176,20 @@ const getPasswords = (category) => {
         const id = getId(this.id);
         return copyPass(id);
       });
+
+      //More button on click
+      $(".more-button").on("click", function() {
+        const id = getId(this.id);
+
+        if ($(this).text() === "More") {
+          $(this).text('Hide');
+          $(`#tr-${id}`).css('display', "table-row");
+          return toggleHiddenRows(id);
+        } else {
+          $(this).text('More');
+          $(`#tr-${id}`).css('display', "none");
+        }
+      });
     });
 };
 
@@ -198,6 +218,17 @@ const togglePassInput = function(id) {
       $(`#save_edit-${inputId}`).css("display", "none");
     }
   });
+};
+
+const toggleHiddenRows = function(id) {
+  const hiddenRows = document.querySelectorAll('.hidden-tr');
+  hiddenRows.forEach(row => {
+    const rowId = getId(row.id);
+    if (rowId !== id) {
+      $(`#more-${rowId}`).text('More');
+      $(`#tr-${rowId}`).css('display', "none");
+    }
+  })
 };
 
 //Copy password to clipboard
