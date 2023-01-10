@@ -86,8 +86,10 @@ $(document).ready(function(){
   $(".search-bar").on("keyup", function() {
     // Filter current table
     const value = $(this).val().toLowerCase();
+
     $("#table-body tr").filter(function() {
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      $('.hidden-tr').css("display", "none");
     });
   });
 
@@ -113,7 +115,7 @@ $(document).ready(function(){
         $('.table').empty();
         $('.table').append('<tbody id="table-body"> <tr class="table-header"><th>Account</th><th colspan="3">Username</th></tr>');
         for (const row of response.passwords) {
-          $('.table').append(`<tr id ="show-tr" class="tr-flex">
+          $('.table').append(`<tr id ="show_tr-${row.id}">
             <td class="td-1">${row.title}</td>
             <td class="td-2">${row.login}</td>
             <td class="pass-buttons td-3"><button type="button" class="copy_go-button" id="copy_go-${row.id}">Copy & Go</button></td>
@@ -131,6 +133,9 @@ $(document).ready(function(){
           </tr>`);
         }
         $('.table').append('</tbody>');
+
+        //Hide password rows upon submit
+        $('.hidden-tr').css("display", "none");
 
         //Edit button
         $('.edit-button').on('click', function() {
@@ -237,7 +242,7 @@ const getPasswords = (category) => {
       $('.table').empty();
       $('.table').append('<tbody id="table-body"> <tr class="table-header"><th>Account</th><th colspan="3">Username</th></tr>');
       for (const row of response.passwords) {
-        $('.table').append(`<tr id ="show-tr" class="tr-flex">
+        $('.table').append(`<tr id ="show_tr-${row.id}">
           <td class="td-1">${row.title}</td>
           <td class="td-2">${row.login}</td>
           <td class="pass-buttons td-3"><button type="button" class="copy_go-button" id="copy_go-${row.id}">Copy & Go</button></td>
