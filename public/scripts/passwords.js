@@ -112,7 +112,6 @@ $(document).ready(function(){
         $('#vault-header-cat').append(`My Vault : "${searchTerm}"`);
         $('.table').empty();
         $('.table').append('<tbody> <tr class="table-header"><th>Account</th><th colspan="3">Username</th></tr>');
-
         for (const row of response.passwords) {
           $('.table').append(`<tr id ="show-tr" class="tr-flex">
             <td class="td-1">${row.title}</td>

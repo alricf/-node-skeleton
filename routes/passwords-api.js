@@ -95,8 +95,8 @@ router.get('/search', (req, res) => {
   console.log(req.query.searchText);
   const searchTerm = req.query.searchText;
   searchPassword.getPasswordSearch(searchTerm)
-  .then(password => {
-    res.json({ password });
+  .then(passwords => {
+    res.json({ passwords });
   })
   .catch(err => {
     res
