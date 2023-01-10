@@ -58,7 +58,8 @@ router.get('/:id', (req, res) => {
   console.log(id);
   byId.getPasswordById(id)
   .then(go => {
-    res.json({ go });
+    const link = go.website;
+    res.send({ link });
   })
   .catch(err => {
     res
