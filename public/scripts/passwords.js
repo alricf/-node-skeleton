@@ -201,14 +201,49 @@ $(document).ready(function(){
           }
         });
 
-        //Copy & Go button
-        $(".copy_go-button").on("click", function() {
-          const id = getId(this.id);
-          console.log(this.id);
+        //Copy & Go button (moved to document.ready)
+        /*
+        $("body").on("click", ".copy_go-button", function(event) {
+          alert('reached copy button');
+          console.log({event});
+          event.preventDefault();
+          const id = getId($(this).attr('id'));
+          console.log({id});
+          copyPass(id);
+          const formData = `id=${id}`;
+          console.log(formData);
+          $.ajax({
+            method: 'GET',
+            url: `/api/passwords/${id}`,
+            data: formData
+          }).done((response) => {
+            return window.open(response.password);
+          })
         });
+        */
 
         });
 
+  });
+
+  // Copy & Go button
+  $("body").on("click", ".copy_go-button", function(event) {
+    alert('reached copy button');
+    console.log({event});
+    event.preventDefault();
+    const id = getId($(this).attr('id'));
+    console.log({id});
+    copyPass(id);
+    const formData = `id=${id}`;
+    console.log(formData);
+    $.ajax({
+      method: 'GET',
+      url: `/api/passwords/${id}`,
+      data: formData
+    }).done((response) => {
+      console.log(response);
+      return window.open(response.go.website);
+    })
   });
 
 });
@@ -305,6 +340,22 @@ const getPasswords = (category) => {
         const id = getId(this.id);
         return copyPass(id);
       });
+      // $("body").on("click", ".copy_go-button", function(event) {
+      //   alert('reached copy button');
+      //   console.log({event});
+      //   event.preventDefault();
+      //   const id = getId($(this).attr('id'));
+      //   console.log({id});
+      //   copyPass(id);
+      //   const formData = `id=${id}`;
+      //   console.log(formData);
+      //   $.ajax({
+      //     method: 'GET',
+      //     url: `/api/passwords/${id}`,
+      //     data: formData
+      //   }).done((response) => {
+      //     return window.open(response.password);
+      //   })
 
       //More button
       $(".more-button").on("click", function() {
@@ -325,11 +376,11 @@ const getPasswords = (category) => {
         }
       });
 
-      //Copy & Go button
-      $(".copy_go-button").on("click", function() {
-        const id = getId(this.id);
-        copyPass(id);
-      });
+      //Copy & Go button (moved to document.ready)
+      // $(".copy_go-button").on("click", function() {
+      //   const id = getId(this.id);
+      //   copyPass(id);
+      // });
     });
 };
 
