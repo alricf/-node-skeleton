@@ -52,21 +52,7 @@ router.get('/work', (req, res) => {
   });
 });
 
-// GET /api/passwords/:id to retrieve a website for a password(login) for one password.id
-router.get('/:id', (req, res) => {
-  const id = req.params.id;
-  console.log(id);
-  byId.getPasswordById(id)
-  .then(go => {
-    const link = go.website;
-    res.send({ link });
-  })
-  .catch(err => {
-    res
-      .status(500)
-      .json({ error: err.message });
-  });
-});
+
 
 // GET /api/passwords/finances to retrieve title, login and password for all logins categorized as 'finances' for one organization
 router.get('/finance', (req, res) => {
@@ -114,6 +100,22 @@ router.get('/search', (req, res) => {
   searchPassword.getPasswordSearch(searchTerm)
   .then(passwords => {
     res.json({ passwords });
+  })
+  .catch(err => {
+    res
+      .status(500)
+      .json({ error: err.message });
+  });
+});
+
+// GET /api/passwords/:id to retrieve a website for a password(login) for one password.id
+router.get('/:id', (req, res) => {
+  const id = req.params.id;
+  console.log(id);
+  byId.getPasswordById(id)
+  .then(go => {
+    const link = go.website;
+    res.send({ link });
   })
   .catch(err => {
     res
