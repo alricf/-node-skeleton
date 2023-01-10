@@ -57,20 +57,22 @@
           <input type="text" id="new-password" name="password" placeholder="Password" required>
         </div>
         <div id="generate-pass">
-          <button type="button" class="generate-button">Generate Password</button>
-          <!-- <input type="range" min="1" max="20" value="12" class="slider" id="myRange"> -->
-          <label for="range" class="form-label">Length:</label>
-          <input type="range" class="form-range" min="10" max="20" step="1" value="12" id="range">
-          <label for="range" class="form-label" id="rangeNum">12</label>
-
-          <input type="checkbox" id="uppercase" class="checkbox" name="pass-req" value="Uppercase" checked>
-  <label for="uppercase">Uppercase</label>
-          <input type="checkbox" id="lowercase" class="checkbox" name="pass-req" value="Lowercase" checked>
-  <label for="lowercase">Lowercase</label>
-          <input type="checkbox" id="numbers" class="checkbox" name="pass-req" value="Numbers" checked>
-  <label for="numbers">Numbers</label>
-          <input type="checkbox" id="symbols" class="checkbox" name="pass-req" value="Symbols" checked>
-  <label for="symbols">Symbols</label>
+          <div class="checkboxes">
+            <input type="checkbox" id="uppercase" class="checkbox" name="pass-req" value="Uppercase" checked>
+            <label for="uppercase">Uppercase</label>
+            <input type="checkbox" id="lowercase" class="checkbox" name="pass-req" value="Lowercase" checked>
+            <label for="lowercase">Lowercase</label>
+            <input type="checkbox" id="numbers" class="checkbox" name="pass-req" value="Numbers" checked>
+            <label for="numbers">Numbers</label>
+            <input type="checkbox" id="symbols" class="checkbox" name="pass-req" value="Symbols" checked>
+            <label for="symbols">Symbols</label>
+          </div>
+            <div class="length-gen">
+            <button type="button" class="generate-button">Generate Password</button>
+            <label for="range" class="form-label">Length:</label>
+            <input type="range" class="form-range" min="10" max="20" step="1" value="12" id="range">
+            <label for="range" class="form-label" id="rangeNum">12</label>
+          </div>
         </div>
           <button type="submit" class="save-button">Save</button>
         </form>
