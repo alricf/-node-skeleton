@@ -248,7 +248,7 @@ $(document).ready(function(){
       data: formData
     }).done((response) => {
       console.log(response);
-      return window.open(response.go.website);
+      return window.open(response.link);
     })
   });
 
