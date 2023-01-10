@@ -266,10 +266,10 @@ tr:nth-child(4n+2) {
   font-size: 24px;
 }
 
-// .hidden-pass {
-//   display: none;
-//   align-items: center;
-// }
+.hidden-pass {
+  display: none;
+  align-items: center;
+}
 
 // tr.hidden-pass {
 //   border: 3px solid #F59D2A;
@@ -338,10 +338,10 @@ tr:nth-child(4n+2) {
 }
 
 .pass-buttons button:hover {
-  background-color: #EAEAEA;;
+  background-color: #fff;;
     color: #273644;
     cursor: pointer;
-    border: 2px solid #EAEAEA;
+    border: 2px solid #fff;
     border-radius: 50px;
 }
 
@@ -359,9 +359,9 @@ tr:nth-child(4n+2) {
     align-self: flex-end;
   }
 
-  .new-pass-input {
-    border: 3px solid white;
-    background-color: #dddddd;
+.new-pass-input {
+    border: 2px solid #F59D2A;
+    background-color: #fff;
     border-radius: 30px;
     width: 300px;
     padding: 4px 10px 4px 10px;
@@ -393,16 +393,39 @@ tr:nth-child(4n+2) {
   display: none;
   // justify-content: stretch;
   align-items: center;
-  background-color: #ffffff;
+  background-color: rgb(240, 240, 240);
+  border: 4px solid #F59D2A;
+}
+
+.hidden-tr td {
+  color: #34495D;
 }
 
 .password-column {
   font-family: 'Nixie One', sans-serif;
 }
 
-// .pass-buttons {
-//   display: flex;
-// }
+.hidden-pass-buttons button{
+  font-size: 18px;
+  padding: 5px 20px 5px 20px;
+  list-style: none;
+  color: #F59D2A;
+  border-radius: 50px;
+  background-color: #f7f7f7;
+  border: 2px solid #F59D2A;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  margin: 0 20px 0 20px;
+  align-self: flex-end;
+}
+
+.hidden-pass-buttons button:hover {
+  background-color: #F59D2A;
+  color: white;
+  cursor: pointer;
+  border: 2px solid #F59D2A;
+  border-radius: 50px;
+  }
 
 // .tr-flex {
 //   display: flex;

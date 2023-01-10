@@ -122,8 +122,8 @@ const getPasswords = (category) => {
           <tr id="tr-${row.id}" class="hidden-tr">
           <td>Password: </td>
           <td id="pass-${row.id}" class="password-column td-1">${row.password}</td>
-          <td class="pass-buttons td-2"><button type="button" class="copy-button" id="copy-${row.id}">Copy</button></td-2>
-          <td class="pass-buttons td-3 edit-delete-btn"><form id="form-${row.id}" class="edit-pass"><input type="text" id="new_pass-${row.id}" class="new-pass-input" name="password" placeholder="new password" required>
+          <td class="hidden-pass-buttons td-2"><button type="button" class="copy-button" id="copy-${row.id}">Copy</button></td-2>
+          <td class="hidden-pass-buttons td-3 edit-delete-btn"><form id="form-${row.id}" class="edit-pass"><input type="text" id="new_pass-${row.id}" class="new-pass-input" name="password" placeholder="new password" required>
           <button type="submit" id="save_edit-${row.id}" class="save_edit-button">Save</button></form>
           <button type="button" class="edit-button" id="edit-${row.id}">Edit</button>
           <button type="button" id ="delete-${row.id}" class="delete-button">Delete</button>
