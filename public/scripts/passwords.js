@@ -83,15 +83,21 @@ $(document).ready(function(){
   });
 
   // Search
-  $(".search-bar").on("keyup", function() {
+    $(".search-bar").on("input", function() {
     // Filter current table
     const value = $(this).val().toLowerCase();
+    $('.table-header').empty();
+
+    if (value.length === 0) {
+    getPasswords('');
+    }
 
     $("#table-body tr").filter(function() {
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
       $('.hidden-tr').css("display", "none");
     });
   });
+
 
   // Post row with form inputed search term
   $("#search-form").on("submit", function(event) {
