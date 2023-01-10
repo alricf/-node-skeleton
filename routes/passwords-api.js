@@ -11,7 +11,7 @@ const router  = express.Router();
 
 // Queries
 const byOrg = require('../db/queries/passwords_by_org');
-// const byId = require('../db/queries/password_by_id');
+const byId = require('../db/queries/passwords_by_id');
 const byWork = require('../db/queries/passwords_by_work');
 const byFinance = require('../db/queries/passwords_by_finance');
 const bySocialMedia = require('../db/queries/passwords_by_social');
@@ -55,6 +55,7 @@ router.get('/work', (req, res) => {
 // GET /api/passwords/:id to retrieve a website for a password(login) for one password.id
 router.get('/:id', (req, res) => {
   const id = req.params.id;
+  console.log(id);
   byId.getPasswordById(id)
   .then(website => {
     res.json({ website });
