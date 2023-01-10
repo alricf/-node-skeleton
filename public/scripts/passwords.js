@@ -188,6 +188,11 @@ const getPasswords = (category) => {
         } else {
           $(this).text('More');
           $(`#tr-${id}`).css('display', "none");
+          $(`#new_pass-${id}`).css("display", "none");
+          $(`#save_edit-${id}`).css("display", "none");
+          $(`#delete-${id}`).css("display", "flex");
+          $(`#edit-${id}`).css("display", "flex");
+          $(`#new_pass-${id}`).val('');
         }
       });
     });

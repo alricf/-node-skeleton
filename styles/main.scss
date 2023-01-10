@@ -167,7 +167,11 @@ td {
   font-weight: 300;
 }
 
-.tr-flex:nth-child(odd) {
+// tr:nth-child(n % 3) {
+//   background-color: #34495D;
+// }
+
+tr:nth-child(4n+2) {
   background-color: #34495D;
 }
 
@@ -389,7 +393,7 @@ td {
   display: none;
   // justify-content: stretch;
   align-items: center;
-  background-color: #cacaca;
+  background-color: #ffffff;
 }
 
 .password-column {
