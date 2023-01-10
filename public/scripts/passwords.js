@@ -132,7 +132,7 @@ const getPasswords = (category) => {
       }
       $('.table').append('</tbody>');
 
-      //Edit button on Click
+      //Edit button
       $('.edit-button').on('click', function() {
         const id = getId(this.id);
         togglePassInput(id);
@@ -171,13 +171,13 @@ const getPasswords = (category) => {
           });
       });
 
-      //Copy button on click
+      //Copy button
       $(".copy-button").on("click", function() {
         const id = getId(this.id);
         return copyPass(id);
       });
 
-      //More button on click
+      //More button
       $(".more-button").on("click", function() {
         const id = getId(this.id);
 
@@ -194,6 +194,12 @@ const getPasswords = (category) => {
           $(`#edit-${id}`).css("display", "flex");
           $(`#new_pass-${id}`).val('');
         }
+      });
+
+      //Copy & Go button
+      $(".copy-go-button").on("click", function() {
+        const id = getId(this.id);
+        console.log(this.id);
       });
     });
 };
