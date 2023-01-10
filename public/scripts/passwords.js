@@ -68,11 +68,11 @@ $(document).ready(function(){
     const formData = $('.addNewButton').serialize();
     $.ajax({
       method: 'POST',
-      url: '/api/passwords/',
+      url: '/api/passwords',
       data: formData
     })
     .done(()=>{
-      getPasswords('');
+      getPasswords();
       $('.new-password-box').css("display", "none");
       $('#new-title').val('');
       $('#new-user').val('');
@@ -103,76 +103,105 @@ $(document).ready(function(){
         url: '/api/passwords/search',
         data: form1
       }).done((response) => {
-          $('.li-all').css("width", "250px");
-          $('.li-work').css("width", "250px");
-          $('.li-finance').css("width", "250px");
-          $('.li-social-media').css("width", "250px");
-          $('.li-entertainment').css("width", "250px");
-          console.log(response);
-          $('#vault-header-cat').empty();
-          $('#vault-header-cat').append(`My Vault : "${searchTerm}"`);
-          $('.table').empty();
-          $('.table').append(`<thead><tr class="table-header"><th>Account</th><th>Username</th><th colspan="3">Password</th></tr></thead><tbody id="table-body">`);
+        $('.li-all').css("width", "250px");
+        $('.li-work').css("width", "250px");
+        $('.li-finance').css("width", "250px");
+        $('.li-social-media').css("width", "250px");
+        $('.li-entertainment').css("width", "250px");
+        $('#vault-header-cat').empty();
+        $('#vault-header-cat').append(`My Vault : ${headerCategory}`);
+        $('.table').empty();
+        $('.table').append('<tbody> <tr class="table-header"><th>Account</th><th colspan="3">Username</th></tr>');
 
-          for (const row of response.password) {
-            $('.table').append(`<tr>
-              <td>${row.title}</td>
-              <td>${row.login}</td>
-              <td id="pass-${row.id}" class="password-column">${row.password}</td>
-              <td class="pass-buttons"><button type="button" class="copy-button" id="copy-${row.id}">Copy</button></td>
-              <td class="pass-buttons edit-delete-btn">
-                <form id="form-${row.id}" class="edit-pass"><input type="text" id="new_pass-${row.id}" class="new-pass-input" name="password" placeholder="new password" required>
-                <button type="submit" id="save_edit-${row.id}" class="save_edit-button">Save</button></form>
-                <button type="button" class="edit-button" id="edit-${row.id}">Edit</button>
-                <button type="button" id ="delete-${row.id}" class="delete-button">Delete</button></td>
-            </tr>`);
+        for (const row of response.passwords) {
+          $('.table').append(`<tr id ="show-tr" class="tr-flex">
+            <td class="td-1">${row.title}</td>
+            <td class="td-2">${row.login}</td>
+            <td class="pass-buttons td-3"><button type="button" class="copy-go-button" id="copy-go-${row.id}">Copy & Go</button></td>
+            <td class="pass-buttons td-4 more-td"><button type="button" id ="more-${row.id}" class="more-button">More</button></td>
+            </tr>
+            <tr id="tr-${row.id}" class="hidden-tr">
+            <td>Password: </td>
+            <td id="pass-${row.id}" class="password-column td-1">${row.password}</td>
+            <td class="hidden-pass-buttons td-2"><button type="button" class="copy-button" id="copy-${row.id}">Copy</button></td-2>
+            <td class="hidden-pass-buttons td-3 edit-delete-btn"><form id="form-${row.id}" class="edit-pass"><input type="text" id="new_pass-${row.id}" class="new-pass-input" name="password" placeholder="new password" required>
+            <button type="submit" id="save_edit-${row.id}" class="save_edit-button">Save</button></form>
+            <button type="button" class="edit-button" id="edit-${row.id}">Edit</button>
+            <button type="button" id ="delete-${row.id}" class="delete-button">Delete</button>
+            </td>
+          </tr>`);
+        }
+        $('.table').append('</tbody>');
+
+        //Edit button
+        $('.edit-button').on('click', function() {
+          const id = getId(this.id);
+          togglePassInput(id);
+        });
+
+
+        //Edit password
+        $(".edit-pass").on("submit", function(event) {
+          event.preventDefault();
+          const id = getId(this.id);
+          const password = $(this).serialize();
+          const formData = (`id=${id}&`).concat(password);
+          $.ajax({
+            method: 'POST',
+            url: `/api/passwords/${id}`,
+            data: formData
+          })
+            .done(()=>{
+              return getPasswords(``);
+            });
+
+        });
+
+        //Delete password
+        $(".delete-button").on("click", function() {
+          const id = getId(this.id);
+          const formData = `id=${id}`;
+
+          $.ajax({
+            method: 'POST',
+            url: `/api/passwords/${id}/delete`,
+            data: formData
+          })
+            .done(()=>{
+              return getPasswords(``);
+            });
+        });
+
+        //Copy button
+        $(".copy-button").on("click", function() {
+          const id = getId(this.id);
+          return copyPass(id);
+        });
+
+        //More button
+        $(".more-button").on("click", function() {
+          const id = getId(this.id);
+
+          if ($(this).text() === "More") {
+            $(this).text('Hide');
+            $(`#tr-${id}`).css('display', "table-row");
+            return toggleHiddenRows(id);
+          } else {
+            $(this).text('More');
+            $(`#tr-${id}`).css('display', "none");
+            $(`#new_pass-${id}`).css("display", "none");
+            $(`#save_edit-${id}`).css("display", "none");
+            $(`#delete-${id}`).css("display", "flex");
+            $(`#edit-${id}`).css("display", "flex");
+            $(`#new_pass-${id}`).val('');
           }
-          $('.table').append('</tbody>');
+        });
 
-          //Edit button on Click
-          $('.edit-button').on('click', function() {
-            const id = getId(this.id);
-            togglePassInput(id);
-          });
-
-
-          //Edit password
-          $(".edit-pass").on("submit", function(event) {
-            event.preventDefault();
-            const id = getId(this.id);
-            const password = $(this).serialize();
-            const formData = (`id=${id}&`).concat(password);
-            $.ajax({
-              method: 'POST',
-              url: `/api/passwords/${id}`,
-              data: formData
-            })
-              .done(()=>{
-                return getPasswords(``);
-              });
-
-          });
-
-          //Delete password
-          $(".delete-button").on("click", function() {
-            const id = getId(this.id);
-            const formData = `id=${id}`;
-
-            $.ajax({
-              method: 'POST',
-              url: `/api/passwords/${id}/delete`,
-              data: formData
-            })
-              .done(()=>{
-                return getPasswords(``);
-              });
-          });
-
-          //Copy button on click
-          $(".copy-button").on("click", function() {
-            const id = getId(this.id);
-            return copyPass(id);
-          });
+        //Copy & Go button
+        $(".copy-go-button").on("click", function() {
+          const id = getId(this.id);
+          console.log(this.id);
+        });
 
         });
 
@@ -207,23 +236,28 @@ const getPasswords = (category) => {
       $('#vault-header-cat').empty();
       $('#vault-header-cat').append(`My Vault : ${headerCategory}`);
       $('.table').empty();
-      $('.table').append(`<thead><tr class="table-header"><th>Account</th><th>Username</th><th colspan="3">Password</th></tr></thead><tbody id="table-body">`);
+      $('.table').append('<tbody> <tr class="table-header"><th>Account</th><th colspan="3">Username</th></tr>');
       for (const row of response.passwords) {
-        $('.table').append(`<tr>
-          <td>${row.title}</td>
-          <td>${row.login}</td>
-          <td id="pass-${row.id}" class="password-column">${row.password}</td>
-          <td class="pass-buttons"><button type="button" class="copy-button" id="copy-${row.id}">Copy</button></td>
-          <td class="pass-buttons edit-delete-btn">
-            <form id="form-${row.id}" class="edit-pass"><input type="text" id="new_pass-${row.id}" class="new-pass-input" name="password" placeholder="new password" required>
-            <button type="submit" id="save_edit-${row.id}" class="save_edit-button">Save</button></form>
-            <button type="button" class="edit-button" id="edit-${row.id}">Edit</button>
-            <button type="button" id ="delete-${row.id}" class="delete-button">Delete</button></td>
+        $('.table').append(`<tr id ="show-tr" class="tr-flex">
+          <td class="td-1">${row.title}</td>
+          <td class="td-2">${row.login}</td>
+          <td class="pass-buttons td-3"><button type="button" class="copy-go-button" id="copy-go-${row.id}">Copy & Go</button></td>
+          <td class="pass-buttons td-4 more-td"><button type="button" id ="more-${row.id}" class="more-button">More</button></td>
+          </tr>
+          <tr id="tr-${row.id}" class="hidden-tr">
+          <td>Password: </td>
+          <td id="pass-${row.id}" class="password-column td-1">${row.password}</td>
+          <td class="hidden-pass-buttons td-2"><button type="button" class="copy-button" id="copy-${row.id}">Copy</button></td-2>
+          <td class="hidden-pass-buttons td-3 edit-delete-btn"><form id="form-${row.id}" class="edit-pass"><input type="text" id="new_pass-${row.id}" class="new-pass-input" name="password" placeholder="new password" required>
+          <button type="submit" id="save_edit-${row.id}" class="save_edit-button">Save</button></form>
+          <button type="button" class="edit-button" id="edit-${row.id}">Edit</button>
+          <button type="button" id ="delete-${row.id}" class="delete-button">Delete</button>
+          </td>
         </tr>`);
       }
       $('.table').append('</tbody>');
 
-      //Edit button on Click
+      //Edit button
       $('.edit-button').on('click', function() {
         const id = getId(this.id);
         togglePassInput(id);
@@ -262,10 +296,35 @@ const getPasswords = (category) => {
           });
       });
 
-      //Copy button on click
+      //Copy button
       $(".copy-button").on("click", function() {
         const id = getId(this.id);
         return copyPass(id);
+      });
+
+      //More button
+      $(".more-button").on("click", function() {
+        const id = getId(this.id);
+
+        if ($(this).text() === "More") {
+          $(this).text('Hide');
+          $(`#tr-${id}`).css('display', "table-row");
+          return toggleHiddenRows(id);
+        } else {
+          $(this).text('More');
+          $(`#tr-${id}`).css('display', "none");
+          $(`#new_pass-${id}`).css("display", "none");
+          $(`#save_edit-${id}`).css("display", "none");
+          $(`#delete-${id}`).css("display", "flex");
+          $(`#edit-${id}`).css("display", "flex");
+          $(`#new_pass-${id}`).val('');
+        }
+      });
+
+      //Copy & Go button
+      $(".copy-go-button").on("click", function() {
+        const id = getId(this.id);
+        console.log(this.id);
       });
     });
 };
@@ -295,6 +354,17 @@ const togglePassInput = function(id) {
       $(`#save_edit-${inputId}`).css("display", "none");
     }
   });
+};
+
+const toggleHiddenRows = function(id) {
+  const hiddenRows = document.querySelectorAll('.hidden-tr');
+  hiddenRows.forEach(row => {
+    const rowId = getId(row.id);
+    if (rowId !== id) {
+      $(`#more-${rowId}`).text('More');
+      $(`#tr-${rowId}`).css('display', "none");
+    }
+  })
 };
 
 //Copy password to clipboard
