@@ -234,21 +234,22 @@ $(document).ready(function(){
 
   // Copy & Go button
   $("body").on("click", ".copy_go-button", function(event) {
-    alert('reached copy button');
     console.log({event});
     event.preventDefault();
     const id = getId($(this).attr('id'));
     console.log({id});
-    copyPass(id);
-    const formData = `id=${id}`;
-    console.log(formData);
-    $.ajax({
-      method: 'GET',
-      url: `/api/passwords/${id}`,
-      data: formData
-    }).done((response) => {
-      console.log(response);
-      return window.open(response.link);
+    copyPass(id)
+    .then(() => {
+      const formData = `id=${id}`;
+      console.log(formData);
+      $.ajax({
+        method: 'GET',
+        url: `/api/passwords/${id}`,
+        data: formData
+      }).done((response) => {
+        console.log(response);
+        return window.open(response.link);
+      });
     })
   });
 
@@ -432,5 +433,6 @@ const toggleHiddenRows = function(id) {
 const copyPass = function(id) {
   const idName = `#pass-${id}`;
   const copyText = $(`${idName}`).text();
-  navigator.clipboard.writeText(copyText);
+  console.log(copyText);
+  return navigator.clipboard.writeText(copyText);
 };
