@@ -5,6 +5,7 @@ const getPasswordById = (password) => {
   WHERE id = $1
   RETURNING *;`, [password.id])
     .then(data => {
+      console.log(data.rows);
       return data.rows;
     })
     .catch((error => {
