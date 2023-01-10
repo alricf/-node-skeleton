@@ -116,7 +116,7 @@ $(document).ready(function(){
           $('.table').append(`<tr id ="show-tr" class="tr-flex">
             <td class="td-1">${row.title}</td>
             <td class="td-2">${row.login}</td>
-            <td class="pass-buttons td-3"><button type="button" class="copy-go-button" id="copy-go-${row.id}">Copy & Go</button></td>
+            <td class="pass-buttons td-3"><button type="button" class="copy_go-button" id="copy_go-${row.id}">Copy & Go</button></td>
             <td class="pass-buttons td-4 more-td"><button type="button" id ="more-${row.id}" class="more-button">More</button></td>
             </tr>
             <tr id="tr-${row.id}" class="hidden-tr">
@@ -197,7 +197,7 @@ $(document).ready(function(){
         });
 
         //Copy & Go button
-        $(".copy-go-button").on("click", function() {
+        $(".copy_go-button").on("click", function() {
           const id = getId(this.id);
           console.log(this.id);
         });
@@ -240,7 +240,7 @@ const getPasswords = (category) => {
         $('.table').append(`<tr id ="show-tr" class="tr-flex">
           <td class="td-1">${row.title}</td>
           <td class="td-2">${row.login}</td>
-          <td class="pass-buttons td-3"><button type="button" class="copy-go-button" id="copy-go-${row.id}">Copy & Go</button></td>
+          <td class="pass-buttons td-3"><button type="button" class="copy_go-button" id="copy_go-${row.id}">Copy & Go</button></td>
           <td class="pass-buttons td-4 more-td"><button type="button" id ="more-${row.id}" class="more-button">More</button></td>
           </tr>
           <tr id="tr-${row.id}" class="hidden-tr">
@@ -321,9 +321,9 @@ const getPasswords = (category) => {
       });
 
       //Copy & Go button
-      $(".copy-go-button").on("click", function() {
+      $(".copy_go-button").on("click", function() {
         const id = getId(this.id);
-        console.log(this.id);
+        copyPass(id);
       });
     });
 };
