@@ -98,7 +98,7 @@ $(document).ready(function(){
     $('.new-password-box').css('display', "none");
     const form1 = $("#search-form").serialize();
     const searchTerm = $(".search-bar").val();
-    // console.log(form1);
+    $("#search-form")[0].reset();
       $.ajax({
         method: 'GET',
         url: '/api/passwords/search',
