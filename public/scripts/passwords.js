@@ -111,7 +111,7 @@ $(document).ready(function(){
         $('#vault-header-cat').empty();
         $('#vault-header-cat').append(`My Vault : "${searchTerm}"`);
         $('.table').empty();
-        $('.table').append('<tbody> <tr class="table-header"><th>Account</th><th colspan="3">Username</th></tr>');
+        $('.table').append('<tbody id="table-body"> <tr class="table-header"><th>Account</th><th colspan="3">Username</th></tr>');
         for (const row of response.passwords) {
           $('.table').append(`<tr id ="show-tr" class="tr-flex">
             <td class="td-1">${row.title}</td>
@@ -235,7 +235,7 @@ const getPasswords = (category) => {
       $('#vault-header-cat').empty();
       $('#vault-header-cat').append(`My Vault : ${headerCategory}`);
       $('.table').empty();
-      $('.table').append('<tbody> <tr class="table-header"><th>Account</th><th colspan="3">Username</th></tr>');
+      $('.table').append('<tbody id="table-body"> <tr class="table-header"><th>Account</th><th colspan="3">Username</th></tr>');
       for (const row of response.passwords) {
         $('.table').append(`<tr id ="show-tr" class="tr-flex">
           <td class="td-1">${row.title}</td>
