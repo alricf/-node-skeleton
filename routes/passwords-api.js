@@ -54,9 +54,10 @@ router.get('/work', (req, res) => {
 
 // GET /api/passwords/:id to retrieve a website for a password(login) for one password.id
 router.get('/:id', (req, res) => {
+  const id = req.params.id;
   byId.getPasswordById(id)
-  .then(password => {
-    res.json({ password });
+  .then(website => {
+    res.json({ website });
   })
   .catch(err => {
     res
