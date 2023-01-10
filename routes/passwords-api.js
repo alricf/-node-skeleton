@@ -8,7 +8,6 @@
 // Router
 const express = require('express');
 const router  = express.Router();
-const app     = express();
 
 // Queries
 const byOrg = require('../db/queries/passwords_by_org');
@@ -19,7 +18,7 @@ const byEntertainment = require('../db/queries/passwords_by_entertainment');
 const createPassword = require('../db/queries/create_new_password');
 const setNewPassword = require('../db/queries/edit_password');
 const delPassword = require('../db/queries/delete_password');
-// const searchPassword = require('../db/queries/search_password');
+const searchPassword = require('../db/queries/search_passwords');
 
 
 ////////////////////////////
@@ -39,7 +38,7 @@ router.get('/', (req, res) => {
   });
 });
 
-// GET passwords/api/work to retrieve title, login and password for all logins categorized as 'work' for one organization
+// GET /api/passwords/work to retrieve title, login and password for all logins categorized as 'work' for one organization
 router.get('/work', (req, res) => {
   byWork.getPasswordsByWork()
   .then(passwords => {
@@ -93,9 +92,11 @@ router.get('/entertainment', (req, res) => {
 
 // GET /api/passwords/search to search the organization's database for an existing password(login) from the passwords table
 router.get('/search', (req, res) => {
-  searchPassword.getPasswordSearch()
-  .then(passwords => {
-    res.json({ passwords });
+  console.log(req.query.searchText);
+  const searchTerm = req.query.searchText;
+  searchPassword.getPasswordSearch(searchTerm)
+  .then(password => {
+    res.json({ password });
   })
   .catch(err => {
     res

@@ -82,6 +82,102 @@ $(document).ready(function(){
     })
   });
 
+  // Search
+  $(".search-bar").on("keyup", function() {
+    // Filter current table
+    const value = $(this).val().toLowerCase();
+    $("#table-body tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+
+  // Post row with form inputed search term
+  $("#search-form").on("submit", function(event) {
+    event.preventDefault();
+    $('.new-password-box').css('display', "none");
+    const form1 = $("#search-form").serialize();
+    const searchTerm = $(".search-bar").val();
+    // console.log(form1);
+      $.ajax({
+        method: 'GET',
+        url: '/api/passwords/search',
+        data: form1
+      }).done((response) => {
+          $('.li-all').css("width", "250px");
+          $('.li-work').css("width", "250px");
+          $('.li-finance').css("width", "250px");
+          $('.li-social-media').css("width", "250px");
+          $('.li-entertainment').css("width", "250px");
+          console.log(response);
+          $('#vault-header-cat').empty();
+          $('#vault-header-cat').append(`My Vault : "${searchTerm}"`);
+          $('.table').empty();
+          $('.table').append(`<thead><tr class="table-header"><th>Account</th><th>Username</th><th colspan="3">Password</th></tr></thead><tbody id="table-body">`);
+
+          for (const row of response.password) {
+            $('.table').append(`<tr>
+              <td>${row.title}</td>
+              <td>${row.login}</td>
+              <td id="pass-${row.id}" class="password-column">${row.password}</td>
+              <td class="pass-buttons"><button type="button" class="copy-button" id="copy-${row.id}">Copy</button></td>
+              <td class="pass-buttons edit-delete-btn">
+                <form id="form-${row.id}" class="edit-pass"><input type="text" id="new_pass-${row.id}" class="new-pass-input" name="password" placeholder="new password" required>
+                <button type="submit" id="save_edit-${row.id}" class="save_edit-button">Save</button></form>
+                <button type="button" class="edit-button" id="edit-${row.id}">Edit</button>
+                <button type="button" id ="delete-${row.id}" class="delete-button">Delete</button></td>
+            </tr>`);
+          }
+          $('.table').append('</tbody>');
+
+          //Edit button on Click
+          $('.edit-button').on('click', function() {
+            const id = getId(this.id);
+            togglePassInput(id);
+          });
+
+
+          //Edit password
+          $(".edit-pass").on("submit", function(event) {
+            event.preventDefault();
+            const id = getId(this.id);
+            const password = $(this).serialize();
+            const formData = (`id=${id}&`).concat(password);
+            $.ajax({
+              method: 'POST',
+              url: `/api/passwords/${id}`,
+              data: formData
+            })
+              .done(()=>{
+                return getPasswords(``);
+              });
+
+          });
+
+          //Delete password
+          $(".delete-button").on("click", function() {
+            const id = getId(this.id);
+            const formData = `id=${id}`;
+
+            $.ajax({
+              method: 'POST',
+              url: `/api/passwords/${id}/delete`,
+              data: formData
+            })
+              .done(()=>{
+                return getPasswords(``);
+              });
+          });
+
+          //Copy button on click
+          $(".copy-button").on("click", function() {
+            const id = getId(this.id);
+            return copyPass(id);
+          });
+
+        });
+
+  });
+
 });
 
 //Load all passwords;
@@ -111,7 +207,7 @@ const getPasswords = (category) => {
       $('#vault-header-cat').empty();
       $('#vault-header-cat').append(`My Vault : ${headerCategory}`);
       $('.table').empty();
-      $('.table').append('<tbody> <tr class="table-header"><th>Account</th><th>Username</th><th colspan="3">Password</th></tr>');
+      $('.table').append(`<thead><tr class="table-header"><th>Account</th><th>Username</th><th colspan="3">Password</th></tr></thead><tbody id="table-body">`);
       for (const row of response.passwords) {
         $('.table').append(`<tr>
           <td>${row.title}</td>
