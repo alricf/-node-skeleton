@@ -109,7 +109,7 @@ $(document).ready(function(){
         $('.li-social-media').css("width", "250px");
         $('.li-entertainment').css("width", "250px");
         $('#vault-header-cat').empty();
-        $('#vault-header-cat').append(`My Vault : ${headerCategory}`);
+        $('#vault-header-cat').append(`My Vault : "${searchTerm}"`);
         $('.table').empty();
         $('.table').append('<tbody> <tr class="table-header"><th>Account</th><th colspan="3">Username</th></tr>');
 
