@@ -2,6 +2,8 @@ $(document).ready(function(){
 
   //display all passwords on page load
   getPasswords('');
+  $('.li-all').css("width", "260px");
+
 
   // Side-Menu Queries //
 
@@ -102,6 +104,11 @@ $(document).ready(function(){
         url: '/api/passwords/search',
         data: form1
       }).done((response) => {
+          $('.li-all').css("width", "250px");
+          $('.li-work').css("width", "250px");
+          $('.li-finance').css("width", "250px");
+          $('.li-social-media').css("width", "250px");
+          $('.li-entertainment').css("width", "250px");
           console.log(response);
           $('#vault-header-cat').empty();
           $('#vault-header-cat').append(`My Vault : "${searchTerm}"`);
