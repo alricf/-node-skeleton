@@ -11,6 +11,7 @@ const router  = express.Router();
 
 // Queries
 const byOrg = require('../db/queries/passwords_by_org');
+// const byId = require('../db/queries/password_by_id');
 const byWork = require('../db/queries/passwords_by_work');
 const byFinance = require('../db/queries/passwords_by_finance');
 const bySocialMedia = require('../db/queries/passwords_by_social');
@@ -43,6 +44,19 @@ router.get('/work', (req, res) => {
   byWork.getPasswordsByWork()
   .then(passwords => {
     res.json({ passwords });
+  })
+  .catch(err => {
+    res
+      .status(500)
+      .json({ error: err.message });
+  });
+});
+
+// GET /api/passwords/:id to retrieve a website for a password(login) for one password.id
+router.get('/:id', (req, res) => {
+  byId.getPasswordById(id)
+  .then(password => {
+    res.json({ password });
   })
   .catch(err => {
     res

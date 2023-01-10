@@ -7,10 +7,14 @@ body {
   outline: none;
 }
 
+main {
+  padding-top: 100px;
+}
+
 nav {
   width: 100%;
-  height: 120px;
-  padding: 10px;
+  height: 100px;
+  padding: 20px;
   background: white;
   border-bottom: 4px solid #273644;
   display: flex;
@@ -18,6 +22,8 @@ nav {
   justify-content: space-between;
   font-family: 'Nixie One', serif;
   font-weight: 400;
+  position: fixed;
+  top: 0;
 }
 
 .nav-links {
@@ -82,12 +88,17 @@ footer {
   font-weight: 400;
 }
 
+.passwords-section {
+  padding-left: 250px;
+}
+
 ul.side-menu {
   margin: 0;
   background-color: #34495D;
   padding-left: 0;
   width: 250px;
-  height: 90vh;
+  position: fixed;
+  height: 100vh;
 }
 
 .side-menu li {
