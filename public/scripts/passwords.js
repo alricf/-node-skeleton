@@ -72,7 +72,7 @@ $(document).ready(function(){
       data: formData
     })
     .done(()=>{
-      getPasswords();
+      getPasswords('');
       $('.new-password-box').css("display", "none");
       $('#new-title').val('');
       $('#new-user').val('');
