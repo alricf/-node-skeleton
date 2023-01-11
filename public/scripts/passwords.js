@@ -17,7 +17,6 @@ $(document).ready(function(){
     getPasswords('');
   });
 
-
   // Work
   $('ul.side-menu li:nth-child(2)').on('click', () => {
     $('.new-password-box').css('display', "none");
@@ -98,7 +97,6 @@ $(document).ready(function(){
     });
   });
 
-
   // Post row with form inputed search term
   $("#search-form").on("submit", function(event) {
     event.preventDefault();
@@ -148,7 +146,6 @@ $(document).ready(function(){
           const id = getId(this.id);
           togglePassInput(id);
         });
-
 
         //Edit password
         $(".edit-pass").on("submit", function(event) {
@@ -206,27 +203,6 @@ $(document).ready(function(){
             $(`#new_pass-${id}`).val('');
           }
         });
-
-        //Copy & Go button (moved to document.ready)
-        /*
-        $("body").on("click", ".copy_go-button", function(event) {
-          alert('reached copy button');
-          console.log({event});
-          event.preventDefault();
-          const id = getId($(this).attr('id'));
-          console.log({id});
-          copyPass(id);
-          const formData = `id=${id}`;
-          console.log(formData);
-          $.ajax({
-            method: 'GET',
-            url: `/api/passwords/${id}`,
-            data: formData
-          }).done((response) => {
-            return window.open(response.password);
-          })
-        });
-        */
 
         });
 
@@ -309,7 +285,6 @@ const getPasswords = (category) => {
         togglePassInput(id);
       });
 
-
       //Edit password
       $(".edit-pass").on("submit", function(event) {
         event.preventDefault();
@@ -347,22 +322,6 @@ const getPasswords = (category) => {
         const id = getId(this.id);
         return copyPass(id);
       });
-      // $("body").on("click", ".copy_go-button", function(event) {
-      //   alert('reached copy button');
-      //   console.log({event});
-      //   event.preventDefault();
-      //   const id = getId($(this).attr('id'));
-      //   console.log({id});
-      //   copyPass(id);
-      //   const formData = `id=${id}`;
-      //   console.log(formData);
-      //   $.ajax({
-      //     method: 'GET',
-      //     url: `/api/passwords/${id}`,
-      //     data: formData
-      //   }).done((response) => {
-      //     return window.open(response.password);
-      //   })
 
       //More button
       $(".more-button").on("click", function() {
@@ -383,14 +342,8 @@ const getPasswords = (category) => {
         }
       });
 
-      //Copy & Go button (moved to document.ready)
-      // $(".copy_go-button").on("click", function() {
-      //   const id = getId(this.id);
-      //   copyPass(id);
-      // });
     });
 };
-
 
 //get id from element id name
 const getId = function(idName) {
