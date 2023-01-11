@@ -83,6 +83,12 @@ $(document).ready(function(){
 
   // Search
     $(".search-bar").on("input", function() {
+
+    $('.li-all').css("width", "260px");
+    $('.li-work').css("width", "250px");
+    $('.li-finance').css("width", "250px");
+    $('.li-social-media').css("width", "250px");
+    $('.li-entertainment').css("width", "250px");
     // Filter current table
     const value = $(this).val().toLowerCase();
     $('.table-header').empty();
@@ -97,10 +103,10 @@ $(document).ready(function(){
     $(".filt").filter(function() {
       const isMatched = $(this).text().toLowerCase().indexOf(value) > -1;
       if (!isMatched && !matchedItems.has($(this).parent().attr("id"))) {
-        if (!matchCheck.has(($(this).parent().attr("id")))) {
+       if (!matchCheck.has(($(this).parent().attr("id")))) {
         matchCheck.add(($(this).parent().attr("id")))
-        return
-        }
+      return
+    }
       $(this).parent().toggle($(this).text().toLowerCase().indexOf(value) > -1)
       $('.hidden-tr').css("display", "none");
         return
