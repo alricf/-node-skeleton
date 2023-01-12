@@ -1,7 +1,7 @@
 const db = require('../connection');
 
 const getPasswordsByFinances = () => {
-  return db.query(`SELECT id, title, login, password FROM passwords WHERE organization_id = 1 AND category = 'Finances' ORDER BY id DESC;`)
+  return db.query(`SELECT id, title, login, password FROM passwords WHERE organization_id = 1 AND category = 'Finance' ORDER BY id DESC;`)
     .then(data => {
       return data.rows;
     })
