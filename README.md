@@ -72,7 +72,6 @@ This project was created and published by our group as part of our learnings at 
 - PG 6.x
 - ejs
 - dotenv
-- Cookie-parser
 - Morgan
 - Chalk
 - Nodemon
