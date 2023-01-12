@@ -85,19 +85,5 @@ $(document).ready(function() {
   });
 
 
-
-  // $(".more-button").on("click", function() {
-
-  //   if(this.textContent === "More") {
-  //     $('.hidden-pass').css("display", "flex");
-  //     this.textContent = "Hide";
-  //   } else {
-  //     $('.hidden-pass').css("display", "none");
-  //     this.textContent = "More";
-  //     $('.new-pass-input').css("visibility", "hidden");
-  //     $(".edit-button").innerHTML = "Edit";
-  //   }
-  // });
-
 });
 
