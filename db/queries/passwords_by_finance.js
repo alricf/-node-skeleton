@@ -1,6 +1,6 @@
 const db = require('../connection');
 
-const getPasswordsByFinance = () => {
+const getPasswordsByFinances = () => {
   return db.query(`SELECT id, title, login, password FROM passwords WHERE organization_id = 1 AND category = 'Finance' ORDER BY id DESC;`)
     .then(data => {
       return data.rows;
@@ -10,4 +10,4 @@ const getPasswordsByFinance = () => {
     }));
 };
 
-module.exports = { getPasswordsByFinance };
+module.exports = { getPasswordsByFinances };
