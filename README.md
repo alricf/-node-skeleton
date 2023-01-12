@@ -2,22 +2,22 @@
 
 ## Introduction
 
-In this modern age, there are so many online accounts that we use every day. It may be tempting to re-use the same password for mutliple accounts, but doing so can leave you vulnerable to hackers. 
+In the modern workplace, we have so many online accounts that are used every day. It may be tempting to re-use the same password for mutliple accounts, but doing so can leave us vulnerable to hackers. 
 
-How can you possibly keep track of all of these different passwords? Well... you don't have to! MyVault Password Manager will do this for you.
-
-Organize all your passwords and keep your sensitive info safe with MyVault. 
+Data breaches are expensive and time-consuming! Protect your business with MyVault Password Manager. MyVault organizes all your business' passwords and keeps your sensitive info safe. 
 ## Features
 
-1. MyVault stores all of your passwords in one place. Don't struggle to remember your passwords, let myVault do it for you.
-2. Your passwords are organized in categories: Work, Social Media, Entertainment and Finance. Simply click on the sidebar to view all of the passwords in each category. 
+1. Everyone in your organization can create and store all their passwords in one place.
+2. Your organization's passwords have four categories: Work, Social Media, Entertainment and Finances. Click on the sidebar to view all of the passwords in each category. 
 3. Logging in to any account is easy! Simply click the "Copy & Go" button and you'll be redirected to the website's login page. Your password is automatically copied to the clipboard, so all you have to do is paste it in.
-4. Having trouble coming up with a strong password? No problem! MyVault can generate passwords based on the criteria specified (password length, contains lowercase, contairs uppercase, contains numbers, etc). 
+4. Having trouble coming up with a strong password? No problem! MyVault can generate passwords based on the criteria specified (password length, contains lowercase, contains numbers, etc). 
 5. Use the search bar at the top of the page to search all of your passwords quickly and easily.
 6. You can also edit and delete your passwords in MyVault. Simply click the "More" button next to the password you want to change.
 
 ## Final Project
 
+Home Page 
+![image](https://github.com/alricf/node-skeleton/blob/master/project_docs/screenshots/home-page.png)
 ## Tech Stack 
 ![image](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
 ![image](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
