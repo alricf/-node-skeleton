@@ -18,7 +18,7 @@ const router  = express.Router();
 const byOrg = require('../db/queries/passwords_by_org');
 const byId = require('../db/queries/passwords_by_id');
 const byWork = require('../db/queries/passwords_by_work');
-const byFinances = require('../db/queries/passwords_by_finances');
+const byFinances = require('../db/queries/passwords_by_finance');
 const bySocialMedia = require('../db/queries/passwords_by_social');
 const byEntertainment = require('../db/queries/passwords_by_entertainment');
 const createPassword = require('../db/queries/create_new_password');
@@ -60,7 +60,7 @@ router.get('/work', (req, res) => {
 
 
 // GET /api/passwords/finances to retrieve title, login and password for all logins categorized as 'finances' for one organization
-router.get('/finances', (req, res) => {
+router.get('/finance', (req, res) => {
   byFinances.getPasswordsByFinance()
   .then(passwords => {
     res.json({ passwords });
