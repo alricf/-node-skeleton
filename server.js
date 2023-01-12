@@ -37,15 +37,8 @@ app.use(express.static('public'));
 // Routes
 ////////////
 
-// Separated Routes for each Resource
-
+// Define and mount principal resource route
 const passwordsApiRoutes = require('./routes/passwords-api');
-const userApiRoutes = require('./routes/users-api');
-
-
-// Mount all resource routes
-
-app.use('/api/users', userApiRoutes);
 app.use('/api/passwords', passwordsApiRoutes);
 
 
