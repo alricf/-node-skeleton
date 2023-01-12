@@ -1,4 +1,4 @@
-# MyVault - Password Manager
+![image](https://github.com/alricf/node-skeleton/blob/master/public/images/logo.png)
 
 ## Introduction
 
