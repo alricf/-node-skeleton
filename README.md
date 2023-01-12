@@ -16,16 +16,16 @@ Data breaches are expensive and time-consuming! Protect your business with MyVau
 
 ## Final Project
 
-Home Page 
+**_Home Page_:** 
 ![image](https://github.com/alricf/node-skeleton/blob/master/project_docs/screenshots/home-page.png)
 
-Add New Password
+**_Add New Password_:**
 ![image](https://github.com/alricf/node-skeleton/blob/master/project_docs/screenshots/add-new.png)
 
-More Password Info
+**_More Password Info_:**
 ![image](https://github.com/alricf/node-skeleton/blob/master/project_docs/screenshots/more-button.png)
 
-Search Results
+**_Search Results_:**
 ![image](https://github.com/alricf/node-skeleton/blob/master/project_docs/screenshots/search.png)
 ## Tech Stack 
 ![image](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
