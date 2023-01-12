@@ -19,11 +19,11 @@ Data breaches are expensive and time-consuming! Protect your business with MyVau
 **_Home Page_:** 
 ![image](https://github.com/alricf/node-skeleton/blob/master/project_docs/screenshots/home-page.png)
 
-**_Add New Password_:**
-![image](https://github.com/alricf/node-skeleton/blob/master/project_docs/screenshots/add-new.png)
-
 **_More Password Info_:**
 ![image](https://github.com/alricf/node-skeleton/blob/master/project_docs/screenshots/more-button.png)
+
+**_Add New Password_:**
+![image](https://github.com/alricf/node-skeleton/blob/master/project_docs/screenshots/add-new.png)
 
 **_Search Results_:**
 ![image](https://github.com/alricf/node-skeleton/blob/master/project_docs/screenshots/search.png)
