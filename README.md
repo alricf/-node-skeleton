@@ -1,7 +1,4 @@
-
-<p align="center">
-  <img src="![image](https://github.com/alricf/node-skeleton/blob/master/public/images/logo.png)" />
-</p>
+![image](https://github.com/alricf/node-skeleton/blob/master/public/images/logo.png)
 
 ## Introduction
 
@@ -17,7 +14,7 @@ Data breaches are expensive and time-consuming! Protect your business with MyVau
 5. Use the search bar at the top of the page to search all of your passwords quickly and easily.
 6. You can also edit and delete your passwords in MyVault. Simply click the "More" button next to the password you want to change.
 
-## Final Product
+## Final Project
 
 **_Home Page_:** 
 ![image](https://github.com/alricf/node-skeleton/blob/master/project_docs/screenshots/home-page.png)
