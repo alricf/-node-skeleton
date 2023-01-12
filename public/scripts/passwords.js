@@ -102,15 +102,18 @@ $(document).ready(function() {
 
     $(".filt").filter(function() {
       const isMatched = $(this).text().toLowerCase().indexOf(value) > -1;
+
       if (!isMatched && !matchedItems.has($(this).parent().attr("id"))) {
-       if (!matchCheck.has(($(this).parent().attr("id")))) {
+        if (!matchCheck.has(($(this).parent().attr("id")))) {
         matchCheck.add(($(this).parent().attr("id")))
-      return
-    }
+        return;
+        }
+
       $(this).parent().toggle($(this).text().toLowerCase().indexOf(value) > -1)
       $('.hidden-tr').css("display", "none");
-        return
+      return;
       }
+
       matchedItems.add(($(this).parent().attr("id")))
     });
 
