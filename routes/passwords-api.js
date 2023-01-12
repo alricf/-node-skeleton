@@ -1,9 +1,14 @@
+////////////////////////////
+// /api/passwords/
+////////////////////////////
+
 /*
  * All routes for Passwords Data are defined here
  * Since this file is loaded in server.js into api/passwords,
  *   these routes are mounted onto /api/passwords
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
+
 
 // Router
 const express = require('express');
@@ -22,9 +27,9 @@ const delPassword = require('../db/queries/delete_password');
 const searchPassword = require('../db/queries/search_passwords');
 
 
-////////////////////////////
-// /api/passwords/ routes
-////////////////////////////
+///////////////////////////////
+// /api/passwords/ GET routes
+///////////////////////////////
 
 // GET /api/passwords/ to retrieve title, login and password for all logins for one organization
 router.get('/', (req, res) => {
@@ -38,6 +43,7 @@ router.get('/', (req, res) => {
       .json({ error: err.message });
   });
 });
+
 
 // GET /api/passwords/work to retrieve title, login and password for all logins categorized as 'work' for one organization
 router.get('/work', (req, res) => {
@@ -53,7 +59,6 @@ router.get('/work', (req, res) => {
 });
 
 
-
 // GET /api/passwords/finances to retrieve title, login and password for all logins categorized as 'finances' for one organization
 router.get('/finance', (req, res) => {
   byFinance.getPasswordsByFinance()
@@ -66,6 +71,7 @@ router.get('/finance', (req, res) => {
       .json({ error: err.message });
   });
 });
+
 
 // GET /api/passwords/social-media to retrieve title, login and password for all logins categorized as 'social-media' for one organization
 router.get('/social-media', (req, res) => {
@@ -80,6 +86,7 @@ router.get('/social-media', (req, res) => {
   });
 });
 
+
 // GET /api/passwords/entertainment to retrieve title, login and password for all logins categorized as 'entertainment' for one organization
 router.get('/entertainment', (req, res) => {
   byEntertainment.getPasswordsByEntertainment()
@@ -92,6 +99,7 @@ router.get('/entertainment', (req, res) => {
       .json({ error: err.message });
   });
 });
+
 
 // GET /api/passwords/search to search the organization's database for an existing password(login) from the passwords table
 router.get('/search', (req, res) => {
@@ -108,6 +116,7 @@ router.get('/search', (req, res) => {
   });
 });
 
+
 // GET /api/passwords/:id to retrieve a website for a password(login) for one password.id
 router.get('/:id', (req, res) => {
   const id = req.params.id;
@@ -123,6 +132,11 @@ router.get('/:id', (req, res) => {
       .json({ error: err.message });
   });
 });
+
+
+///////////////////////////////
+// /api/passwords/ POST routes
+///////////////////////////////
 
 // POST /api/passwords to create a new password(login) and add it to the passwords table
 router.post('/', (req, res) => {
@@ -174,7 +188,6 @@ router.post('/:id/delete', (req, res) => {
       .json({ error: err.message });
   });
 });
-
 
 
 module.exports = router;
