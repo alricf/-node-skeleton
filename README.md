@@ -5,6 +5,10 @@
 In the modern workplace, we have so many online accounts that are used every day. It may be tempting to re-use the same password for mutliple accounts, but doing so can leave us vulnerable to hackers. 
 
 Data breaches are expensive and time-consuming! Protect your business with MyVault Password Manager. MyVault organizes all your business' passwords and keeps your sensitive info safe. 
+
+**_BEWARE:_ This library was published for learning purposes. It is _not_ intended for use in production-grade software.**
+
+This project was created and published by our group as part of our learnings at Lighthouse Labs.
 ## Features
 
 1. Everyone in your organization can create and store all their passwords in one place.
