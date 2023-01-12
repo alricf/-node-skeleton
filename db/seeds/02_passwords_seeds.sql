@@ -5,8 +5,8 @@ INSERT INTO passwords (title, login, password, website, category, organization_i
 INSERT INTO passwords (title, login, password, website, category, organization_id) VALUES ('Crave', 'bigboybarley', 'LongWalks@247', 'https://account.bellmedia.ca/login#', 'Entertainment', 1);
 INSERT INTO passwords (title, login, password, website, category, organization_id) VALUES ('Gmail', 'pollywalnuts@gmail.com', 'Fur$$Coat10', 'https://accounts.google.com', 'Work', 1);
 INSERT INTO passwords (title, login, password, website, category, organization_id) VALUES ('Dropbox', 'fashionablekeiko', 'Lets#Chill345', 'https://www.dropbox.com/login', 'Work', 2);
-INSERT INTO passwords (title, login, password, website, category, organization_id) VALUES ('BMO', '12349814538743287', 'PayDay$$$700', 'https://www1.bmo.com/banking/digital/login?lang=en', 'Finance', 2);
-INSERT INTO passwords (title, login, password, website, category, organization_id) VALUES ('TD', '39856098723498732', 'CoffeeBreak5556%', 'https://authentication.td.com/uap-ui/?consumer=easyweb&locale=en_CA#/uap/login', 'Finance', 1);
+INSERT INTO passwords (title, login, password, website, category, organization_id) VALUES ('BMO', '12349814538743287', 'PayDay$$$700', 'https://www1.bmo.com/banking/digital/login?lang=en', 'Finances', 2);
+INSERT INTO passwords (title, login, password, website, category, organization_id) VALUES ('TD', '39856098723498732', 'CoffeeBreak5556%', 'https://authentication.td.com/uap-ui/?consumer=easyweb&locale=en_CA#/uap/login', 'Finances', 1);
 INSERT INTO passwords (title, login, password, website, category, organization_id) VALUES ('Facebook', 'maistripedtiger@gmail.com', 'Zoomies987%', 'https://www.facebook.com/login/', 'Social', 1);
 INSERT INTO passwords (title, login, password, website, category, organization_id) VALUES ('TikTok', 'fabulouspolly@gmail.com', '345Purr$Purr', 'https://www.tiktok.com/login', 'Social', 1);
 INSERT INTO passwords (title, login, password, website, category, organization_id) VALUES ('Snapchat', 'keikotheshiba', '%JustChillin637#', 'https://accounts.snapchat.com/accounts/login', 'Social', 1);
@@ -22,8 +22,8 @@ INSERT INTO passwords (title, login, password, website, category, organization_i
 INSERT INTO passwords (title, login, password, website, category, organization_id) VALUES ('Bamboo', 'bigboybarley@gmail.com', '#S1rl0inSteak#2', 'https://app.bamboohr.com/login/', 'Work', 1);
 INSERT INTO passwords (title, login, password, website, category, organization_id) VALUES ('Monday', 'maistripedtiger@gmail.com', '#CatN1p%Treats3567', 'https://auth.monday.com/auth/login_monday', 'Work', 1);
 INSERT INTO passwords (title, login, password, website, category, organization_id) VALUES ('Trello', 'fashionablekeiko@gmail.com', 'Winter!B00ts%32', 'https://trello.com/en/login', 'Work', 1);
-INSERT INTO passwords (title, login, password, website, category, organization_id) VALUES ('BMO', '12349814538743287', '@Sweetie%Pie2368', 'https://www1.bmo.com/banking/digital/login?lang=en', 'Finance', 1);
-INSERT INTO passwords (title, login, password, website, category, organization_id) VALUES ('RBC', '06989387205969827', '%Sleepy236Sunday(#6', 'https://www.rbcroyalbank.com/personal.html', 'Finance', 1);
-INSERT INTO passwords (title, login, password, website, category, organization_id) VALUES ('Envision', '3857602405969301', 'N1ght%0wl2678#', 'https://www.envisionfinancial.ca/index/login', 'Finance', 1);
-INSERT INTO passwords (title, login, password, website, category, organization_id) VALUES ('CIBC', '2385695968503395', '@#$%ComfyH00die234', 'https://www.cibconline.cibc.com/ebm-resources/public/verified-me/client/index.html#/signon', 'Finance', 1);
-INSERT INTO passwords (title, login, password, website, category, organization_id) VALUES ('Scotiabank', '2849506009848575', 'Sl33p#1n$Day^2346', 'https://www.scotiaonline.scotiabank.com', 'Finance', 1);
+INSERT INTO passwords (title, login, password, website, category, organization_id) VALUES ('BMO', '12349814538743287', '@Sweetie%Pie2368', 'https://www1.bmo.com/banking/digital/login?lang=en', 'Finances', 1);
+INSERT INTO passwords (title, login, password, website, category, organization_id) VALUES ('RBC', '06989387205969827', '%Sleepy236Sunday(#6', 'https://www.rbcroyalbank.com/personal.html', 'Finances', 1);
+INSERT INTO passwords (title, login, password, website, category, organization_id) VALUES ('Envision', '3857602405969301', 'N1ght%0wl2678#', 'https://www.envisionfinancial.ca/index/login', 'Finances', 1);
+INSERT INTO passwords (title, login, password, website, category, organization_id) VALUES ('CIBC', '2385695968503395', '@#$%ComfyH00die234', 'https://www.cibconline.cibc.com/ebm-resources/public/verified-me/client/index.html#/signon', 'Finances', 1);
+INSERT INTO passwords (title, login, password, website, category, organization_id) VALUES ('Scotiabank', '2849506009848575', 'Sl33p#1n$Day^2346', 'https://www.scotiaonline.scotiabank.com', 'Finances', 1);
