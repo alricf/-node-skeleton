@@ -18,6 +18,15 @@ Data breaches are expensive and time-consuming! Protect your business with MyVau
 
 Home Page 
 ![image](https://github.com/alricf/node-skeleton/blob/master/project_docs/screenshots/home-page.png)
+
+Add New Password
+![image](https://github.com/alricf/node-skeleton/blob/master/project_docs/screenshots/add-new.png)
+
+More Password Info
+![image](https://github.com/alricf/node-skeleton/blob/master/project_docs/screenshots/more-button.png)
+
+Search Results
+![image](https://github.com/alricf/node-skeleton/blob/master/project_docs/screenshots/search.png)
 ## Tech Stack 
 ![image](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
 ![image](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
