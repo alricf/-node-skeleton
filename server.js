@@ -28,18 +28,15 @@ app.use(express.static('public'));
 
 // Separated Routes for each Resource
 
-const organizationsApiRoutes = require('./routes/organizations-api');
 const passwordsApiRoutes = require('./routes/passwords-api');
 const userApiRoutes = require('./routes/users-api');
-const usersRoutes = require('./routes/users');
+
 
 // Mount all resource routes
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
 
 app.use('/api/users', userApiRoutes);
-app.use('/api/organizations', organizationsApiRoutes);
 app.use('/api/passwords', passwordsApiRoutes);
-app.use('/users', usersRoutes);
 
 
 // Home page
