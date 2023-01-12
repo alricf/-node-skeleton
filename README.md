@@ -17,16 +17,16 @@ Data breaches are expensive and time-consuming! Protect your business with MyVau
 ## Final Product
 
 **_Home Page_:** 
-![image](https://github.com/alricf/node-skeleton/blob/master/project_docs/screenshots/home-page-screenshot.png)
+![Screenshot of home page](https://github.com/alricf/node-skeleton/blob/master/project_docs/screenshots/home-page-screenshot.png)
 
 **_More Password Info_:**
-![image](https://github.com/alricf/node-skeleton/blob/master/project_docs/screenshots/more-screenshot.png)
+![Screenshot of more password info](https://github.com/alricf/node-skeleton/blob/master/project_docs/screenshots/more-screenshot.png)
 
 **_Add New Password_:**
-![image](https://github.com/alricf/node-skeleton/blob/master/project_docs/screenshots/add-new-screenshot.png)
+![Screenshot of new password box](https://github.com/alricf/node-skeleton/blob/master/project_docs/screenshots/add-new-screenshot.png)
 
 **_Search Results_:**
-![image](https://github.com/alricf/node-skeleton/blob/master/project_docs/screenshots/search-screenshot.png)
+![Screenshot of search result](https://github.com/alricf/node-skeleton/blob/master/project_docs/screenshots/search-screenshot.png)
 ## Tech Stack 
 ![image](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
 ![image](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
