@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function() {
 
   //display all passwords on page load
   getPasswords('');
