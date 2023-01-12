@@ -1,3 +1,7 @@
+////////////
+// Server
+////////////
+
 // load .env data into process.env
 require('dotenv').config();
 
@@ -14,6 +18,9 @@ app.set('view engine', 'ejs');
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
+
+// NB: To control the logging of routes and status codes in the console in real time, comment out/uncomment app.use(morgan('dev')), below.
+
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(
@@ -26,6 +33,10 @@ app.use(
 );
 app.use(express.static('public'));
 
+////////////
+// Routes
+////////////
+
 // Separated Routes for each Resource
 
 const passwordsApiRoutes = require('./routes/passwords-api');
@@ -33,21 +44,17 @@ const userApiRoutes = require('./routes/users-api');
 
 
 // Mount all resource routes
-// Note: Endpoints that return data (eg. JSON) usually start with `/api`
 
 app.use('/api/users', userApiRoutes);
 app.use('/api/passwords', passwordsApiRoutes);
 
 
 // Home page
-// Warning: avoid creating more routes in this file!
-// Separate them into separate routes files (see above).
-
 app.get('/', (req, res) => {
   res.render('index');
 });
 
-
+// Mount Server
 app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}`);
+  console.log(`Listening on port ${PORT}`);
 });
