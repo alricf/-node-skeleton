@@ -404,6 +404,5 @@ const toggleHiddenRows = function(id) {
 const copyPass = function(id) {
   const idName = `#pass-${id}`;
   const copyText = $(`${idName}`).text();
-  console.log(copyText);
   return navigator.clipboard.writeText(copyText);
 };

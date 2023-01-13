@@ -103,7 +103,6 @@ router.get('/entertainment', (req, res) => {
 
 // GET /api/passwords/search to search the organization's database for an existing password(login) from the passwords table
 router.get('/search', (req, res) => {
-  console.log(req.query.searchText);
   const searchTerm = req.query.searchText;
   searchPassword.getPasswordSearch(searchTerm)
   .then(passwords => {
@@ -120,7 +119,6 @@ router.get('/search', (req, res) => {
 // GET /api/passwords/:id to retrieve a website for a password(login) for one password.id
 router.get('/:id', (req, res) => {
   const id = req.params.id;
-  console.log(id);
   byId.getPasswordById(id)
   .then(go => {
     const link = go.website;
