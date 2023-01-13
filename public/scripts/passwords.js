@@ -93,8 +93,23 @@ $(document).ready(function() {
     const value = $(this).val().toLowerCase();
     $('.table-header').empty();
 
+    //Get page category
+    const pageCat = getPageCat($('#vault-header-cat').text());
     if (value.length === 0) {
-    getPasswords('');
+
+      switch (pageCat) {
+        case 'All Passwords': getPasswords('');
+        break;
+        case 'Work': getPasswords('work');
+        break;
+        case 'Finances': getPasswords('finance');
+        break;
+        case 'Social Media': getPasswords('social-media');
+        break;
+        case 'Entertainment': getPasswords('entertainment');
+        break;
+      }
+
     }
 
     const matchedItems = new Set();
@@ -258,7 +273,7 @@ const getPasswords = (category) => {
   switch (category) {
   case 'work': headerCategory = "Work";
     break;
-  case 'finance': headerCategory = 'Finance';
+  case 'finance': headerCategory = 'Finances';
     break;
   case 'social-media': headerCategory = 'Social Media';
     break;
@@ -405,4 +420,9 @@ const copyPass = function(id) {
   const idName = `#pass-${id}`;
   const copyText = $(`${idName}`).text();
   return navigator.clipboard.writeText(copyText);
+};
+
+const getPageCat = function(header) {
+  const category  = header.slice(11);
+  return category;
 };
