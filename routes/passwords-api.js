@@ -12,7 +12,7 @@
 
 // Router
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 
 // Queries
 const byOrg = require('../db/queries/passwords_by_org');
@@ -34,70 +34,70 @@ const searchPassword = require('../db/queries/search_passwords');
 // GET /api/passwords/ to retrieve title, login and password for all logins for one organization
 router.get('/', (req, res) => {
   byOrg.getPasswordsByOrg()
-  .then(passwords => {
-    res.json({ passwords });
-  })
-  .catch(err => {
-    res
-      .status(500)
-      .json({ error: err.message });
-  });
+    .then(passwords => {
+      res.json({ passwords });
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
 });
 
 
 // GET /api/passwords/work to retrieve title, login and password for all logins categorized as 'work' for one organization
 router.get('/work', (req, res) => {
   byWork.getPasswordsByWork()
-  .then(passwords => {
-    res.json({ passwords });
-  })
-  .catch(err => {
-    res
-      .status(500)
-      .json({ error: err.message });
-  });
+    .then(passwords => {
+      res.json({ passwords });
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
 });
 
 
 // GET /api/passwords/finances to retrieve title, login and password for all logins categorized as 'finances' for one organization
 router.get('/finance', (req, res) => {
   byFinances.getPasswordsByFinance()
-  .then(passwords => {
-    res.json({ passwords });
-  })
-  .catch(err => {
-    res
-      .status(500)
-      .json({ error: err.message });
-  });
+    .then(passwords => {
+      res.json({ passwords });
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
 });
 
 
 // GET /api/passwords/social-media to retrieve title, login and password for all logins categorized as 'social-media' for one organization
 router.get('/social-media', (req, res) => {
   bySocialMedia.getPasswordsBySocial()
-  .then(passwords => {
-    res.json({ passwords });
-  })
-  .catch(err => {
-    res
-      .status(500)
-      .json({ error: err.message });
-  });
+    .then(passwords => {
+      res.json({ passwords });
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
 });
 
 
 // GET /api/passwords/entertainment to retrieve title, login and password for all logins categorized as 'entertainment' for one organization
 router.get('/entertainment', (req, res) => {
   byEntertainment.getPasswordsByEntertainment()
-  .then(passwords => {
-    res.json({ passwords });
-  })
-  .catch(err => {
-    res
-      .status(500)
-      .json({ error: err.message });
-  });
+    .then(passwords => {
+      res.json({ passwords });
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
 });
 
 
@@ -105,14 +105,14 @@ router.get('/entertainment', (req, res) => {
 router.get('/search', (req, res) => {
   const searchTerm = req.query.searchText;
   searchPassword.getPasswordSearch(searchTerm)
-  .then(passwords => {
-    res.json({ passwords });
-  })
-  .catch(err => {
-    res
-      .status(500)
-      .json({ error: err.message });
-  });
+    .then(passwords => {
+      res.json({ passwords });
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
 });
 
 
@@ -120,15 +120,15 @@ router.get('/search', (req, res) => {
 router.get('/:id', (req, res) => {
   const id = req.params.id;
   byId.getPasswordById(id)
-  .then(go => {
-    const link = go.website;
-    res.send({ link });
-  })
-  .catch(err => {
-    res
-      .status(500)
-      .json({ error: err.message });
-  });
+    .then(go => {
+      const link = go.website;
+      res.send({ link });
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
 });
 
 
@@ -140,51 +140,57 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   const newPassword = req.body;
   const newPassObj = {
-                       title: newPassword.title,
-                       login: newPassword.login,
-                       password: newPassword.password,
-                       website: newPassword.website,
-                       category: newPassword.category
-                      };
+    title: newPassword.title,
+    login: newPassword.login,
+    password: newPassword.password,
+    website: newPassword.website,
+    category: newPassword.category
+  };
 
   return createPassword.createNewPassword(newPassObj)
-  .then(() => {return res.sendStatus(201);})
-  .catch(err => {
-    res
-      .status(500)
-      .json({ error: err.message });
-  });
+    .then(() => {
+      return res.sendStatus(201);
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
 });
 
 // POST /api/passwords/:id to edit an existing password in the passwords table
 router.post('/:id', (req, res) => {
   const editedPass = req.body;
   const editedPassObj = {
-                       id: editedPass.id,
-                       password: editedPass.password,
-                      };
+    id: editedPass.id,
+    password: editedPass.password,
+  };
 
   return setNewPassword.editPassword(editedPassObj)
-  .then(() => {return res.status(201).json({statusCode: '201'});})
-  .catch(err => {
-    res
-      .status(500)
-      .json({ error: err.message });
-  });
+    .then(() => {
+      return res.status(201).json({ statusCode: '201' });
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
 });
 
 // POST /api/passwords/:id/delete to delete an existing password(login) from the passwords table
 router.post('/:id/delete', (req, res) => {
   const deletePassword = req.body;
-  const deletePassObj = {id: deletePassword.id};
+  const deletePassObj = { id: deletePassword.id };
 
   return delPassword.deletePassword(deletePassObj)
-  .then(() => {return res.status(201).json({statusCode: '201'});})
-  .catch(err => {
-    res
-      .status(500)
-      .json({ error: err.message });
-  });
+    .then(() => {
+      return res.status(201).json({ statusCode: '201' });
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
 });
 
 
