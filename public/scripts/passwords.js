@@ -70,19 +70,19 @@ $(document).ready(function() {
       url: '/api/passwords',
       data: formData
     })
-    .done(()=>{
-      getPasswords('');
-      $('.new-password-box').css("display", "none");
-      $('#new-title').val('');
-      $('#new-user').val('');
-      $('#new-website').val('');
-      $('#new-category').val('');
-      $('#new-password').val('');
-    })
+      .done(() => {
+        getPasswords('');
+        $('.new-password-box').css("display", "none");
+        $('#new-title').val('');
+        $('#new-user').val('');
+        $('#new-website').val('');
+        $('#new-category').val('');
+        $('#new-password').val('');
+      });
   });
 
   // Search
-    $(".search-bar").on("input", function() {
+  $(".search-bar").on("input", function() {
 
     $('.li-all').css("width", "260px");
     $('.li-work').css("width", "250px");
@@ -98,15 +98,15 @@ $(document).ready(function() {
     if (value.length === 0) {
 
       switch (pageCat) {
-        case 'All Passwords': getPasswords('');
+      case 'All Passwords': getPasswords('');
         break;
-        case 'Work': getPasswords('work');
+      case 'Work': getPasswords('work');
         break;
-        case 'Finances': getPasswords('finance');
+      case 'Finances': getPasswords('finance');
         break;
-        case 'Social Media': getPasswords('social-media');
+      case 'Social Media': getPasswords('social-media');
         break;
-        case 'Entertainment': getPasswords('entertainment');
+      case 'Entertainment': getPasswords('entertainment');
         break;
       }
 
@@ -120,16 +120,16 @@ $(document).ready(function() {
 
       if (!isMatched && !matchedItems.has($(this).parent().attr("id"))) {
         if (!matchCheck.has(($(this).parent().attr("id")))) {
-        matchCheck.add(($(this).parent().attr("id")))
-        return;
+          matchCheck.add(($(this).parent().attr("id")));
+          return;
         }
 
-      $(this).parent().toggle($(this).text().toLowerCase().indexOf(value) > -1)
-      $('.hidden-tr').css("display", "none");
-      return;
+        $(this).parent().toggle($(this).text().toLowerCase().indexOf(value) > -1);
+        $('.hidden-tr').css("display", "none");
+        return;
       }
 
-      matchedItems.add(($(this).parent().attr("id")))
+      matchedItems.add(($(this).parent().attr("id")));
     });
 
   });
@@ -141,22 +141,22 @@ $(document).ready(function() {
     const form1 = $("#search-form").serialize();
     const searchTerm = $(".search-bar").val();
     $("#search-form")[0].reset();
-      $.ajax({
-        method: 'GET',
-        url: '/api/passwords/search',
-        data: form1
-      }).done((response) => {
-        $('.li-all').css("width", "250px");
-        $('.li-work').css("width", "250px");
-        $('.li-finance').css("width", "250px");
-        $('.li-social-media').css("width", "250px");
-        $('.li-entertainment').css("width", "250px");
-        $('#vault-header-cat').empty();
-        $('#vault-header-cat').append(`My Vault : "${searchTerm}"`);
-        $('.table').empty();
-        $('.table').append('<tbody id="table-body"> <tr class="table-header"><th>Account</th><th colspan="3">Username</th></tr>');
-        for (const row of response.passwords) {
-          $('.table').append(`<tr id ="show_tr-${row.id}">
+    $.ajax({
+      method: 'GET',
+      url: '/api/passwords/search',
+      data: form1
+    }).done((response) => {
+      $('.li-all').css("width", "250px");
+      $('.li-work').css("width", "250px");
+      $('.li-finance').css("width", "250px");
+      $('.li-social-media').css("width", "250px");
+      $('.li-entertainment').css("width", "250px");
+      $('#vault-header-cat').empty();
+      $('#vault-header-cat').append(`My Vault : "${searchTerm}"`);
+      $('.table').empty();
+      $('.table').append('<tbody id="table-body"> <tr class="table-header"><th>Account</th><th colspan="3">Username</th></tr>');
+      for (const row of response.passwords) {
+        $('.table').append(`<tr id ="show_tr-${row.id}">
             <td class="td-1">${row.title}</td>
             <td class="td-2">${row.login}</td>
             <td class="pass-buttons td-3"><button type="button" class="copy_go-button" id="copy_go-${row.id}">Copy & Go</button></td>
@@ -172,76 +172,76 @@ $(document).ready(function() {
             <button type="button" id ="delete-${row.id}" class="delete-button">Delete</button>
             </td>
           </tr>`);
+      }
+      $('.table').append('</tbody>');
+
+      //Hide password rows upon submit
+      $('.hidden-tr').css("display", "none");
+
+      //Edit button
+      $('.edit-button').on('click', function() {
+        const id = getId(this.id);
+        togglePassInput(id);
+      });
+
+      //Edit password
+      $(".edit-pass").on("submit", function(event) {
+        event.preventDefault();
+        const id = getId(this.id);
+        const password = $(this).serialize();
+        const formData = (`id=${id}&`).concat(password);
+        $.ajax({
+          method: 'POST',
+          url: `/api/passwords/${id}`,
+          data: formData
+        })
+          .done(() => {
+            return getPasswords(``);
+          });
+
+      });
+
+      //Delete password
+      $(".delete-button").on("click", function() {
+        const id = getId(this.id);
+        const formData = `id=${id}`;
+
+        $.ajax({
+          method: 'POST',
+          url: `/api/passwords/${id}/delete`,
+          data: formData
+        })
+          .done(() => {
+            return getPasswords(``);
+          });
+      });
+
+      //Copy button
+      $(".copy-button").on("click", function() {
+        const id = getId(this.id);
+        return copyPass(id);
+      });
+
+      //More button
+      $(".more-button").on("click", function() {
+        const id = getId(this.id);
+
+        if ($(this).text() === "More") {
+          $(this).text('Hide');
+          $(`#tr-${id}`).css('display', "table-row");
+          return toggleHiddenRows(id);
+        } else {
+          $(this).text('More');
+          $(`#tr-${id}`).css('display', "none");
+          $(`#new_pass-${id}`).css("display", "none");
+          $(`#save_edit-${id}`).css("display", "none");
+          $(`#delete-${id}`).css("display", "flex");
+          $(`#edit-${id}`).css("display", "flex");
+          $(`#new_pass-${id}`).val('');
         }
-        $('.table').append('</tbody>');
+      });
 
-        //Hide password rows upon submit
-        $('.hidden-tr').css("display", "none");
-
-        //Edit button
-        $('.edit-button').on('click', function() {
-          const id = getId(this.id);
-          togglePassInput(id);
-        });
-
-        //Edit password
-        $(".edit-pass").on("submit", function(event) {
-          event.preventDefault();
-          const id = getId(this.id);
-          const password = $(this).serialize();
-          const formData = (`id=${id}&`).concat(password);
-          $.ajax({
-            method: 'POST',
-            url: `/api/passwords/${id}`,
-            data: formData
-          })
-            .done(()=>{
-              return getPasswords(``);
-            });
-
-        });
-
-        //Delete password
-        $(".delete-button").on("click", function() {
-          const id = getId(this.id);
-          const formData = `id=${id}`;
-
-          $.ajax({
-            method: 'POST',
-            url: `/api/passwords/${id}/delete`,
-            data: formData
-          })
-            .done(()=>{
-              return getPasswords(``);
-            });
-        });
-
-        //Copy button
-        $(".copy-button").on("click", function() {
-          const id = getId(this.id);
-          return copyPass(id);
-        });
-
-        //More button
-        $(".more-button").on("click", function() {
-          const id = getId(this.id);
-
-          if ($(this).text() === "More") {
-            $(this).text('Hide');
-            $(`#tr-${id}`).css('display', "table-row");
-            return toggleHiddenRows(id);
-          } else {
-            $(this).text('More');
-            $(`#tr-${id}`).css('display', "none");
-            $(`#new_pass-${id}`).css("display", "none");
-            $(`#save_edit-${id}`).css("display", "none");
-            $(`#delete-${id}`).css("display", "flex");
-            $(`#edit-${id}`).css("display", "flex");
-            $(`#new_pass-${id}`).val('');
-          }
-        });
-
-        });
+    });
 
   });
 
@@ -250,16 +250,16 @@ $(document).ready(function() {
     event.preventDefault();
     const id = getId($(this).attr('id'));
     copyPass(id)
-    .then(() => {
-      const formData = `id=${id}`;
-      $.ajax({
-        method: 'GET',
-        url: `/api/passwords/${id}`,
-        data: formData
-      }).done((response) => {
-        return window.open(response.link);
+      .then(() => {
+        const formData = `id=${id}`;
+        $.ajax({
+          method: 'GET',
+          url: `/api/passwords/${id}`,
+          data: formData
+        }).done((response) => {
+          return window.open(response.link);
+        });
       });
-    })
   });
 
 });
@@ -329,7 +329,7 @@ const getPasswords = (category) => {
           url: `/api/passwords/${id}`,
           data: formData
         })
-          .done(()=>{
+          .done(() => {
             return getPasswords(`${category}`);
           });
 
@@ -345,7 +345,7 @@ const getPasswords = (category) => {
           url: `/api/passwords/${id}/delete`,
           data: formData
         })
-          .done(()=>{
+          .done(() => {
             return getPasswords(`${category}`);
           });
       });
@@ -412,7 +412,7 @@ const toggleHiddenRows = function(id) {
       $(`#more-${rowId}`).text('More');
       $(`#tr-${rowId}`).css('display', "none");
     }
-  })
+  });
 };
 
 //Copy password to clipboard
@@ -423,6 +423,6 @@ const copyPass = function(id) {
 };
 
 const getPageCat = function(header) {
-  const category  = header.slice(11);
+  const category = header.slice(11);
   return category;
 };
