@@ -422,6 +422,7 @@ const copyPass = function(id) {
   return navigator.clipboard.writeText(copyText);
 };
 
+//get current page header - to get category
 const getPageCat = function(header) {
   const category = header.slice(11);
   return category;
