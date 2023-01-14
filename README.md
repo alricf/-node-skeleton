@@ -52,16 +52,15 @@ This project was created and published by our group as part of our learnings at 
   - username: ```"username"```
   - password: ```"password"```
 4. Install dependencies using the `npm i` command.
-5. Fix to binaries for sass: npm rebuild node-sass.
-6. Create database and tables using node-postgres:
+5. Create database and tables using node-postgres:
   - Create and connect to database
   ```
   CREATE DATABASE myvault;
   \c myvault
   ```
-7. Reset database: `npm run db:reset`
-8. Start the web server using the `npm run local` command.
-9. Visit <http://localhost:8080/> in your browser.
+6. Reset database: `npm run db:reset`
+7. Start the web server using the `npm run local` command.
+8. Visit <http://localhost:8080/> in your browser.
 
 
 ## Dependencies
@@ -72,7 +71,7 @@ This project was created and published by our group as part of our learnings at 
 - Bootstrap
 - PG 6.x
 - ejs
-- Dotenv
+- dotenv
 - Morgan
 - Chalk
 - Nodemon
@@ -88,36 +87,6 @@ This project was created and published by our group as part of our learnings at 
 
 ## Contributors
 
-<!-- <a href="https://github.com/alricf">
-  <img src="https://github.com/alricf.png?size=10">
+<a href="https://github.com/alricf/node-skeleton/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=alricf/node-skeleton" />
 </a>
-
-<a href="https://github.com/campbell46">
-  <img src="https://github.com/campbell46.png?size=100">
-</a>
-
-<a href="https://github.com/tronross">
-  <img src="https://github.com/tronross.png?size=100">
-</a>
-
-<a href="https://github.com/paigenelmes">
-  <img src="https://github.com/paigenelmes.png?size=100">
-</a> -->
-
-
-<a href="Github Profile url"> 
-  <img href="Github profile image source"> 
-</a> 
-
-<a href="https://github.com/campbell46"> 
-  <img href="https://avatars.githubusercontent.com/u/10466420?v=4"> 
-</a> 
-
-<a href="Github Profile url"> 
-  <img href="Github profile image source"> 
-</a> 
-
-<a href="Github Profile url"> 
-  <img href="Github profile image source"> 
-</a> 
-</div>
