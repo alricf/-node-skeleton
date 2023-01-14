@@ -88,5 +88,5 @@ This project was created and published by our group as part of our learnings at 
 ## Contributors
 
 <a href="https://github.com/alricf/node-skeleton/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=alricf/node-skeleton" />
+  <img src="https://contrib.rocks/image?repo=alricf/node-skeleton"/>
 </a>
