@@ -87,6 +87,8 @@ This project was created and published by our group as part of our learnings at 
 
 ## Contributors
 
-<a href="https://github.com/alricf/node-skeleton/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=alricf/node-skeleton"/>
+<a href="https://github.com/alricf">
+  <img src="https://github.com/alricf.png?size=50">
 </a>
+
+[![](https://github.com/https://github.com/alricf.png?size=50)](https://github.com/https://github.com/alricf)
