@@ -87,4 +87,4 @@ This project was created and published by our group as part of our learnings at 
 
 ## Contributors
 
-@all-contributors bot add @campbell46
+@all-contributors add @campbell46
