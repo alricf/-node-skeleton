@@ -91,4 +91,4 @@ This project was created and published by our group as part of our learnings at 
   <img src="https://github.com/alricf.png?size=10">
 </a>
 
-[[!](https://github.com/alricf.png?size=10)](https://github.com/alricf)
+<!-- [[!](https://github.com/alricf.png?size=10)](https://github.com/alricf) -->
