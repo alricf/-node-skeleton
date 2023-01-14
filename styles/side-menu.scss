@@ -1,0 +1,32 @@
+ul.side-menu {
+  margin: 0;
+  background-color: #34495D;
+  padding-left: 0;
+  width: 250px;
+  position: fixed;
+  height: 100vh;
+}
+
+.side-menu li {
+  width: 250px;
+  color: white;
+  font-size: 20px;
+  list-style: none;
+  padding: 15px;
+  transition: width .3s;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+}
+
+.side-menu li:hover {
+  width: 260px;
+  cursor: pointer;
+}
+
+.side-menu li:nth-child(odd) {
+  background-color: #273644;
+}
+
+.side-menu li:nth-child(even) {
+  background-color: #34495D;
+}

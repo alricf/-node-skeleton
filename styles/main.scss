@@ -1,4 +1,6 @@
-body {
+body,
+html {
+  margin: 0;
   min-height: 100vh;
   background-color: #e7e7e7;
 }
@@ -11,67 +13,6 @@ main {
   padding-top: 100px;
 }
 
-nav {
-  width: 100%;
-  height: 100px;
-  padding: 20px;
-  background: white;
-  border-bottom: 4px solid #273644;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-family: 'Nixie One', serif;
-  font-weight: 400;
-  position: fixed;
-  top: 0;
-}
-
-.nav-links {
-  padding: 10px;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.navbar li {
-  font-size: 18px;
-  padding: 6px 12px 6px 12px;
-  list-style: none;
-  color: #F59D2A;
-  border: 2.5px solid #F59D2A;
-  border-radius: 50px;
-  margin-left: 20px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 500;
-}
-
-#search-form {
-  display: flex;
-  width: 50%;
-}
-
-.search-button {
-  font-size: 18px;
-  padding: 6px 12px 6px 12px;
-  list-style: none;
-  color: #F59D2A;
-  border: 2.5px solid #F59D2A;
-  border-radius: 50px;
-  margin-left: 20px;
-  background-color: white;
-  font-family: 'Poppins', sans-serif;
-}
-
-.search-button:hover {
-  background-color: #F59D2A;
-  color: white;
-  cursor: pointer;
-}
-
-.navbar li:hover {
-  background-color: #F59D2A;
-  color: white;
-  cursor: pointer;
-}
 
 footer {
   position: fixed;
@@ -92,50 +33,6 @@ footer {
   padding-left: 250px;
 }
 
-ul.side-menu {
-  margin: 0;
-  background-color: #34495D;
-  padding-left: 0;
-  width: 250px;
-  position: fixed;
-  height: 100vh;
-}
-
-.side-menu li {
-  width: 250px;
-  color: white;
-  font-size: 20px;
-  list-style: none;
-  padding: 15px;
-  transition: width .3s;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 400;
-}
-
-.side-menu li:hover {
-  width: 260px;
-  cursor: pointer;
-}
-
-.side-menu li:nth-child(odd) {
-  background-color: #273644;
-}
-
-.side-menu li:nth-child(even) {
-  background-color: #34495D;
-}
-
-.search-bar {
-  border: 2.5px solid #F59D2A;
-  border-radius: 30px;
-  resize: none;
-  width: 400px;
-  display: flex;
-  padding: 10px;
-  justify-items: flex-end;
-  color: #273644;
-}
-
 ::placeholder {
   color: #273644;
   opacity: .7;
@@ -143,44 +40,6 @@ ul.side-menu {
 
 .main-content {
   display: flex;
-}
-
-table {
-  border-collapse: collapse;
-  background-color: #273644;
-  width: 95%;
-  margin-top: 20px;
-  margin-bottom: 100px;
-  table-layout: fixed;
-}
-
-th {
-  text-align: left;
-  padding: 15px 30px 15px 30px;
-  // color: white;
-  font-size: 18px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 300;
-}
-
-.table-header {
-  width: 100%;
-  border-bottom: 2px solid white;
-  color: white;
-}
-
-td {
-  text-align: left;
-  padding: 30px;
-  color: white;
-  font-size: 18px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 300;
-}
-
-
-tr:nth-child(4n+2) {
-  background-color: #34495D;
 }
 
 
@@ -200,26 +59,6 @@ tr:nth-child(4n+2) {
   font-family: 'Poppins', sans-serif;
 }
 
-.add-new {
-  font-size: 18px;
-  padding: 4px 20px 4px 20px;
-  list-style: none;
-  color: white;
-  background-color:#F59D2A;
-  border-radius: 50px;
-  border: 2.5px solid #F59D2A;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 400;
-}
-
-.add-new:hover {
-  background-color: white;
-  color: #F59D2A;
-  cursor: pointer;
-  border: 2.5px solid #F59D2A;
-  border-radius: 50px;
-}
-
 select {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -227,67 +66,7 @@ select {
   text-overflow: '';
 }
 
-.new-password-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 95%;
-  border: 3px solid #34495D;
-  padding: 20px;
-  display: none;
-  background-color: #f7f7f7;
-}
 
-.new-password-box .new-inputs input {
-  border: 3px solid #34495D;
-  border-radius: 50px;
-  padding: 10px;
-  width: 33%;
-  margin: 10px 20px 10px 20px;
-}
-
-#select-category {
-  border: 3px solid #34495D;
-  border-radius: 50px;
-  padding: 10px;
-  width: 33%;
-  margin: 10px 20px 10px 20px;
-}
-
-.addNewButton {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.save-button {
-  font-size: 18px;
-  padding: 5px 20px 5px 20px;
-  color: #F59D2A;
-  list-style: none;
-  background-color: white;
-  border: 2.5px solid #F59D2A;
-  border-radius: 50px;
-  // width: 100px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  align-self: center;
-}
-
-.new-password-box button:hover {
-  background-color: #F59D2A;
-  color: white;
-  cursor: pointer;
-  border-radius: 50px;
-}
-
-.new-password-box p {
-  color: #273644;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 400;
-  align-self: center;
-  font-size: 24px;
-}
 
 .hidden-pass {
   display: none;
@@ -297,41 +76,6 @@ select {
 
 //Generate Password Styling
 
-.generate-button {
-  font-size: 18px;
-  padding: 5px 20px 5px 20px;
-  color: #F59D2A;
-  list-style: none;
-  background-color: white;
-  border: 2.5px solid #F59D2A;
-  border-radius: 50px;
-  margin: 20px 10px 10px 10px;
-  align-self: center;
-}
-
-#generate-pass {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-self: center;
-  align-items: center;
-  color: #34495D;
-  margin-top: 10px;
-}
-
-#generate-pass label {
-  color: #34495D;
-  font-size: 16px;
-}
-
-.checkbox {
-  margin-right: 10px;
-  margin-left: 20px;
-}
-
-.form-label {
-  margin: 10px;
-}
 
 
 
@@ -364,10 +108,6 @@ select {
   justify-content: end;
 }
 
-.more-td {
-  display: flex;
-  justify-content: end;
-}
 
 .more-button {
     align-self: flex-end;
@@ -382,15 +122,15 @@ select {
     color: #273644;
     margin-right: 10px;
     display: none;
-  }
+}
 
-  .save_edit-button {
-    display: none;
-  }
+.save_edit-button {
+  display: none;
+}
 
-  .edit-pass {
-    display: flex;
-  }
+.edit-pass {
+  display: flex;
+}
 
 
 #vault-header-cat {
@@ -398,22 +138,6 @@ select {
 }
 
 
-.addNewButton {
-  color: purple;
-}
-
-
-.hidden-tr {
-  display: none;
-  // justify-content: stretch;
-  align-items: center;
-  background-color: rgb(240, 240, 240);
-  border: 4px solid #F59D2A;
-}
-
-.hidden-tr td {
-  color: #34495D;
-}
 
 .password-column {
   font-family: 'Nixie One', sans-serif;
@@ -440,9 +164,3 @@ select {
   border: 2px solid #F59D2A;
   border-radius: 50px;
   }
-
-
-
-@media only screen and (max-width: 1450px) {
-
-}
