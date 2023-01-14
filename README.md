@@ -91,12 +91,12 @@ This project was created and published by our group as part of our learnings at 
   <img src="https://github.com/alricf.png?size=10">
 </a>
 
-<a href="https://github.com/tronross">
-  <img src="https://github.com/tronross.png?size=10">
+<a href="https://github.com/campbell46">
+  <img src="https://github.com/campbell46.png?size=10">
 </a>
 
-<a href="https://github.com/alricf">
-  <img src="https://github.com/alricf.png?size=10">
+<a href="https://github.com/tronross">
+  <img src="https://github.com/tronross.png?size=10">
 </a>
 
 <a href="https://github.com/paigenelmes">
