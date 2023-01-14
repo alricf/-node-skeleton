@@ -87,7 +87,9 @@ This project was created and published by our group as part of our learnings at 
 
 ## Contributors
 
-
+<a href="https://github.com/alricf">
+  <img src="https://github.com/alricf.png?size=10">
+</a>
 
 <a href="https://github.com/campbell46">
   <img src="https://github.com/campbell46.png?size=100">
@@ -99,8 +101,4 @@ This project was created and published by our group as part of our learnings at 
 
 <a href="https://github.com/paigenelmes">
   <img src="https://github.com/paigenelmes.png?size=100">
-</a>
-
-<a href="https://github.com/alricf">
-  <img src="https://github.com/alricf.png?size=100">
 </a>
