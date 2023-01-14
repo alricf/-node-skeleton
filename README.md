@@ -87,8 +87,8 @@ This project was created and published by our group as part of our learnings at 
 
 ## Contributors
 
-<!-- <a href="https://github.com/alricf">
+<a href="https://github.com/alricf">
   <img src="https://github.com/alricf.png?size=10">
-</a> -->
+</a>
 
-[![](https://github.com/https://github.com/alricf.png?size=10)](https://github.com/https://github.com/alricf)
+[[!](https://github.com/https://github.com/alricf.png?size=10)](https://github.com/https://github.com/alricf)
