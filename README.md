@@ -55,10 +55,11 @@ This project was created and published by our group as part of our learnings at 
 5. Create database and tables using node-postgres:
   - Create and connect to database
   ```
+  psql
   CREATE DATABASE myvault;
   \c myvault
   ```
-6. Reset database: `npm run db:reset`
+6. Reset database after quitting psql: `npm run db:reset`
 7. Start the web server using the `npm run local` command.
 8. Visit <http://localhost:8080/> in your browser.
 
